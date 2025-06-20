@@ -8,8 +8,6 @@ article_header:
 ---
 # Find Industry relevant challenges on Arm
 
-test test test
-
 
 
 The state of the art of in software development is changing more rapidly than ever before.  Especially in fields like AI/ML, what was cutting-edge last year may have already been overtaken.  Arm Developer Labs is a repository of software and hardware project suggestions sourced from internal Arm teams and our network of eco-system partners but framed in way to be immediately accessible and useful to both academics and professional engineers alike. 
