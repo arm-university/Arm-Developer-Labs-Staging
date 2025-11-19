@@ -21,7 +21,9 @@ publication-date: 2025-05-30
 license:
 status:
     - "Published" 
-badges:["Trending"]
+Donation:
+badges:
+    - "Trending"
 ---
 
 
@@ -73,4 +75,5 @@ Standout project contributions will result in preferential internal referrals to
 
 
 To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
+
 
