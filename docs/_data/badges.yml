@@ -1,9 +1,10 @@
 new:
   file: new.svg
   alt: "New"
-beta:
+Trending:
   file: Trending.svg
   alt: "Trending"
 updated:
   file: updated.svg
   alt: "Recently updated"
+
