@@ -55,7 +55,10 @@
           </div>
         {%- endif -%}
         <div class="item__content">
-          <header><a href="{{ _article_url }}"><h2 itemprop="headline" class="item__header">{{ _article.title }}</h2></a></header>
+          <header class="lab-title">
+            <a href="{{ _article_url }}"><h2 itemprop="headline" class="item__header">{{ _article.title }}</h2></a>
+            {% include badges.html items=_article.badges %}
+          </header>
           <div class="item__description">
             {%- if _article.excerpt and include.show_excerpt -%}
               <div class="article__content" itemprop="description articleBody">
@@ -104,7 +107,11 @@
           {%- if include.show_info -%}
             <span class="item__meta">{{ _article.date | date: __return }}</span>
           {%- endif -%}
-          <a itemprop="headline" class="item__header" href="{{ _article_url }}">{{ _article.title }}</a></div>
+          <div class="lab-title">
+            <a itemprop="headline" class="item__header" href="{{ _article_url }}">{{ _article.title }}</a>
+            {% include badges.html items=_article.badges %}
+          </div>
+        </div>
       </li>
 
     {%- elsif include.type == 'grid' -%}
@@ -115,10 +122,18 @@
               <div class="card__image">
                 <img class="image" src="{{ _article_cover }}" />
                 <div class="overlay overlay--bottom">
-                  <header>
+                  <header class="lab-title">
                     <a href="{{ _article_url }}"><h2 class="card__header">{{ _article.title }}</h2></a>
+                    {% include badges.html items=_article.badges %}
                   </header>
                 </div>
+              </div>
+            {%- else -%}
+              <div class="card__content">
+                <header class="lab-title">
+                  <a href="{{ _article_url }}"><h2 class="card__header">{{ _article.title }}</h2></a>
+                  {% include badges.html items=_article.badges %}
+                </header>
               </div>
             {%- endif -%}
             </div>
@@ -131,8 +146,9 @@
               <div class="card__image"><img src="{{ _article_cover }}" /></div>
             {%- endif -%}
               <div class="card__content">
-                <header>
+                <header class="lab-title">
                   <a href="{{ _article_url }}"><h2 class="card__header">{{ _article.title }}</h2></a>
+                  {% include badges.html items=_article.badges %}
                 </header>
               </div>
           </div>
