@@ -41,21 +41,27 @@
       {%- else -%}
         <article class="item">
       {%- endif -%}
-        {%- if _article.cover and include.show_cover-%}
-          {%- include snippets/get-nav-url.html path=_article.cover -%}
-          {%- assign _article_cover = __return -%}
+
+        {%- if _article.cover and include.show_cover -%}
           <div class="item__image">
           {%- if include.cover_size == 'lg' -%}
-            <img class="image image--lg" src="{{ _article_cover }}" />
+            <img class="image image--lg" src="{{ _article_cover }}" alt="{{ _article.title | default: '' }} cover" />
           {%- elsif include.cover_size == 'sm' -%}
-            <img class="image image--sm" src="{{ _article_cover }}" />
+            <img class="image image--sm" src="{{ _article_cover }}" alt="{{ _article.title | default: '' }} cover" />
           {%- else -%}
-            <img class="image" src="{{ _article_cover }}" />
+            <img class="image" src="{{ _article_cover }}" alt="{{ _article.title | default: '' }} cover" />
           {%- endif -%}
           </div>
         {%- endif -%}
+
         <div class="item__content">
-          <header><a href="{{ _article_url }}"><h2 itemprop="headline" class="item__header">{{ _article.title }}</h2></a></header>
+          <header class="lab-title">
+            <h2 class="item__header" itemprop="headline">
+              <a href="{{ _article_url }}">{{ _article.title }}</a>
+            </h2>
+            {% include badges.html items=_article.badges %}
+          </header>
+
           <div class="item__description">
             {%- if _article.excerpt and include.show_excerpt -%}
               <div class="article__content" itemprop="description articleBody">
@@ -70,15 +76,14 @@
               <p><a href="{{ _article_url }}">{{ _locale_readmore }}</a></p>
             {%- endif -%}
           </div>
+
           {%- if include.show_info -%}
-            {%- include snippets/assign.html target=site.data.variables.default.page.pageview
-              source0=_article.pageview -%}
+            {%- include snippets/assign.html target=site.data.variables.default.page.pageview source0=_article.pageview -%}
             {%- assign _show_pageview = __return -%}
             {%- include article-info.html article=_article show_pageview=_show_pageview -%}
           {%- endif -%}
         </div>
       </article>
-
 
     {%- elsif include.type == 'brief' -%}
       {%- assign _tags = '' -%}
@@ -90,21 +95,31 @@
           {%- assign _tags = _tags | append: _tag_encode | append: ',' -%}
         {%- endif -%}
       {%- endfor -%}
+
       {%- if include.group_by == 'year' -%}
         {%- assign _currentdate = _article.date | date: '%Y' -%}
         {%- if _currentdate != _date -%}
           {%- unless forloop.first -%}</ul></section>{%- endunless -%}
-          <section><h2 class="article-list__group-header">{{ _currentdate }}</h2><ul class="items">
+          <section>
+            <h2 class="article-list__group-header">{{ _currentdate }}</h2>
+            <ul class="items">
           {%- assign _date = _currentdate -%}
         {%- endif -%}
       {%- endif -%}
+
       {%- include snippets/get-locale-string.html key='ARTICLE_LIST_DATE_FORMAT' -%}
       <li class="item" itemscope itemtype="http://schema.org/BlogPosting" data-tags="{{ _tags }}">
         <div class="item__content">
           {%- if include.show_info -%}
             <span class="item__meta">{{ _article.date | date: __return }}</span>
           {%- endif -%}
-          <a itemprop="headline" class="item__header" href="{{ _article_url }}">{{ _article.title }}</a></div>
+          <header class="lab-title">
+            <h3 class="item__header" itemprop="headline">
+              <a href="{{ _article_url }}">{{ _article.title }}</a>
+            </h3>
+            {% include badges.html items=_article.badges %}
+          </header>
+        </div>
       </li>
 
     {%- elsif include.type == 'grid' -%}
@@ -113,28 +128,44 @@
           <div class="card card--flat">
             {%- if _article.cover -%}
               <div class="card__image">
-                <img class="image" src="{{ _article_cover }}" />
+                <img class="image" src="{{ _article_cover }}" alt="{{ _article.title | default: '' }} cover" />
                 <div class="overlay overlay--bottom">
-                  <header>
-                    <a href="{{ _article_url }}"><h2 class="card__header">{{ _article.title }}</h2></a>
+                  <header class="lab-title">
+                    <h2 class="card__header">
+                      <a href="{{ _article_url }}">{{ _article.title }}</a>
+                    </h2>
+                    {% include badges.html items=_article.badges %}
                   </header>
                 </div>
               </div>
+            {%- else -%}
+              <div class="card__content">
+                <header class="lab-title">
+                  <h2 class="card__header">
+                    <a href="{{ _article_url }}">{{ _article.title }}</a>
+                  </h2>
+                  {% include badges.html items=_article.badges %}
+                </header>
+              </div>
             {%- endif -%}
-            </div>
+          </div>
         </div>
       {%- else -%}
-
         <div class="cell cell--12 cell--md-6 cell--lg-4">
           <div class="card card--flat">
             {%- if _article.cover -%}
-              <div class="card__image"><img src="{{ _article_cover }}" /></div>
-            {%- endif -%}
-              <div class="card__content">
-                <header>
-                  <a href="{{ _article_url }}"><h2 class="card__header">{{ _article.title }}</h2></a>
-                </header>
+              <div class="card__image">
+                <img src="{{ _article_cover }}" alt="{{ _article.title | default: '' }} cover" />
               </div>
+            {%- endif -%}
+            <div class="card__content">
+              <header class="lab-title">
+                <h2 class="card__header">
+                  <a href="{{ _article_url }}">{{ _article.title }}</a>
+                </h2>
+                {% include badges.html items=_article.badges %}
+              </header>
+            </div>
           </div>
         </div>
       {%- endif -%}
