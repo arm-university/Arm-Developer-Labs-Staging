@@ -304,12 +304,20 @@ li.project-item {
   }
 }
 
+.lab-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;  // space between title and badges
+}
+
+
 .article-badges { margin: .5rem 0; }
 .badges { display:inline-flex; gap:.375rem; }
 .badge { height:20px; width:auto; }
 
 
 /* end custom scss snippet */
+
 
 
 
