@@ -55,10 +55,13 @@
           </div>
         {%- endif -%}
         <div class="item__content">
-          <header class="lab-title">
-            <a href="{{ _article_url }}"><h2 itemprop="headline" class="item__header">{{ _article.title }}</h2></a>
-            {% include badges.html items=_article.badges %}
-          </header>
+         <header class="lab-title">
+          <h2 class="item__header" itemprop="headline">
+            <a href="{{ _article_url }}">{{ _article.title }}</a>
+          </h2>
+          {% include badges.html items=_article.badges %}
+        </header>
+
           <div class="item__description">
             {%- if _article.excerpt and include.show_excerpt -%}
               <div class="article__content" itemprop="description articleBody">
@@ -158,3 +161,4 @@
   {%- endfor -%}
 
 </div>
+
