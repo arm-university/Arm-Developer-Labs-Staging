@@ -304,11 +304,13 @@ li.project-item {
   }
 }
 
-.lab-title { display:inline-flex; align-items:center; gap:.5rem; }
-.badges { display:inline-flex; gap:.375rem; margin-left:.5rem; }
-.badge { height:20px; width:auto; vertical-align:middle; }
+.article-badges { margin: .5rem 0; }
+.badges { display:inline-flex; gap:.375rem; }
+.badge { height:20px; width:auto; }
+
 
 /* end custom scss snippet */
+
 
 
 
