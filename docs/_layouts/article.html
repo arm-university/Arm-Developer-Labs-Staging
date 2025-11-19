@@ -10,7 +10,13 @@ type: article
 
 <div class="layout--article">
   {%- include article/top/custom.html -%}
-
+  
+{%- if page.badges -%}
+  <div class="article-badges">
+    {% include badges.html %}
+  </div>
+{%- endif -%}
+  
   <div class="article__content" itemprop="articleBody">
     {{ content }}
 
@@ -207,3 +213,4 @@ type: article
     {%- include article-footer.html -%}
   </div>
 </div>
+
