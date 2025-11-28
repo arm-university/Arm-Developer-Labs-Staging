@@ -44,30 +44,6 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
-  - title: Edge-AI-with-Ethos-U85-NPU
-    description: The vision of Edge AI compute is to embed low-power intelligent sensing,
-      perception, and decision systems everywhere. A low-power always-on-AI island
-      continuously monitors sensory inputs to detect triggers. When a trigger is detected,
-      it wakes up a more capable processor to carry out high-value inference, interaction,
-      or control tasks.
-    url: /2025/11/27/Edge-AI-with-Ethos-U85-NPU.html
-    subjects:
-    - ML
-    - Performance and Architecture
-    - Embedded Linux
-    - RTOS Fundamentals
-    platform:
-    - IoT
-    - Embedded and Microcontrollers
-    - AI
-    sw-hw:
-    - Software
-    - Hardware
-    support-level:
-    - Self-Service
-    - Arm Ambassador Support
-    status:
-    - Published
   - title: AI-Agents
     description: "This self-service project builds a sandboxed AI agent on Arm hardware\
       \ that harnesses appropriately sized LLMs to safely automate complex workflows\u2014\
@@ -381,6 +357,30 @@ projects:
     - AI
     sw-hw:
     - Software
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    status:
+    - Published
+  - title: Always-On-AI-with-Ethos-U85-NPU
+    description: The vision of Edge AI compute is to embed low-power intelligent sensing,
+      perception, and decision systems everywhere. A low-power always-on-AI island
+      continuously monitors sensory inputs to detect triggers. When a trigger is detected,
+      it wakes up a more capable processor to carry out high-value inference, interaction,
+      or control tasks.
+    url: /2025/11/27/Always-On-AI-with-Ethos-U85-NPU.html
+    subjects:
+    - ML
+    - Performance and Architecture
+    - Embedded Linux
+    - RTOS Fundamentals
+    platform:
+    - IoT
+    - Embedded and Microcontrollers
+    - AI
+    sw-hw:
+    - Software
+    - Hardware
     support-level:
     - Self-Service
     - Arm Ambassador Support
