@@ -124,28 +124,6 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
-  - title: NGP
-    description: "Build a playable Unreal Engine 5 game demo that utilises Arm\u2019\
-      s Neural Graphics SDK UE plugin for features such as Neural Super Sampling (NSS).\
-      \ Showcase near-identical image quality at lower resolution by driving neural\
-      \ rendering directly in the graphics pipeline."
-    url: /2025/11/27/NGP.html
-    subjects:
-    - ML
-    - Gaming
-    - Libraries
-    - Graphics
-    platform:
-    - Mobile, Graphics, and Gaming
-    - Laptops and Desktops
-    - AI
-    sw-hw:
-    - Software
-    support-level:
-    - Self-Service
-    - Arm Ambassador Support
-    status:
-    - Published
   - title: NPC-LLM-Runtime
     description: This self-service project explores novel ways of integrating Large
       Language Models (LLMs) into real-time gameplay to drive dynamic Non-Playable
@@ -267,28 +245,6 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
-  - title: SME2
-    description: Leverage the latest SME2 (Scalable Matrix Extension 2) available
-      on the newest vivo X300 smartphones (built on Arm Lumex CSS) for advanced image/video,
-      audio and text processing edge AI. Explore how SME2, via KleidiAI, enables larger
-      matrix workloads, higher throughput, and novel applications on device without
-      cloud connectivity required.
-    url: /2025/11/27/SME2.html
-    subjects:
-    - ML
-    - Performance and Architecture
-    - Libraries
-    platform:
-    - Mobile, Graphics, and Gaming
-    - AI
-    - IoT
-    sw-hw:
-    - Software
-    support-level:
-    - Self-Service
-    - Arm Ambassador Support
-    status:
-    - Published
   - title: Processor-in-the-Loop-Automotive
     description: Verify a Simulink automotive controller by running processor-in-the-loop
       (PIL) tests on a virtual Arm Cortex M7 processor.
@@ -389,6 +345,28 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
+  - title: Edge-AI-On-Mobile
+    description: Leverage the latest SME2 (Scalable Matrix Extension 2) available
+      on the newest vivo X300 smartphones (built on Arm Lumex CSS) for advanced image/video,
+      audio and text processing edge AI. Explore how SME2, via KleidiAI, enables larger
+      matrix workloads, higher throughput, and novel applications on device without
+      cloud connectivity required.
+    url: /2025/11/27/Edge-AI-On-Mobile.html
+    subjects:
+    - ML
+    - Performance and Architecture
+    - Libraries
+    platform:
+    - Mobile, Graphics, and Gaming
+    - AI
+    - IoT
+    sw-hw:
+    - Software
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    status:
+    - Published
   - title: HPC-Algorithm
     description: "This self-service project is around finding a HPC algorithm and\
       \ accelerating it with Arm\u2019s SVE/SVE2 vectorization\u2014demonstrating\
@@ -399,6 +377,28 @@ projects:
     - Performance and Architecture
     platform:
     - Servers and Cloud Computing
+    - Laptops and Desktops
+    - AI
+    sw-hw:
+    - Software
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    status:
+    - Published
+  - title: Game-Dev-Using-Neural-Graphics-&-Unreal-Engine
+    description: "Build a playable Unreal Engine 5 game demo that utilises Arm\u2019\
+      s Neural Graphics SDK UE plugin for features such as Neural Super Sampling (NSS).\
+      \ Showcase near-identical image quality at lower resolution by driving neural\
+      \ rendering directly in the graphics pipeline."
+    url: /2025/11/27/Game-Dev-Using-Neural-Graphics-&-Unreal-Engine.html
+    subjects:
+    - ML
+    - Gaming
+    - Libraries
+    - Graphics
+    platform:
+    - Mobile, Graphics, and Gaming
     - Laptops and Desktops
     - AI
     sw-hw:
