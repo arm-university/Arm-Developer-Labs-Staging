@@ -44,6 +44,30 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
+  - title: Edge-AI-with-Ethos-U85-NPU
+    description: The vision of Edge AI compute is to embed low-power intelligent sensing,
+      perception, and decision systems everywhere. A low-power always-on-AI island
+      continuously monitors sensory inputs to detect triggers. When a trigger is detected,
+      it wakes up a more capable processor to carry out high-value inference, interaction,
+      or control tasks.
+    url: /2025/11/27/Edge-AI-with-Ethos-U85-NPU.html
+    subjects:
+    - ML
+    - Performance and Architecture
+    - Embedded Linux
+    - RTOS Fundamentals
+    platform:
+    - IoT
+    - Embedded and Microcontrollers
+    - AI
+    sw-hw:
+    - Software
+    - Hardware
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    status:
+    - Published
   - title: AI-Agents
     description: "This self-service project builds a sandboxed AI agent on Arm hardware\
       \ that harnesses appropriately sized LLMs to safely automate complex workflows\u2014\
@@ -112,6 +136,25 @@ projects:
     platform:
     - AI
     - Mobile, Graphics, and Gaming
+    sw-hw:
+    - Software
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    status:
+    - Published
+  - title: Python-Porting-Challenge
+    description: "This challenge focuses on enabling Python support for Windows on\
+      \ Arm (WoA) to improve developer experience. While Python is widely used in\
+      \ research and industry, many popular packages\u2014such as Pandas\u2014still\
+      \ lack pre-built WoA binaries (win_arm64 wheels). The goal is to validate and\
+      \ optimise third-party packages, fix compatibility issues, and collaborate with\
+      \ maintainers to upstream WoA support."
+    url: /2025/11/03/Python-Porting-Challenge.html
+    subjects:
+    - Libraries
+    platform:
+    - Laptops and Desktops
     sw-hw:
     - Software
     support-level:
@@ -241,6 +284,26 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
+  - title: Ethos-U85-NPU-Applications
+    description: Push the limits of Edge AI by deploying the heaviest inference applications
+      possible on Ethos-U85. Students will explore transformer-based and TOSA-optimized
+      workloads that demonstrate performance levels on the next-gen of Ethos NPUs.
+    url: /2025/11/27/Ethos-U85-NPU-Applications.html
+    subjects:
+    - ML
+    - Performance and Architecture
+    platform:
+    - IoT
+    - Embedded and Microcontrollers
+    - AI
+    sw-hw:
+    - Software
+    - Hardware
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    status:
+    - Published
   - title: Arduino-IDE-Windows-on-Arm
     description: "This self-service project ports and optimizes the Arduino IDE\u2014\
       patching its lzma-native dependency\u2014to run natively and efficiently on\
@@ -282,6 +345,28 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
+  - title: Edge-AI-On-Mobile
+    description: Leverage the latest SME2 (Scalable Matrix Extension 2) available
+      on the newest vivo X300 smartphones (built on Arm Lumex CSS) for advanced image/video,
+      audio and text processing edge AI. Explore how SME2, via KleidiAI, enables larger
+      matrix workloads, higher throughput, and novel applications on device without
+      cloud connectivity required.
+    url: /2025/11/27/Edge-AI-On-Mobile.html
+    subjects:
+    - ML
+    - Performance and Architecture
+    - Libraries
+    platform:
+    - Mobile, Graphics, and Gaming
+    - AI
+    - IoT
+    sw-hw:
+    - Software
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    status:
+    - Published
   - title: HPC-Algorithm
     description: "This self-service project is around finding a HPC algorithm and\
       \ accelerating it with Arm\u2019s SVE/SVE2 vectorization\u2014demonstrating\
@@ -292,6 +377,28 @@ projects:
     - Performance and Architecture
     platform:
     - Servers and Cloud Computing
+    - Laptops and Desktops
+    - AI
+    sw-hw:
+    - Software
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    status:
+    - Published
+  - title: Game-Dev-Using-Neural-Graphics-&-Unreal-Engine
+    description: "Build a playable Unreal Engine 5 game demo that utilises Arm\u2019\
+      s Neural Graphics SDK UE plugin for features such as Neural Super Sampling (NSS).\
+      \ Showcase near-identical image quality at lower resolution by driving neural\
+      \ rendering directly in the graphics pipeline."
+    url: /2025/11/27/Game-Dev-Using-Neural-Graphics-&-Unreal-Engine.html
+    subjects:
+    - ML
+    - Gaming
+    - Libraries
+    - Graphics
+    platform:
+    - Mobile, Graphics, and Gaming
     - Laptops and Desktops
     - AI
     sw-hw:
