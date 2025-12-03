@@ -44,6 +44,8 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
+    badges:
+    - trending  
   - title: AI-Agents
     description: "This self-service project builds a sandboxed AI agent on Arm hardware\
       \ that harnesses appropriately sized LLMs to safely automate complex workflows\u2014\
