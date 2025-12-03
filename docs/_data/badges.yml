@@ -1,0 +1,9 @@
+new:
+  file: new.svg
+  alt: "New"
+trending:
+  file: Trending.svg
+  alt: "Trending"
+updated:
+  file: updated.svg
+  alt: "Recently updated"
