@@ -139,20 +139,28 @@ type: article
                 {%- if _doc and _doc.badges -%}{%- assign _badges = _doc.badges -%}{%- endif -%}
               {%- endif -%}
 
-              <li class="project-item"
-                  data-platforms='{{ _child.platform | jsonify }}'
-                  data-subjects='{{ _child.subjects | jsonify }}'
-                  data-swhw='{{ _child["sw-hw"] | jsonify }}'
-                  data-support-level='{{ _child["support-level"] | jsonify }}'
-                  data-badges='{{ _badges | jsonify }}'>
-                <header class="project-header">
-                  <a class="project-title" href="{{ _nav_url }}">{{ _child.title }}</a>
-                  {%- if _badges -%}
-                    {% include badges.html items=_badges %}
-                  {%- endif -%}
-                </header>
-                <p class="project-desc">{{ _child.description }}</p>
-              </li>
+              {%- comment -%}
+We already resolved _badges above (from _child.badges or from matching posts/pages)
+{%- endcomment -%}
+<li class="project-item"
+    data-platforms='{{ _child.platform | jsonify }}'
+    data-subjects='{{ _child.subjects | jsonify }}'
+    data-swhw='{{ _child["sw-hw"] | jsonify }}'
+    data-support-level='{{ _child["support-level"] | jsonify }}'
+    {%- if _badges -%} data-badges='{{ _badges | jsonify }}'{%- endif -%}>
+
+  <header class="project-header">
+    <a class="project-title" href="{{ _nav_url }}">{{ _child.title }}</a>
+    {%- if _badges -%}
+      {% include badges.html items=_badges %}
+    {%- endif -%}
+  </header>
+
+  <p class="project-desc">
+    {{ _child.description }}
+  </p>
+</li>
+
             {%- endfor -%}
           </ul>
         {%- endfor -%}
@@ -196,3 +204,4 @@ type: article
     {%- include article-footer.html -%}
   </div>
 </div>
+
