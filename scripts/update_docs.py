@@ -202,6 +202,11 @@ def write_post_from_path(path: Path, out_dir: Path):
     raw_text = path.read_text(encoding="utf-8")
     post = frontmatter.loads(raw_text)
 
+    print(f"\n[DEBUG] {path}")
+    print(f"        keys: {list(post.metadata.keys())}")
+    print(f"        badges: {post.metadata.get('badges')!r}")
+
+    
     # Prefer 'date', then 'publication-date', else file mtime
     stat = path.stat()
     date_meta = post.metadata.get("date") or post.metadata.get("publication-date")
@@ -287,5 +292,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
