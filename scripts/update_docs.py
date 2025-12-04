@@ -232,6 +232,8 @@ def write_post_from_path(path: Path, out_dir: Path):
     yaml.width = 4096
 
     metadata_copy = dict(post.metadata)
+    if "badges" in post.metadata:
+        metadata_copy["badges"] = post.metadata["badges"]
     for key, value in list(metadata_copy.items()):
         if isinstance(value, str) and "\n" in value:
             metadata_copy[key] = LiteralScalarString(value)
@@ -292,6 +294,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
