@@ -67,6 +67,8 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
+    badges:
+    - recently_added
   - title: Haskell-Compiler-Windows-on-Arm
     description: "This self-service project brings native Glasgow Haskell Compiler\
       \ support to Windows on Arm\u2014unlocking efficient Arm-laptop builds, extending\
