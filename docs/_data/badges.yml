@@ -7,3 +7,6 @@ trending:
 updated:
   file: updated.svg
   alt: "Recently updated"
+Recently added:
+  file: RA.svg
+  alt: "Recently Added"
