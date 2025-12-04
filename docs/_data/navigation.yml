@@ -26,7 +26,7 @@ projects:
     status:
     - Published
     badges:
-    - Recently added
+    - recently_added
   - title: R-Arm-Community-Support
     description: "This self-service project boosts the R ecosystem on Windows on Arm\
       \ by identifying unsupported packages, upstreaming fixes, and automating builds\u2014\
