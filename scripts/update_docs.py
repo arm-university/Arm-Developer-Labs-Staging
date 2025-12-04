@@ -116,7 +116,8 @@ def normalize_date(meta_value, fallback_timestamp: float) -> str:
 def convert_md_images_to_html(md_text: str, doc_path: Path) -> str:
     """
     - Finds Markdown images ![alt](path)
-    - Copies each image into docs/images/
+    - Only rewrites *relative* image paths (no http(s)://, no leading /)
+    - Copies each such image into docs/images/
     - Rewrites to <img class="image ..." src="{BASEURL}/images/<filename>" />
     - Skips the README banner ./images/DeveloperLabs_Header.png entirely.
     """
@@ -125,11 +126,16 @@ def convert_md_images_to_html(md_text: str, doc_path: Path) -> str:
     def replace(match):
         img_path = match.group(1).strip()
 
-        # Skip a specific header if converting README.md
+        # 1) If this is an absolute URL or already site-rooted, leave it alone
+        if img_path.startswith("http://") or img_path.startswith("https://") or img_path.startswith("/"):
+            return match.group(0)  # return the original markdown image unchanged
+
+        # 2) Skip a specific header if converting README.md
         readme_path = REPO_ROOT / "README.md"
         if doc_path.resolve() == readme_path.resolve() and img_path == "./images/DeveloperLabs_Header.png":
             return ""
 
+        # 3) Treat as a relative filesystem path
         source_path = (doc_path.parent / img_path).resolve()
         DOCS_IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -281,3 +287,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
