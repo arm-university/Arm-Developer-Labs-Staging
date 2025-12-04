@@ -118,7 +118,7 @@ type: article
         </div>
       </div>
 
-      <!-- 2) Two‐section project list -->
+          <!-- 2) Two‐section project list -->
       <div class="project-results">
         {%- assign nav_root = site.data.navigation["projects"] -%}
         {%- for category in nav_root -%}
@@ -128,10 +128,20 @@ type: article
               {%- include snippets/get-nav-url.html path=_child.url -%}
               {%- assign _nav_url = __return -%}
 
-              {%- comment -%} normalize URL for matching against .url {%- endcomment -%}
-              {%- assign _nav_url_rel = _nav_url | replace: site.url, '' | replace: site.baseurl, '' -%}
+              {%- comment -%}
+              Normalize URL so it matches how site.posts/pages store .url
+              (no site.url, no baseurl)
+              {%- endcomment -%}
+              {%- assign _nav_url_rel = _nav_url
+                   | replace: site.url, ''
+                   | replace: site.baseurl, '' -%}
 
-              {%- comment -%} resolve badges {%- endcomment -%}
+              {%- comment -%}
+              Resolve badges:
+              1) Prefer badges from navigation data (_child.badges)
+              2) If not present, look up the matching post/page by URL
+                 and read its front-matter badges
+              {%- endcomment -%}
               {%- assign _badges = _child.badges -%}
               {%- if _badges == nil or _badges == empty -%}
                 {%- assign _doc = site.posts | where: "url", _nav_url_rel | first -%}
@@ -139,33 +149,29 @@ type: article
                 {%- if _doc and _doc.badges -%}{%- assign _badges = _doc.badges -%}{%- endif -%}
               {%- endif -%}
 
-              {%- comment -%}
-We already resolved _badges above (from _child.badges or from matching posts/pages)
-{%- endcomment -%}
-<li class="project-item"
-    data-platforms='{{ _child.platform | jsonify }}'
-    data-subjects='{{ _child.subjects | jsonify }}'
-    data-swhw='{{ _child["sw-hw"] | jsonify }}'
-    data-support-level='{{ _child["support-level"] | jsonify }}'
-    {%- if _badges -%} data-badges='{{ _badges | jsonify }}'{%- endif -%}>
+              <li class="project-item"
+                  data-platforms='{{ _child.platform | jsonify }}'
+                  data-subjects='{{ _child.subjects | jsonify }}'
+                  data-swhw='{{ _child["sw-hw"] | jsonify }}'
+                  data-support-level='{{ _child["support-level"] | jsonify }}'
+                  {%- if _badges -%} data-badges='{{ _badges | jsonify }}'{%- endif -%}
+                  data-url-rel='{{ _nav_url_rel }}'>
 
-  <header class="project-header">
-    <a class="project-title" href="{{ _nav_url }}">{{ _child.title }}</a>
-    {%- if _badges -%}
-      {% include badges.html items=_badges %}
-    {%- endif -%}
-  </header>
+                <header class="project-header">
+                  <a class="project-title" href="{{ _nav_url }}">{{ _child.title }}</a>
+                  {%- if _badges -%}
+                    {% include badges.html items=_badges %}
+                  {%- endif -%}
+                </header>
 
-  <p class="project-desc">
-    {{ _child.description }}
-  </p>
-</li>
-
+                <p class="project-desc">
+                  {{ _child.description }}
+                </p>
+              </li>
             {%- endfor -%}
           </ul>
         {%- endfor -%}
       </div>
-
       <!-- 3) Filtering script (unchanged) -->
       <script>
         function filterProjects() {
@@ -204,4 +210,5 @@ We already resolved _badges above (from _child.badges or from matching posts/pag
     {%- include article-footer.html -%}
   </div>
 </div>
+
 
