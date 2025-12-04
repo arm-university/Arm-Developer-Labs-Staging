@@ -19,6 +19,8 @@ publication-date: 2025-05-30
 license:
 status:
 - Published
+badges:
+- trending
 donation:
 layout: article
 sidebar:
