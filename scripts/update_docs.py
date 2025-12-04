@@ -40,7 +40,7 @@ article_header:
 # ----------------------------
 # Config helpers
 # ----------------------------
-def load_baseurl(default="/DLFIXES") -> str:
+def load_baseurl(default="/Arm-Developer-labs") -> str:
     """
     Reads baseurl from docs/_config.yml.
     - Falls back to provided default if file or key missing.
@@ -287,4 +287,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
