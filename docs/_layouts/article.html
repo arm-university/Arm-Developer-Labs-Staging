@@ -12,6 +12,77 @@ type: article
   {%- include article/top/custom.html -%}
 
   <div class="article__content" itemprop="articleBody">
+
+    {%- comment -%}
+    Per-project tags/meta for project detail pages.
+    Uses front matter on the page:
+      - subjects
+      - platform
+      - sw-hw
+      - support-level
+      - status
+      - badges
+    This is safe for non-project pages; if they don't have
+    these fields, nothing will render.
+    {%- endcomment -%}
+    {%- if page.subjects or page.platform or page["sw-hw"] or page["support-level"] or page.status or page.badges -%}
+      <div class="project-meta">
+        {%- if page.subjects -%}
+          <div class="meta-group">
+            <span class="meta-label">Subjects:</span>
+            {%- for s in page.subjects -%}
+              <span class="meta-tag">{{ s }}</span>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if page.platform -%}
+          <div class="meta-group">
+            <span class="meta-label">Platform:</span>
+            {%- for p in page.platform -%}
+              <span class="meta-tag">{{ p }}</span>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if page["sw-hw"] -%}
+          <div class="meta-group">
+            <span class="meta-label">SW / HW:</span>
+            {%- for tag in page["sw-hw"] -%}
+              <span class="meta-tag">{{ tag }}</span>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if page["support-level"] -%}
+          <div class="meta-group">
+            <span class="meta-label">Support level:</span>
+            {%- for lvl in page["support-level"] -%}
+              <span class="meta-tag">{{ lvl }}</span>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if page.status -%}
+          <div class="meta-group">
+            <span class="meta-label">Status:</span>
+            {%- for st in page.status -%}
+              <span class="meta-tag">{{ st }}</span>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if page.badges -%}
+          <div class="meta-group">
+            <span class="meta-label">Badges:</span>
+            {%- for badge in page.badges -%}
+              <span class="meta-tag meta-tag--badge">{{ badge }}</span>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
     {{ content }}
 
     {%- if page.filter == "project" -%}
@@ -118,7 +189,7 @@ type: article
         </div>
       </div>
 
-          <!-- 2) Two‐section project list -->
+      <!-- 2) Two‐section project list -->
       <div class="project-results">
         {%- assign nav_root = site.data.navigation["projects"] -%}
         {%- for category in nav_root -%}
@@ -172,6 +243,7 @@ type: article
           </ul>
         {%- endfor -%}
       </div>
+
       <!-- 3) Filtering script (unchanged) -->
       <script>
         function filterProjects() {
@@ -210,5 +282,3 @@ type: article
     {%- include article-footer.html -%}
   </div>
 </div>
-
-
