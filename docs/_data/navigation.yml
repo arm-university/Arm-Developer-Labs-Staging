@@ -89,6 +89,8 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
+    badges:
+    - recently_added
   - title: C-Based-Application-from-Scratch
     description: This self-service project goes back to the fundamentals. The challenge
       is to develop an application of your choice but your are only permitted to use
