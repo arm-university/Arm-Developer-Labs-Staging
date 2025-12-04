@@ -18,8 +18,8 @@
 ##############################
 text_skin: default # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
 highlight_theme: default # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
-url: https://v3x-0e.github.io
-baseurl: /DLFIXES
+url: 
+baseurl: /Arm-Developer-Labs
 title   : 
 description: > # this means to ignore newlines until "Language & timezone"
   Developer Labs
@@ -223,4 +223,5 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jemoji
+
 
