@@ -1,0 +1,16 @@
+{% assign list = include.items | default: page.badges %}
+{% if list %}
+  <span class="badges">
+    {% for key in list %}
+      {% assign b = site.data.badges[key] %}
+      {% if b %}
+        <img
+          class="badge"
+          src="{{ '/assets/badges/' | append: b.file | relative_url }}"
+          alt="{{ b.alt }}"
+          width="56" height="20"
+          loading="lazy">
+      {% endif %}
+    {% endfor %}
+  </span>
+{% endif %}
