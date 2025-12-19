@@ -263,7 +263,7 @@ show_title: false
             <li>Monitor and standard peripherals.</li>
           </ul>
         </li>
-        <li><strong>Software</strong>:
+        <li>Software:
           <ul>
             <li>JetPack OS with CUDA support.</li>
             <li>Python, OpenCV, MediaPipe.</li>
@@ -372,7 +372,7 @@ show_title: false
 
     <h3>Objective</h3>
     <p>
-      Build a fully local, real-time speech-to-speech translation system optimized for Arm-based CPUs, leveraging SME2 where available (preferred) or NEON/NPU otherwise. The system must perform speech recognition, LLM-based translation or semantic rewriting, and speech synthesis entirely on-device, meeting mobile latency, power, and thermal constraints.
+      Build a fully local, real-time speech-to-speech translation system optimized for Arm-based CPUs, leveraging SME2 where available (preferred) or optimising using NEON. The system must perform speech recognition, LLM-based translation or semantic rewriting, and speech synthesis entirely on-device, meeting mobile latency, power, and thermal constraints.
     </p>
 
     <h3>Project Description</h3>
@@ -394,7 +394,7 @@ show_title: false
       <li>Hardware:
         <ul>
           <li>Arm-based smartphone CPU</li>
-          <li>SME2-enabled device preferred; otherwise NEON-optimized CPU or optional onboard NPU</li>
+          <li>SME2-enabled device preferred; otherwise utilise NEON on CPU or optionally an onboard NPU</li>
           <li>Microphone and audio output (speaker or headphones)</li>
         </ul>
       </li>
