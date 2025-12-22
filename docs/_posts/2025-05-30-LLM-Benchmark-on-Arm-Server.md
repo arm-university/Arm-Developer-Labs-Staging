@@ -1,5 +1,5 @@
 ---
-title: LLM Benchmark for Arm Server
+title: LLM-Benchmark-on-Arm-Server
 description: This self-service project sets up a reproducible MLPerf Inference workflow to benchmark large-language-model performance across Arm server configurations—yielding hard data that guides optimization of Arm hardware and software stacks for AI workloads.
 subjects:
 - ML
@@ -46,10 +46,12 @@ full_description: |-
 
   ## Benefits 
 
-  Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+  Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
+
 
   To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
 ---
+
 ## Description
 This project aims to benchmark inference on Arm-based servers using the MLPerf Inference benchmark suite. The project spans performance analysis across different configurations of Arm-based servers. The main deliverable is a comprehensive benchmarking setup that can evaluate the performance of large language models (LLMs) on various Arm server configurations in addition to a report highlighting the performance difference and how to recreate the results. This project will provide practical experience in benchmarking, performance analysis, and working with Arm-based server architectures. The final output will be a detailed report and a functional benchmarking infrastructure that can be used for further research and development.
 
@@ -72,6 +74,7 @@ This project is designed to be self-serve but comes with opportunity of some com
 
 ## Benefits 
 
-Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
+
 
 To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.

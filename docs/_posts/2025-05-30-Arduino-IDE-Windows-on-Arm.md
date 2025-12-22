@@ -1,5 +1,5 @@
 ---
-title: Porting and Optimizing Arduino IDE for Windows on Arm
+title: Arduino-IDE-Windows-on-Arm
 description: This self-service project ports and optimizes the Arduino IDE—patching its lzma-native dependency—to run natively and efficiently on Windows on Arm, giving developers hands-on experience with cross-platform builds, Arm64 performance tuning, and upstream open-source contributions.
 subjects:
 - Performance and Architecture
@@ -20,11 +20,13 @@ license:
 status:
 - Published
 donation:
+badges:
+- trending
 layout: article
 sidebar:
   nav: projects
 full_description: |-
-  <img class="image image--xl" src="/Arm-Developer-Labs/images/arduino_logo.png"/>
+  <img class="image image--xl" src="/Arm-Developer-Labs/images/arduino_logo.png" loading="lazy" decoding="async" />
 
 
   ## Description
@@ -69,11 +71,12 @@ full_description: |-
 
   ## Benefits 
 
-  Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+  Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
   To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
 ---
-<img class="image image--xl" src="/Arm-Developer-Labs/images/arduino_logo.png"/>
+
+<img class="image image--xl" src="/Arm-Developer-Labs/images/arduino_logo.png" loading="lazy" decoding="async" />
 
 
 ## Description
@@ -118,6 +121,6 @@ This project is designed to be self-serve but comes with opportunity of some com
 
 ## Benefits 
 
-Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
 To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.

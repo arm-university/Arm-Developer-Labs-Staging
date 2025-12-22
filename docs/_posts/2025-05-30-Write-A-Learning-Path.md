@@ -1,5 +1,5 @@
 ---
-title: Write an Educational Tutorial (Learning Path) of your Choice
+title: Write-A-Learning-Path
 description: This project lets students turn their Arm expertise into a publish-ready Learning Path—creating a structured, hands-on tutorial that guides others through a complete, hardware-friendly build and showcases the author’s teaching skills.
 subjects:
 - Libraries
@@ -29,7 +29,7 @@ layout: article
 sidebar:
   nav: projects
 full_description: |-
-  <img class="image image--xl" src="/Arm-Developer-Labs/images/Educate_on_Arm_banner.png"/>
+  <img class="image image--xl" src="/Arm-Developer-Labs/images/Educate_on_Arm_banner.png" loading="lazy" decoding="async" />
 
 
   ## Description
@@ -50,11 +50,12 @@ full_description: |-
 
   ## Benefits 
 
-  Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+  Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
   To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
 ---
-<img class="image image--xl" src="/Arm-Developer-Labs/images/Educate_on_Arm_banner.png"/>
+
+<img class="image image--xl" src="/Arm-Developer-Labs/images/Educate_on_Arm_banner.png" loading="lazy" decoding="async" />
 
 
 ## Description
@@ -75,6 +76,6 @@ This project is designed to be self-serve but comes with opportunity of some com
 
 ## Benefits 
 
-Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
 To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.

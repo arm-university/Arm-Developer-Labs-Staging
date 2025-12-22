@@ -1,5 +1,5 @@
 ---
-title: Create a Sentiment Analysis Dashboard for Keywords Based on the Semiconductor Industry
+title: Sentiment-Analysis-Dashboard
 description: This self-service project builds a web-scraping, LLM-powered dashboard that tracks and visualizes sentiment trends across semiconductor-industry news, giving stakeholders a real-time pulse on market mood and emerging themes.
 subjects:
 - ML
@@ -51,10 +51,11 @@ full_description: |-
 
   ## Benefits 
 
-  Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+  Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
   To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
 ---
+
 ## Description
 This project aims to develop a sentiment analysis dashboard for keywords related to the semiconductor industry. The main deliverable is a web scraping script that gathers text data from various semiconductor news sites. Example sites are [SemiconductorEngineering.com](https://semiengineering.com/), [IEEE Spectrum](https://spectrum.ieee.org/), [EETimes](https://www.eetimes.com/tag/semiconductors/), [SemiconductorDigest](https://www.semiconductor-digest.com/), [SemiconductorToday](https://semiconductor-today.com/), [Financial Times - Semiconductors](https://www.ft.com/semiconductors), [Bezinga Semiconductors](https://www.benzinga.com/topic/semiconductors).
 
@@ -80,6 +81,6 @@ This project is designed to be self-serve but comes with opportunity of some com
 
 ## Benefits 
 
-Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
 To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.

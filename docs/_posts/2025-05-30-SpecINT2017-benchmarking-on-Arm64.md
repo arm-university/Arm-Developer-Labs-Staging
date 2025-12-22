@@ -1,5 +1,5 @@
 ---
-title: 'SpecINT2017 Benchmarking on Arm64: Evaluating Compiler and Workload Performance'
+title: SpecINT2017-benchmarking-on-Arm64
 description: This self-service project profiles SPEC CPU2017 on Arm64 servers—using GCC, Clang, and Arm Compiler with top-down analysis—to reveal how compiler choices and Arm micro-architectural features impact execution time, energy efficiency, and performance bottlenecks.
 subjects:
 - Performance and Architecture
@@ -70,10 +70,12 @@ full_description: |-
 
   ## Benefits 
 
-  Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+  Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
+
 
   To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
 ---
+
 ### Description
 
 **Why this is important?**
@@ -119,6 +121,7 @@ This project is designed to be self-serve but comes with opportunity of some com
 
 ## Benefits 
 
-Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
+
 
 To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.

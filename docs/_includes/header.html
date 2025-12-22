@@ -19,6 +19,11 @@
             <a title="{%- if site.description -%}{{ site.description }}{%- endif -%}" href="{{ __return }}">{{ site.title }}</a>
           {%- endif -%} -->
         </div>
+        {%- if page.url == "/" or page.url == "/index.html" -%}
+        <button class="button button--secondary mission-button" onclick="document.querySelector('.grid.grid--reverse')?.scrollIntoView({behavior: 'smooth', block: 'start'})">Mission Statement</button>
+        {%- else -%}
+        <a class="button button--secondary mission-button" href="{{ "/#mission" | relative_url }}">Mission Statement</a>
+        {%- endif -%}
         {%- if site.search.provider -%}
           <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
         {%- endif -%}
@@ -38,6 +43,7 @@
               <li class="navigation__item"><a href="{{ _nav_url }}">{%- if _item.title -%}{{ _item.title }}{%- else -%}{{ __return }}{%- endif -%}</a></li>
             {%- endif -%}
           {%- endfor -%}
+          <button class="blog" onclick="window.location.href ='{{"Blog.html" | relative_url }}'">Community</button> 
           <li>
             <a href="https://github.com/arm-university/Arm-Developer-Labs" target="_blank" rel="noopener noreferrer" class="button button--secondary button--circle search-button">
               <img src="https://arm-university.github.io/Arm-Developer-Labs/images/github-mark.svg" alt="GitHub Logo" class="github-button__img"/>
@@ -47,4 +53,4 @@
       </nav>
       {%- endif -%}
     </div>
-  </header>
+  </header> 
