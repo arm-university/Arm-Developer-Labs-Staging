@@ -2,7 +2,25 @@
 layout: page
 title: Challenge Page Registration
 show_title: false
+description: Bharat AI-SoC Student Challenge registration page
+share_image: images/c2s_meity_logo.jpg
 ---
+
+{%- assign resolved_url = site.url -%}
+{%- if resolved_url contains '$PREVIEW_URL' -%}
+  {%- assign resolved_url = site.env.PREVIEW_URL -%}
+{%- endif -%}
+
+{%- if page.share_image -%}
+<meta property="og:title" content="{{ page.title}}">
+<meta property="og:description" content="{{ page.description}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ resolved_url }}{{ site.baseurl }}{{ page.url }}">
+<meta property="og:image" content="{{ resolved_url }}{{ site.baseurl }}/{{ page.share_image }}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ resolved_url }}{{ site.baseurl }}/{{ page.share_image }}">
+{%- endif -%}
 
 <div class="challenge-wrapper">
   <header class="challenge-header">
@@ -33,7 +51,7 @@ show_title: false
           </div>
         </div>
         <div style="flex: 0 0 auto; display: flex; align-items: center; justify-content: flex-end; height: 100%; min-width: 180px;">
-          <img src="/images/c2s_meity_logo.jpg" alt="C2S MeitY Logo" style="height: 180px; width: auto; border-radius: 36px; filter: blur(0.5px) drop-shadow(0 0 40px rgba(120,120,120,0.18)); box-shadow: 0 8px 64px 0 rgba(0,0,0,0.14); background: rgba(255,255,255,0.16); margin-top: 64px; margin-bottom: 64px;" />
+          <img src="images/c2s_meity_logo.jpg" alt="C2S MeitY Logo" style="height: 180px; width: auto; border-radius: 36px; filter: blur(0.5px) drop-shadow(0 0 40px rgba(120,120,120,0.18)); box-shadow: 0 8px 64px 0 rgba(0,0,0,0.14); background: rgba(255,255,255,0.16); margin-top: 64px; margin-bottom: 64px;" />
         </div>
       </div>
     </div>
