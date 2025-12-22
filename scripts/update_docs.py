@@ -1,23 +1,33 @@
 import os
-import sys
 import re
 import shutil
 from pathlib import Path
-import frontmatter
 from datetime import datetime
+from io import StringIO
+
+import frontmatter
 import ruamel.yaml
+from ruamel.yaml.scalarstring import LiteralScalarString
 
-projects_dir = "../Projects/Projects"
-extended_projects_dir = "../Projects/Extended-Team-Projects"
+# ----------------------------
+# Paths (relative to this script)
+# ----------------------------
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parent          # adjust if your script is deeper nested
+DOCS_DIR = REPO_ROOT / "docs"
+DOCS_POSTS_DIR = DOCS_DIR / "_posts"
+DOCS_IMAGES_DIR = DOCS_DIR / "images"
+DOCS_CONFIG = DOCS_DIR / "_config.yml"
 
-projects_pathlist = [Path("../Projects/projects.md")]
-projects_projects_pathlist = Path(projects_dir).rglob("*.md")
-projects_extended_project_pathlist = Path(extended_projects_dir).rglob("*.md")
-research_pathlist = [Path("../Research/research.md")]
+PROJECTS_DIR = REPO_ROOT / "Projects" / "Projects"
+EXT_PROJECTS_DIR = REPO_ROOT / "Projects" / "Extended-Team-Projects"
 
-docs_posts_dir = "../docs/_posts"
+PROJECTS_PATHLIST = [REPO_ROOT / "Projects" / "projects.md"]
+PROJECTS_PROJECTS_PATHLIST = PROJECTS_DIR.rglob("*.md")
+PROJECTS_EXTENDED_PATHLIST = EXT_PROJECTS_DIR.rglob("*.md")
+RESEARCH_PATHLIST = [REPO_ROOT / "Research" / "research.md"]  # currently unused but kept for future
 
-index_frontmatter = """---
+INDEX_FRONTMATTER = """---
 title: Academic Projects Repository
 tags: TeXt
 article_header:
@@ -27,46 +37,136 @@ article_header:
 ---
 """
 
-def clean():
-    clean_lst = [docs_posts_dir]
-    for dirpath in clean_lst:
-        if os.path.exists(dirpath) and os.path.isdir(dirpath):
-            shutil.rmtree(dirpath)
-            os.makedirs(dirpath)
-        else:
-            os.makedirs(dirpath)
+# ----------------------------
+# Config helpers
+# ----------------------------
+def load_baseurl(default="/Arm-Developer-labs") -> str:
+    """
+    Reads baseurl from docs/_config.yml.
+    - Falls back to provided default if file or key missing.
+    - Returns a Jekyll-style baseurl: starts with '/', no trailing '/'.
+    """
+    if not DOCS_CONFIG.exists():
+        return default
 
+    yaml = ruamel.yaml.YAML()
+    try:
+        cfg = yaml.load(DOCS_CONFIG.read_text(encoding="utf-8")) or {}
+    except Exception:
+        return default
+
+    baseurl = cfg.get("baseurl", "") or default
+    if not isinstance(baseurl, str):
+        baseurl = str(baseurl)
+
+    if not baseurl.startswith("/"):
+        baseurl = "/" + baseurl
+    baseurl = baseurl.rstrip("/") or "/"
+    return baseurl
+
+BASEURL = load_baseurl()
+
+# ----------------------------
+# Utilities
+# ----------------------------
+def clean():
+    """
+    Clears and recreates the docs/_posts directory.
+    """
+    if DOCS_POSTS_DIR.exists():
+        shutil.rmtree(DOCS_POSTS_DIR)
+    DOCS_POSTS_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def slugify(filename: str) -> str:
+    """
+    Build a URL-safe slug from the filename (without extension).
+    Lowercase, replace non [a-z0-9-] with '-'.
+    """
+    stem = Path(filename).stem
+    slug = re.sub(r"[^a-z0-9\-]+", "-", stem.lower()).strip("-")
+    return slug or "post"
+
+
+def normalize_date(meta_value, fallback_timestamp: float) -> str:
+    """
+    Accepts:
+      - a datetime
+      - a string 'YYYY-MM-DD' or ISO format
+      - None
+    Returns: 'YYYY-MM-DD' string, or mtime-based fallback.
+    """
+    if meta_value is None:
+        return datetime.fromtimestamp(fallback_timestamp).strftime("%Y-%m-%d")
+
+    if isinstance(meta_value, datetime):
+        return meta_value.strftime("%Y-%m-%d")
+
+    s = str(meta_value)
+    try:
+        return datetime.fromisoformat(s).strftime("%Y-%m-%d")
+    except ValueError:
+        # Fallback: first 10 chars if something odd comes through
+        return s[:10]
+
+
+# ----------------------------
+# Content transforms
+# ----------------------------
 def convert_md_images_to_html(md_text: str, doc_path: Path) -> str:
+    """
+    - Finds Markdown images ![alt](path)
+    - Only rewrites *relative* image paths (no http(s)://, no leading /)
+    - Copies each such image into docs/images/
+    - Rewrites to <img class="image ..." src="{BASEURL}/images/<filename>" />
+    - Skips the README banner ./images/DeveloperLabs_Header.png entirely.
+    """
     pattern = r'!\[[^\]]*\]\(([^)]+)\)'
-    docs_dir_path = Path("../docs")
 
     def replace(match):
-        img_path = match.group(1)
+        img_path = match.group(1).strip()
 
-        # Skip certain banner images entirely
-        if doc_path.resolve() == Path("../README.md").resolve() and img_path == "./images/DeveloperLabs_Header.png":
+        # 1) If this is an absolute URL or already site-rooted, leave it alone
+        if img_path.startswith("http://") or img_path.startswith("https://") or img_path.startswith("/"):
+            return match.group(0)  # return the original markdown image unchanged
+
+        # 2) Skip a specific header if converting README.md
+        readme_path = REPO_ROOT / "README.md"
+        if doc_path.resolve() == readme_path.resolve() and img_path == "./images/DeveloperLabs_Header.png":
             return ""
 
+        # 3) Treat as a relative filesystem path
         source_path = (doc_path.parent / img_path).resolve()
-        target_folder = (docs_dir_path / "images").resolve()
-        target_folder.mkdir(parents=True, exist_ok=True)
+        DOCS_IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 
         if source_path.is_file():
-            shutil.copy2(source_path, target_folder)
+            try:
+                shutil.copy2(source_path, DOCS_IMAGES_DIR)
+            except Exception as e:
+                print(f"[WARN] Could not copy {source_path} -> {DOCS_IMAGES_DIR}: {e}")
         else:
-            print(f"Warning: {source_path} does not exist in {doc_path}!")
+            print(f"[WARN] {source_path} does not exist (referenced in {doc_path})")
 
-        new_img_path = f"/Arm-Developer-Labs/images/{Path(img_path).name}"
+        fname = Path(img_path).name
+        new_img_path = f"{BASEURL}/images/{fname}"
 
-        if "ACA_badge.jpg" in new_img_path:
-            return f'<img class="image image--l" src="{new_img_path}"/>'
-        return f'<img class="image image--xl" src="{new_img_path}"/>'
+        # Special class override for certain badges
+        if "ACA_badge.jpg" in fname:
+            return f'<img class="image image--l" src="{new_img_path}" loading="lazy" decoding="async" />'
+        return f'<img class="image image--xl" src="{new_img_path}" loading="lazy" decoding="async" />'
 
     return re.sub(pattern, replace, md_text)
 
+
 def convert_md(md_text: str) -> str:
+    """
+    Specific content replacements:
+    - Replace 'Developer Labs Website' link with 'Developer Labs Repository'
+    - Replace a specific YouTube thumbnail link with an <iframe>
+    """
     pattern_link = "[Developer Labs Website](https://arm-university.github.io/Arm-Developer-Labs/)"
     replacement_link = "[Developer Labs Repository](https://github.com/arm-university/Arm-Developer-Labs)"
+
     pattern_youtube = "[![Arm-CMU collaboration](https://img.youtube.com/vi/zaRozkrcix0/0.jpg)](https://www.youtube.com/watch?v=zaRozkrcix0)"
     replacement_youtube = (
         '<iframe width="560" height="315" '
@@ -78,128 +178,123 @@ def convert_md(md_text: str) -> str:
         '</iframe>'
     )
 
-    replaced_md = md_text
-    if pattern_youtube in replaced_md:
-        replaced_md = replaced_md.replace(pattern_youtube, replacement_youtube)
-    if pattern_link in replaced_md:
-        replaced_md = replaced_md.replace(pattern_link, replacement_link)
-
-    return replaced_md
-
+    replaced = md_text
+    if pattern_youtube in replaced:
+        replaced = replaced.replace(pattern_youtube, replacement_youtube)
+    if pattern_link in replaced:
+        replaced = replaced.replace(pattern_link, replacement_link)
+    return replaced
 
 
-def format_content(pathlist, docs_path):
+# ----------------------------
+# Main formatter
+# ----------------------------
+def write_post_from_path(path: Path, out_dir: Path):
     """
-    For each Path in pathlist:
-      - Load frontmatter metadata.
-      - Extract the 'date' field from metadata (expected YYYY-MM-DD or datetime).
-      - Use that date plus the filename-slug to name the output: "<date>-<slug>.md".
-      - Convert images and special markdown embeds, then write to docs_path.
+    Read a markdown file with front matter, normalize metadata, and emit
+    a Jekyll post into out_dir with name YYYY-MM-DD-<slug>.md
     """
-    for path in pathlist:
-        path = Path(path)
+    path = Path(path)
 
-        if path.name == "README.md":
-            continue
+    if path.name == "README.md":
+        return
 
-        raw_text = path.read_text(encoding="utf-8")
-        post = frontmatter.loads(raw_text)
+    raw_text = path.read_text(encoding="utf-8")
+    post = frontmatter.loads(raw_text)
 
-        # If there's a 'date' key in frontmatter, normalize it to "YYYY-MM-DD"
-        date_meta = post.metadata.get("publication-date")
-        if date_meta is None:
-            # If there's no date, fallback to file's modified date
-            timestamp = path.stat().st_mtime
-            date_str = datetime.fromtimestamp(timestamp).strftime("%Y-%m-%d")
-        elif isinstance(date_meta, datetime):
-            date_str = date_meta.strftime("%Y-%m-%d")
-        else:
-            # If it's already a string, trust it but ensure formatting
-            try:
-                parsed = datetime.fromisoformat(str(date_meta))
-                date_str = parsed.strftime("%Y-%m-%d")
-            except ValueError:
-                # If it isn't ISO, just take the first 10 chars
-                date_str = str(date_meta)[:10]
+    print(f"\n[DEBUG] {path}")
+    print(f"        keys: {list(post.metadata.keys())}")
+    print(f"        badges: {post.metadata.get('badges')!r}")
 
-        # Build a slug from the filename (without .md)
-        filename = path.name  # e.g. "my-project.md"
-        slug = filename.removesuffix(".md")
+    
+    # Prefer 'date', then 'publication-date', else file mtime
+    stat = path.stat()
+    date_meta = post.metadata.get("date") or post.metadata.get("publication-date")
+    date_str = normalize_date(date_meta, stat.st_mtime)
 
-        # For certain top-level markdowns ("projects.md", "research.md"), 
-        # we assign a special article_header override:
-        # if path.name in ["projects.md", "research.md"]:
-        #     post.metadata["article_header"] = {
-        #         "type": "cover",
-        #         "image": {
-        #             "src": "/images/DeveloperLabs_Header.png",
-        #         },
-        #     }
+    slug = slugify(path.name)
 
-        # Always set layout to "article"
-        post.metadata["layout"] = "article"
+    # Force layout to "article"
+    post.metadata["layout"] = "article"
 
-        # Only set sidebar nav if it's a project‐level file (not the top-level README)
-        if path.name != "projects.md":
-            post.metadata["sidebar"] = {"nav": "projects"}
+    # Only set sidebar nav if it's a project-level file (not the top-level projects.md)
+    if path.name != "projects.md":
+        sidebar = post.metadata.get("sidebar") or {}
+        sidebar.setdefault("nav", "projects")
+        post.metadata["sidebar"] = sidebar
 
-        data = {"full_description": post.content}
-        post.metadata.update(data)
-        
-        # Use ruamel.yaml for proper literal block scalar formatting
-        yaml = ruamel.yaml.YAML()
-        yaml.preserve_quotes = True
-        yaml.width = 4096
-        
-        # Create the frontmatter manually to ensure literal block scalars
-        metadata_copy = post.metadata.copy()
-        
-        # Convert multiline strings to literal scalars
-        for key, value in metadata_copy.items():
-            if isinstance(value, str) and '\n' in value:
-                metadata_copy[key] = ruamel.yaml.scalarstring.LiteralScalarString(value)
-        
-        # Manually construct the frontmatter
-        from io import StringIO
-        stream = StringIO()
-        yaml.dump(metadata_copy, stream)
-        yaml_content = stream.getvalue()
-        
-        # Build the full content with frontmatter
-        formatted_content = f"---\n{yaml_content}---\n{post.content}"
+    # Optional: store full_description for templates that need it
+    post.metadata["full_description"] = post.content
 
-        # Convert Markdown image embeds → HTML and copy assets
-        converted_content = convert_md_images_to_html(
-            formatted_content,
-            path
-        )
+    # YAML writing with ruamel (preserve quotes; literal scalars for multiline strings)
+    yaml = ruamel.yaml.YAML()
+    yaml.preserve_quotes = True
+    yaml.width = 4096
 
-        # Build the new filename: "<date>-<slug>.md"
-        new_filename = f"{date_str}-{slug}.md"
-        out_file = Path(docs_path, new_filename)
-        out_file.write_text(converted_content, encoding="utf-8")
+    metadata_copy = dict(post.metadata)
+    if "badges" in post.metadata:
+        metadata_copy["badges"] = post.metadata["badges"]
+    for key, value in list(metadata_copy.items()):
+        if isinstance(value, str) and "\n" in value:
+            metadata_copy[key] = LiteralScalarString(value)
+
+    stream = StringIO()
+    yaml.dump(metadata_copy, stream)
+    yaml_content = stream.getvalue()
+
+    # Build full content: front matter + original content
+    formatted = f"---\n{yaml_content}---\n{post.content}"
+
+    # Apply markdown-specific conversions and image rewrite
+    formatted = convert_md(formatted)
+    formatted = convert_md_images_to_html(formatted, path)
+
+    new_filename = f"{date_str}-{slug}.md"
+    out_path = out_dir / new_filename
+    out_path.write_text(formatted, encoding="utf-8")
+    print(f"[OK] Wrote {out_path.relative_to(REPO_ROOT)}")
+
 
 def format_index():
-    src = "../README.md"
-    docs_path = "../docs"
-    with open(src, 'r', encoding='utf-8') as f:
-        # Prepend our custom frontmatter, then convert images/embeds
-        combined = index_frontmatter + f.read()
-        formatted_content = convert_md(combined)
-        converted_content = convert_md_images_to_html(
-            formatted_content,
-            Path(src)
-        )
-        out_file = os.path.join(docs_path, "index.md")
-        with open(out_file, 'w', encoding='utf-8') as out_f:
-            out_f.write(converted_content)
+    """
+    Build docs/index.md from README.md + custom front matter,
+    with markdown conversions and image handling.
+    """
+    src = REPO_ROOT / "README.md"
+    combined = INDEX_FRONTMATTER + src.read_text(encoding="utf-8")
+    combined = convert_md(combined)
+    combined = convert_md_images_to_html(combined, src)
+
+    out_file = DOCS_DIR / "index.md"
+    out_file.write_text(combined, encoding="utf-8")
+    print(f"[OK] Wrote {out_file.relative_to(REPO_ROOT)}")
+
 
 def main():
+    print(f"[INFO] Using baseurl: {BASEURL}")
     clean()
     format_index()
-    format_content(projects_pathlist, docs_posts_dir)
-    format_content(projects_projects_pathlist, docs_posts_dir)
-    format_content(projects_extended_project_pathlist, docs_posts_dir)
+
+    # Explicit list: projects.md, then actual project dirs
+    for p in PROJECTS_PATHLIST:
+        if Path(p).exists():
+            write_post_from_path(Path(p), DOCS_POSTS_DIR)
+
+    for p in PROJECTS_PROJECTS_PATHLIST:
+        write_post_from_path(Path(p), DOCS_POSTS_DIR)
+
+    for p in PROJECTS_EXTENDED_PATHLIST:
+        write_post_from_path(Path(p), DOCS_POSTS_DIR)
+
+    # If you ever want research posts too, uncomment:
+    # for p in RESEARCH_PATHLIST:
+    #     if Path(p).exists():
+    #         write_post_from_path(Path(p), DOCS_POSTS_DIR)
+
 
 if __name__ == "__main__":
     main()
+
+
+
+
