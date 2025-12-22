@@ -1,0 +1,586 @@
+---
+layout: page
+title: Challenge Page Registration
+show_title: false
+description: Bharat AI-SoC Student Challenge registration page
+share_image: images/c2s_meity_logo.jpg
+---
+
+{%- assign resolved_url = site.url -%}
+{%- if resolved_url contains '$PREVIEW_URL' -%}
+  {%- assign resolved_url = site.env.PREVIEW_URL -%}
+{%- endif -%}
+
+{%- if page.share_image -%}
+<meta property="og:title" content="{{ page.title}}">
+<meta property="og:description" content="{{ page.description}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ resolved_url }}{{ site.baseurl }}{{ page.url }}">
+<meta property="og:image" content="{{ resolved_url }}{{ site.baseurl }}/{{ page.share_image }}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ resolved_url }}{{ site.baseurl }}/{{ page.share_image }}">
+{%- endif -%}
+
+<div class="challenge-wrapper">
+  <header class="challenge-header">
+    <div class="ch-header-content">
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; width: 100%;">
+        <div style="flex: 1 1 auto; min-width: 0;">
+          <div class="ch-badge">
+            <span class="ch-badge-dot"></span>
+            <span>Bharat AI-SoC Student Challenge</span>
+          </div>
+          <h1>Bharat AI-SoC Student Challenge</h1>
+          <p class="ch-tagline">
+            A project-based virtual challenge to ignite innovation in AI-driven System-on-Chip (SoC) design using Arm architecture.
+          </p>
+          <div class="ch-header-meta">
+            <div class="ch-meta-pill">
+              <span class="ch-meta-label">Mode</span>
+              <span class="ch-meta-value">Virtual Project Challenge</span>
+            </div>
+            <div class="ch-meta-pill">
+              <span class="ch-meta-label">Team Size</span>
+              <span class="ch-meta-value">1–3 Students</span>
+            </div>
+            <div class="ch-meta-pill">
+              <span class="ch-meta-label">Eligibility</span>
+              <span class="ch-meta-value">Indian Institutes Only</span>
+            </div>
+          </div>
+        </div>
+        <div style="flex: 0 0 auto; display: flex; align-items: center; justify-content: flex-end; height: 100%; min-width: 180px;">
+          <img src="images/c2s_meity_logo.jpg" alt="C2S MeitY Logo" style="height: 180px; width: auto; border-radius: 36px; filter: blur(0.5px) drop-shadow(0 0 40px rgba(120,120,120,0.18)); box-shadow: 0 8px 64px 0 rgba(0,0,0,0.14); background: rgba(255,255,255,0.16); margin-top: 64px; margin-bottom: 64px;" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="ch-main">
+    <!-- LEFT COLUMN -->
+    <div>
+      <section class="ch-section">
+        <h2>Objective</h2>
+        <p>
+          Enhance industry-relevant skills through project-based learning in the space of AI and SoC via an experiential mini-project.
+        </p>
+        <p>
+          To ignite a culture of innovation by empowering students to ideate next-generation SoC solutions that unite AI
+          and sustainability, leveraging Arm architecture — preparing them to shape the semiconductor future.
+        </p>
+      </section>
+
+      <section class="ch-section">
+        <h2>Eligibility Criteria</h2>
+        <ol>
+          <li>Participants must be Indian nationals.</li>
+          <li>Participants must be associated with an Indian institute.</li>
+          <li>Students must be nominated by their respective college.</li>
+          <li>Teams of 1–3 students can apply.</li>
+          <li>All team members must be from the same college.</li>
+          <li>Team must have a Team Leader & Faculty Mentor.</li>
+          <li>Participants must be willing to learn about Edge AI, Software-Hardware Co-design, and Embedded Systems.</li>
+        </ol>
+      </section>
+
+      <section class="ch-section">
+        <h2>Challenge Guidelines & Terms</h2>
+        <ul>
+          <li>Only eligible students can participate.</li>
+          <li>Team size: 1–3 members.</li>
+          <li>Only Team Leader registers for the team.</li>
+          <li>Duplicate registration results in rejection.</li>
+          <li>Registration details must be accurate.</li>
+          <li>Mentoring by Arm experts (virtual) & college mentors (local).</li>
+          <li>Teams can reach Arm experts via email/Slack/Discord.</li>
+          <li>Mini project to be hosted on GitHub and submitted using the challenge submission form.</li>
+          <li>Arm may assign a different problem statement.</li>
+          <li>Winners must provide college ID & documents.</li>
+          <li>Updates will be posted on this page.</li>
+          <li>Support: <strong>support@armbharatchallenge.com</strong></li>
+        </ul>
+
+        <div class="ch-note">
+          <strong>Note:</strong> Incorrect or duplicate entries may result in disqualification.
+        </div>
+      </section>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+     <div>
+      <section class="ch-section">
+        <h2>Detailed Timeline</h2>
+
+        <table class="ch-table">
+          <thead>
+            <tr>
+              <th>Activity</th>
+              <th>Description</th>
+              <th>Start</th>
+              <th>End</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Registration</td>
+              <td>Interested students can register using the below registration link</td>
+              <td>24 Dec 2025</td>
+              <td>15 Jan 2026</td>
+            </tr>
+            <tr>
+              <td>Mentoring Session</td>
+              <td>An online mentoring session by Arm experts will be conducted whose details will be shared in this webpage & also mailed to registrants</td>
+              <td>06 Jan 2026</td>
+              <td>20 Jan 2026</td>
+            </tr>
+            <tr>
+              <td>Project Submission</td>
+              <td>Project Submission form will be shared with the participants by Arm</td>
+              <td>02 Feb 2026</td>
+              <td>03 Feb 2026</td>
+            </tr>
+            <tr>
+              <td>Project Evaluation</td>
+              <td>The submitted projects will be evaluated by the Arm experts & shortlist 25 best Projects/Teams</td>
+              <td>05 Feb 2026</td>
+              <td>05 Mar 2026</td>
+            </tr>
+            <tr>
+              <td>Finals</td>
+              <td>The shortlisted 25 Teams will be invited for a virtual meetup/hack to deliver a pitch</td>
+              <td>09 Mar 2026</td>
+              <td>12 Mar 2026</td>
+            </tr>
+            <tr>
+              <td>Winners Announcement</td>
+              <td>The winning teams will be announced in this webpage with the details of the Rewards</td>
+              <td>13 Mar 2026</td>
+              <td>15 Mar 2026</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="ch-section">
+        <h2>Support & Queries</h2>
+        <p>For support, email:</p>
+        <p><a href="mailto:support@armbharatchallenge.com" class="ch-email">support@armbharatchallenge.com</a></p>
+        <p class="ch-small">All updates will be posted on this page.</p>
+      </section>
+    </div>
+  </main>
+</div>
+
+<!--Project Section-->
+
+<section class="ch-section ch-projects">
+  <h2>Project Problem Statements</h2>
+  <p class="ch-projects-intro">
+    Choose one of the following problem statements as a starting point for your project. Click to expand each project and view suggested objectives
+  </p>
+
+
+  <!-- Problem 1 -->
+  <details class="ch-accordion">
+    <summary>
+      <span class="ch-acc-title">Problem Statement 1</span>
+      <span class="ch-acc-subtitle">
+        Offline, Privacy-Preserving Hindi Voice Assistant on Raspberry Pi
+      </span>
+    </summary>
+    <div class="ch-acc-body">
+      <h3>Objective</h3>
+      <p>
+        Develop a low-latency, privacy-preserving voice assistant on an Arm-based SBC (e.g., Raspberry Pi) that
+        processes Hindi voice commands entirely offline. The assistant should handle local queries (time, weather, etc.)
+        using on-device ASR and TTS.
+      </p>
+
+      <h3>Project Description</h3>
+      <p>
+        Students will build an embedded speech pipeline performing:
+      </p>
+      <ul>
+        <li>Speech-to-text using a lightweight ASR model (e.g., Coqui STT or fine-tuned wav2vec2 for Hindi).</li>
+        <li>Command parsing and intent recognition in Python.</li>
+        <li>Text-to-speech responses using local TTS (eSpeak-NG or Festival).</li>
+        <li>End-to-end on the Raspberry Pi CPU with no cloud dependency.</li>
+      </ul>
+
+      <h3>Key Requirements</h3>
+      <ul>
+        <li>Hardware:
+          <ul>
+            <li>Raspberry Pi 4 (or similar Arm SBC).</li>
+            <li>USB microphone.</li>
+            <li>Speaker via 3.5 mm jack or HDMI.</li>
+          </ul>
+        </li>
+        <li>Software:
+          <ul>
+            <li>Python with PyAudio for audio I/O.</li>
+            <li>Coqui STT or fine-tuned wav2vec2 for ASR.</li>
+            <li>eSpeak-NG or Festival for TTS.</li>
+            <li>Custom Python logic for intent recognition and command execution.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Performance Targets</h3>
+      <ul>
+        <li>Sub-2-second response time per command.</li>
+        <li>Accurate recognition for 10–15 Hindi commands.</li>
+        <li>Robust, fully offline operation.</li>
+      </ul>
+
+      <h3>Deliverables</h3>
+      <ul>
+        <li>Source code for the full voice assistant pipeline.</li>
+        <li>Documentation of any model fine-tuning / optimization steps.</li>
+        <li>Demo video showing responses to multiple commands.</li>
+        <li>Short report on architecture, challenges in Hindi ASR/TTS, and performance metrics.</li>
+      </ul>
+
+      <h3>Learning Outcomes</h3>
+      <ul>
+        <li>Hands-on experience with embedded speech AI and offline ASR/TTS.</li>
+        <li>Understanding challenges of regional language processing.</li>
+        <li>Integrating ASR, simple NLP/intent logic, and TTS on a constrained platform.</li>
+      </ul>
+    </div>
+  </details>
+
+  <!-- Problem 2 -->
+  <details class="ch-accordion">
+    <summary>
+      <span class="ch-acc-title">Problem Statement 2</span>
+      <span class="ch-acc-subtitle">
+        Touchless HCI for Media Control Using Hand Gestures on NVIDIA Jetson Nano
+      </span>
+    </summary>
+    <div class="ch-acc-body">
+      <h3>Objective</h3>
+      <p>
+        Create a touchless HCI system using an NVIDIA Jetson Nano that translates real-time hand gestures into media
+        control commands (e.g., play/pause, volume) for a local player such as VLC.
+      </p>
+
+      <h3>Project Description</h3>
+      <p>
+        Students will use MediaPipe Hands (optimized for Arm CPU and Jetson GPU) to detect hand landmarks, then classify
+        gestures and map them to keyboard shortcuts using Python libraries like <code>pynput</code> or <code>xdotool</code>.
+      </p>
+
+      <h3>Key Requirements</h3>
+      <ul>
+        <li>Hardware:
+          <ul>
+            <li>NVIDIA Jetson Nano Developer Kit.</li>
+            <li>USB webcam.</li>
+            <li>Monitor and standard peripherals.</li>
+          </ul>
+        </li>
+        <li>Software:
+          <ul>
+            <li>JetPack OS with CUDA support.</li>
+            <li>Python, OpenCV, MediaPipe.</li>
+            <li>Media player application (e.g., VLC).</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Performance Targets</h3>
+      <ul>
+        <li>&gt;90% gesture recognition accuracy in controlled lighting.</li>
+        <li>&lt;200 ms end-to-end latency for gesture → action.</li>
+        <li>Stable at ≥15 FPS.</li>
+      </ul>
+
+      <h3>Deliverables</h3>
+      <ul>
+        <li>Source code for gesture recognition and control logic.</li>
+        <li>Defined gesture set and mapping table.</li>
+        <li>Demo video of real-time media control.</li>
+        <li>Report on design, model choice and performance analysis.</li>
+      </ul>
+
+      <h3>Learning Outcomes</h3>
+      <ul>
+        <li>Practical experience with real-time edge computer vision.</li>
+        <li>Pipeline optimization for low-latency inference.</li>
+        <li>Integrating AI perception with system-level control.</li>
+      </ul>
+    </div>
+  </details>
+
+  <!-- Problem 3 -->
+  <details class="ch-accordion">
+    <summary>
+      <span class="ch-acc-title">Problem Statement 3</span>
+      <span class="ch-acc-subtitle">
+        Real-Time Road Anomaly Detection from Dashcam Footage on Raspberry Pi
+      </span>
+    </summary>
+    <div class="ch-acc-body">
+      <h3>Objective</h3>
+      <p>
+        Build an edge AI application on Raspberry Pi that processes dashcam footage in real-time to detect and log road
+        anomalies such as potholes and unexpected obstacles.
+      </p>
+
+      <h3>Project Description</h3>
+      <p>
+        Students will choose a lightweight object detector (e.g., MobileNet-SSD, YOLOv5s), convert it to an
+        edge-optimized format (TensorFlow Lite / ONNX Runtime), and integrate it with an OpenCV video pipeline.
+        Detected anomalies should trigger timestamped logs or saved clips.
+      </p>
+
+      <h3>Key Requirements</h3>
+      <ul>
+        <li>Hardware:
+          <ul>
+            <li>Raspberry Pi 4 with proper cooling.</li>
+            <li>Raspberry Pi Camera Module v2 or USB webcam.</li>
+            <li>High-write-speed microSD card.</li>
+          </ul>
+        </li>
+        <li>Software:
+          <ul>
+            <li>Raspberry Pi OS.</li>
+            <li>Python, OpenCV.</li>
+            <li>TensorFlow Lite / ONNX Runtime with a pre-trained, quantized detection model.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Performance Targets</h3>
+      <ul>
+        <li>≥5 FPS near-real-time inference.</li>
+        <li>High precision to reduce false positives in logging.</li>
+        <li>Robust under varying lighting conditions.</li>
+      </ul>
+
+      <h3>Deliverables</h3>
+      <ul>
+        <li>Source code for video processing and inference pipeline.</li>
+        <li>Optimized deployed model file (.tflite / .onnx).</li>
+        <li>Demo video with anomaly detection on sample footage.</li>
+        <li>Report on model choice, optimization and performance.</li>
+      </ul>
+
+      <h3>Learning Outcomes</h3>
+      <ul>
+        <li>Optimizing and deploying neural networks for edge video analytics.</li>
+        <li>Experience with embedded vision pipelines.</li>
+        <li>Understanding accuracy vs speed vs compute trade-offs on Arm platforms.</li>
+      </ul>
+    </div>
+  </details>
+
+  <!-- Problem 4 -->
+  <details class="ch-accordion">
+  <summary>
+    <span class="ch-acc-title">Problem Statement 4</span>
+    <span class="ch-acc-subtitle">
+      Real-Time On-Device Speech-to-Speech Translation using SME2 and/or NEON on Arm CPU
+    </span>
+  </summary>
+  <div class="ch-acc-body">
+
+    <h3>Objective</h3>
+    <p>
+      Build a fully local, real-time speech-to-speech translation system optimized for Arm-based CPUs, leveraging SME2 where available (preferred) or optimising using NEON. The system must perform speech recognition, LLM-based translation or semantic rewriting, and speech synthesis entirely on-device, meeting mobile latency, power, and thermal constraints.
+    </p>
+
+    <h3>Project Description</h3>
+    <p>
+      Students will design and deploy a real-time, on-device speech-to-speech translation pipeline running on a smartphone with an Arm-powered CPU (preferably SME2-enabled devices such as OPPO Find X9 or vivo X300).
+    </p>
+    <p>
+      The system captures continuous spoken audio in Language A, performs:
+      <ol>
+        <li>On-device speech-to-text (STT),</li>
+        <li>LLM-based translation or semantic rewriting, and</li>
+        <li>Text-to-speech (TTS) synthesis,</li>
+      </ol>
+      to produce natural, fluent spoken output in Language B. All inference must run locally with no cloud dependency, demonstrating efficient use of Arm CPU acceleration and mobile-friendly optimizations.
+    </p>
+
+    <h3>Key Requirements</h3>
+    <ul>
+      <li>Hardware:
+        <ul>
+          <li>Arm-based smartphone CPU</li>
+          <li>SME2-enabled device preferred; otherwise utilise NEON on CPU or optionally an onboard NPU</li>
+          <li>Microphone and audio output (speaker or headphones)</li>
+        </ul>
+      </li>
+      <li>Software:
+        <ul>
+          <li>Speech-to-Text (STT):
+            <ul>
+              <li>Small-footprint on-device ASR model</li>
+              <li>Examples: Whisper-tiny (int8), Wav2Vec2-lite, Vosk</li>
+            </ul>
+          </li>
+          <li>LLM-Based Translation / Rewrite:
+            <ul>
+              <li>Compact on-device LLM</li>
+              <li>Examples: Phi-2 (int4/int8), Gemma-2B (int4)</li>
+              <li>Supports either direct translation or semantic rewriting for fluency</li>
+            </ul>
+          </li>
+          <li>Text-to-Speech (TTS):
+            <ul>
+              <li>Low-latency neural acoustic model and vocoder</li>
+              <li>Examples: FastSpeech2 + HiFiGAN, VITS-lite</li>
+            </ul>
+          </li>
+          <li>No cloud inference permitted</li>
+          <li>Quantization and Arm-specific optimizations required (SME2/NEON)</li>
+        </ul>
+      </li>
+    </ul>
+
+
+    <h3>Performance Targets</h3>
+    <ul>
+      <li>Near real-time end-to-end latency suitable for conversational use</li>
+      <li>Efficient on-device inference using quantized and optimized models</li>
+      <li>Energy-aware operation to maintain acceptable thermal and power behavior on mobile SoCs</li>
+      <li>Intelligible, natural-sounding synthesized speech output with minimal delay</li>
+    </ul>
+
+    <h3>Deliverables</h3>
+    <ul>
+      <li>Fully functional on-device speech-to-speech translation pipeline</li>
+      <li>Demonstration running on an Arm-based smartphone</li>
+      <li>Performance evaluation including latency, CPU utilization, and power considerations</li>
+      <li>Documentation describing model choices, optimizations (SME2/NEON), and system architecture</li>
+    </ul>
+
+    <h3>Learning Outcomes</h3>
+    <ul>
+      <li>Understanding of end-to-end speech-to-speech AI pipelines</li>
+      <li>Hands-on experience optimizing AI workloads for Arm CPUs</li>
+      <li>Practical knowledge of model quantization and mobile inference constraints</li>
+      <li>Insight into energy-efficient, low-latency system design for edge AI</li>
+      <li>Exposure to SME2 and NEON optimization strategies on modern Arm platforms</li>
+    </ul>
+  </div>
+</details>
+
+  <!-- Problem 5 -->
+  <details class="ch-accordion">
+    <summary>
+      <span class="ch-acc-title">Problem Statement 5</span>
+      <span class="ch-acc-subtitle">
+        Real-Time Object Detection Using Hardware-Accelerated CNN on Xilinx Zynq FPGA with Arm Processor
+      </span>
+    </summary>
+    <div class="ch-acc-body">
+      <h3>Objective</h3>
+      <p>
+        Design and implement a hardware-accelerated CNN inference system on a Xilinx Zynq SoC, leveraging FPGA fabric to achieve real-time object detection or image classification, and quantitatively demonstrate performance improvements over a CPU-only implementation.
+      </p>
+      
+
+      <h3>Project Description</h3>
+      <p>
+        This project focuses on accelerating edge AI workloads on embedded platforms using hardware/software co-design. Students will implement a lightweight convolutional neural network (CNN) for object detection or image classification on a Xilinx Zynq SoC, which integrates an Arm processor with FPGA fabric.
+      </p>
+      <p>
+        The system partitions functionality between the Arm core and FPGA:
+        <ul>
+          <li>The Arm core handles image capture, preprocessing, control logic, and post-processing.</li>
+          <li>The FPGA fabric accelerates compute-intensive CNN operations such as convolution, activation, and pooling using Vitis HLS or Vivado.</li>
+        </ul>
+        The final system will perform real-time inference using either a live camera feed or a standard dataset, with detailed performance comparison against a software-only CPU implementation.
+      </p>
+   
+
+      <h3>Key Requirements</h3>
+      <ul>
+        <li>Hardware:
+          <ul>
+            <li>Xilinx Zynq-based development board</li>
+            <li>Examples: Zynq-7000, ZCU104, ZedBoard</li>
+            <li>Camera input (USB or onboard) or stored image dataset</li>
+            <li>Display output or serial console for results</li>
+          </ul>
+        </li>
+        <li>Software:
+          <ul>
+            <li>CNN Models:
+              <ul>
+                <li>Lightweight models such as Tiny-YOLO, MobileNet, or a custom 3-layer CNN</li>
+              </ul>
+            </li>
+            <li>FPGA Design:
+              <ul>
+                <li>Vitis HLS or Vivado for CNN accelerator implementation</li>
+                <li>Verilog or HLS C++ for hardware modules</li>
+              </ul>
+            </li>
+            <li>Embedded Software:
+              <ul>
+                <li>Vitis / SDSoC for HW/SW co-design</li>
+                <li>Optional PetaLinux</li>
+                <li>OpenCV for image capture and preprocessing</li>
+                <li>C++ or Python for control logic and system integration</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    
+
+      <h3>Performance Targets</h3>
+      <ul>
+        <li>Real-time or near real-time inference on embedded hardware</li>
+        <li>Minimum 2× speedup compared to software-only CNN execution on Arm CPU</li>
+        <li>Measurable improvements in:
+          <ul>
+            <li>Latency</li>
+            <li>Throughput</li>
+            <li>Power efficiency</li>
+            <li>Efficient use of FPGA resources (LUTs, BRAM, DSPs)</li>
+          </ul>
+        </li>
+      </ul>
+    
+
+      <h3>Deliverables</h3>
+      <ul>
+        <li>Working FPGA-accelerated CNN prototype performing object detection or image classification</li>
+        <li>Hardware/software co-design implementation running on a Zynq platform</li>
+        <li>Performance comparison between:
+          <ul>
+            <li>CPU-only implementation</li>
+            <li>Hardware-accelerated implementation</li>
+          </ul>
+        </li>
+        <li>Documentation covering:
+          <ul>
+            <li>System architecture</li>
+            <li>Design partitioning decisions</li>
+            <li>Performance analysis (latency, throughput, resource usage, power)</li>
+          </ul>
+        </li>
+        <li>Live demo or recorded demonstration of real-time inference</li>
+      </ul>
+
+
+      <h3>Learning Outcomes</h3>
+      <ul>
+        <li>Understanding of embedded edge AI and CNN inference pipelines</li>
+        <li>Practical experience with FPGA-based acceleration using HLS</li>
+        <li>Skills in Arm–FPGA hardware/software co-design</li>
+        <li>Performance analysis and optimization of embedded systems</li>
+        <li>Insight into trade-offs between flexibility, performance, and power in heterogeneous SoCs</li>
+      </ul>
+    </div>
+  </details>
+</section>
+<a href="" class="ch-floating-register">Register</a>
