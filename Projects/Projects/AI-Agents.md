@@ -19,7 +19,6 @@ license:
 status:
     - "Published" 
 donation:
-badges: trending
 ---
 
 
@@ -66,6 +65,7 @@ To receive the benefits, you must show us your project through our [online form]
 
 
 3. [AI agent to track real-time student engagement and exam performance (Jasper Wang, Sritej Tummuru, Talha Javed)](https://github.com/JasperWANG-911/AI_Agent)
+
 
 
 
