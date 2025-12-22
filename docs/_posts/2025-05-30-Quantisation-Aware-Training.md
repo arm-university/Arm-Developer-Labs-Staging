@@ -65,6 +65,7 @@ full_description: |-
 
   To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
 ---
+
 ## Description  
 
 This open-ended project invites students to explore **Quantization-Aware Training (QAT)** with PyTorch to optimize computer vision models for **Arm-based mobile devices** (e.g., Android smartphones).
