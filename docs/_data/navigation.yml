@@ -32,7 +32,7 @@ projects:
       \ laptops and desktops."
     url: /2025/05/30/R-Arm-Community-Support.html
     subjects:
-    - Performance and Architecture
+    - ML
     - Migration to Arm
     - Libraries
     platform:
@@ -52,9 +52,9 @@ projects:
     url: /2025/05/30/AI-Agents.html
     subjects:
     - ML
+    - Performance and Architecture
     platform:
     - Servers and Cloud Computing
-    - Laptops and Desktops
     - AI
     sw-hw:
     - Software
@@ -63,14 +63,13 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
-  - title: Haskell-Compiler-Windows-on-Arm
-    description: "This self-service project brings native Glasgow Haskell Compiler\
-      \ support to Windows on Arm\u2014unlocking efficient Arm-laptop builds, extending\
-      \ Haskell\u2019s reach, and giving contributors hands-on experience with Arm64\
-      \ code generation and runtime integration."
-    url: /2025/05/30/Haskell-Compiler-Windows-on-Arm.html
+  - title: R-Arm-Community-Support
+    description: "This self-service project boosts the R ecosystem on Windows on Arm\
+      \ by identifying unsupported packages, upstreaming fixes, and automating builds\u2014\
+      so data scientists can run their workflows natively on fast, efficient Arm64\
+      \ laptops and desktops."
+    url: /2025/05/30/R-Arm-Community-Support.html
     subjects:
-    - Migration to Arm
     - Performance and Architecture
     platform:
     - Servers and Cloud Computing
@@ -149,11 +148,9 @@ projects:
     - CI-CD
     - ML
     - Migration to Arm
+    - Libraries
     platform:
-    - Servers and Cloud Computing
     - Laptops and Desktops
-    - Mobile, Graphics, and Gaming
-    - AI
     sw-hw:
     - Software
     support-level:
@@ -193,8 +190,21 @@ projects:
     - Servers and Cloud Computing
     - Laptops and Desktops
     - AI
+  - title: Haskell-Compiler-Windows-on-Arm
+    description: "This self-service project brings native Glasgow Haskell Compiler\
+      \ support to Windows on Arm\u2014unlocking efficient Arm-laptop builds, extending\
+      \ Haskell\u2019s reach, and giving contributors hands-on experience with Arm64\
+      \ code generation and runtime integration."
+    url: /2025/05/30/Haskell-Compiler-Windows-on-Arm.html
+    subjects:
+    - Migration to Arm
+    - Performance and Architecture
+    platform:
+    - Servers and Cloud Computing
+    - Laptops and Desktops
     sw-hw:
     - Software
+    - Hardware
     support-level:
     - Self-Service
     - Arm Ambassador Support
@@ -213,9 +223,18 @@ projects:
     - Servers and Cloud Computing
     - Laptops and Desktops
     - AI
+  - title: C-Based-Application-from-Scratch
+    description: This self-service project goes back to the fundamentals. The challenge
+      is to develop an application of your choice but your are only permitted to use
+      the C language with as few dependencies as possible.
+    url: /2025/07/11/C-Based-Application-from-Scratch.html
+    subjects:
+    - Performance and Architecture
+    - Libraries
+    platform:
+    - IoT
     sw-hw:
     - Software
-    - Hardware
     support-level:
     - Self-Service
     - Arm Ambassador Support
@@ -253,6 +272,22 @@ projects:
     platform:
     - Servers and Cloud Computing
     - Laptops and Desktops
+  - title: AI-Powered-Porting-Tool
+    description: "This self-service project creates an AI-driven porting engine that\
+      \ analyzes package dependencies, auto-generates fixes, and submits pull requests\u2014\
+      accelerating native macOS and Windows-on-Arm support for bioinformatics and\
+      \ R software so researchers can run demanding workflows directly on modern Arm\
+      \ devices."
+    url: /2025/05/30/AI-Powered-Porting-Tool.html
+    subjects:
+    - CI-CD
+    - ML
+    - Migration to Arm
+    platform:
+    - Servers and Cloud Computing
+    - Laptops and Desktops
+    - Mobile, Graphics, and Gaming
+    - AI
     sw-hw:
     - Software
     support-level:
@@ -267,10 +302,21 @@ projects:
     url: /2025/11/27/Ethos-U85-NPU-Applications.html
     subjects:
     - ML
+  - title: Architecture-Insight-Dashboard
+    description: "This self-service project develops a data-rich dashboard that visualizes\
+      \ the popularity of Arm CPU/OS combinations and pinpoints software-stack support\
+      \ for specific extensions\u2014giving developers an instant, validated view\
+      \ of where their workloads will run best."
+    url: /2025/05/30/Architecture-Insight-Dashboard.html
+    subjects:
     - Performance and Architecture
+    - Web
     platform:
     - IoT
     - Embedded and Microcontrollers
+    - Servers and Cloud Computing
+    - Laptops and Desktops
+    - Mobile, Graphics, and Gaming
     - AI
     sw-hw:
     - Software
@@ -300,22 +346,40 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
-  - title: Academic-Trends-Dashboard
-    description: "This self-service project creates a web-scraping, database-driven\
-      \ dashboard that visualizes how computer-science research topics shift over\
-      \ time\u2014helping Arm partners and chip architects align future hardware designs\
-      \ with emerging algorithmic trends."
-    url: /2025/05/30/Academic-Trends-Dashboard.html
+  - title: Responsible-AI-and-Yellow-Teaming
+    description: "This self-service project equips teams with a YellowTeamGPT workflow\
+      \ that probes Arm-based AI products for unintended impacts\u2014turning responsible-AI\
+      \ stress-testing into a core step of the development cycle."
+    url: /2025/05/30/Responsible-AI-and-Yellow-Teaming.html
     subjects:
-    - Web
-    - Databases
+    - ML
     platform:
     - Servers and Cloud Computing
     - Laptops and Desktops
-    - Mobile, Graphics, and Gaming
     - AI
     sw-hw:
     - Software
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    status:
+    - Published
+  - title: SpecINT2017-benchmarking-on-Arm64
+    description: "This self-service project profiles SPEC CPU2017 on Arm64 servers\u2014\
+      using GCC, Clang, and Arm Compiler with top-down analysis\u2014to reveal how\
+      \ compiler choices and Arm micro-architectural features impact execution time,\
+      \ energy efficiency, and performance bottlenecks."
+    url: /2025/05/30/SpecINT2017-benchmarking-on-Arm64.html
+    subjects:
+    - Performance and Architecture
+    - Migration to Arm
+    platform:
+    - Servers and Cloud Computing
+    - Laptops and Desktops
+    - AI
+    sw-hw:
+    - Software
+    - Hardware
     support-level:
     - Self-Service
     - Arm Ambassador Support
@@ -369,6 +433,12 @@ projects:
       it wakes up a more capable processor to carry out high-value inference, interaction,
       or control tasks.
     url: /2025/11/27/Always-On-AI-with-Ethos-U85-NPU.html
+  - title: Arduino-IDE-Windows-on-Arm
+    description: "This self-service project ports and optimizes the Arduino IDE\u2014\
+      patching its lzma-native dependency\u2014to run natively and efficiently on\
+      \ Windows on Arm, giving developers hands-on experience with cross-platform\
+      \ builds, Arm64 performance tuning, and upstream open-source contributions."
+    url: /2025/05/30/Arduino-IDE-Windows-on-Arm.html
     subjects:
     - ML
     - Performance and Architecture
@@ -377,6 +447,31 @@ projects:
     platform:
     - IoT
     - Embedded and Microcontrollers
+    - Migration to Arm
+    - Libraries
+    platform:
+    - Laptops and Desktops
+    sw-hw:
+    - Software
+    - Hardware
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    status:
+    - Published
+  - title: Academic-Trends-Dashboard
+    description: "This self-service project creates a web-scraping, database-driven\
+      \ dashboard that visualizes how computer-science research topics shift over\
+      \ time\u2014helping Arm partners and chip architects align future hardware designs\
+      \ with emerging algorithmic trends."
+    url: /2025/05/30/Academic-Trends-Dashboard.html
+    subjects:
+    - Web
+    - Databases
+    platform:
+    - Servers and Cloud Computing
+    - Laptops and Desktops
+    - Mobile, Graphics, and Gaming
     - AI
     sw-hw:
     - Software
@@ -399,6 +494,16 @@ projects:
     - Graphics
     platform:
     - Mobile, Graphics, and Gaming
+  - title: HPC-Algorithm
+    description: "This self-service project is around finding a HPC algorithm and\
+      \ accelerating it with Arm\u2019s SVE/SVE2 vectorization\u2014demonstrating\
+      \ how next-generation Arm hardware can deliver significant, scalable performance\
+      \ gains."
+    url: /2025/05/30/HPC-Algorithm.html
+    subjects:
+    - Performance and Architecture
+    platform:
+    - Servers and Cloud Computing
     - Laptops and Desktops
     - AI
     sw-hw:
