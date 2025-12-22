@@ -1,7 +1,0 @@
-/* inline layout for titles + badges */
-.project-header{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
-.project-header .badges{flex-shrink:0}
-
-/* generic badge styling (used everywhere) */
-.badges{display:inline-flex;gap:.25rem;align-items:center}
-.badge{height:20px;width:auto}
