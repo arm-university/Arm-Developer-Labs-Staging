@@ -1,5 +1,5 @@
 ---
-title: Processor in the Loop Automotive Controller on an Arm Cortex M7 Fast Model
+title: Processor-in-the-Loop-Automotive
 description: Verify a Simulink automotive controller by running processor-in-the-loop (PIL) tests on a virtual Arm Cortex M7 processor.
 subjects:
 - Embedded Linux
@@ -26,7 +26,7 @@ layout: article
 sidebar:
   nav: projects
 full_description: |-
-  <img class="image image--xl" src="/Arm-Developer-Labs/images/mathworks2.png"/>
+  <img class="image image--xl" src="/Arm-Developer-labs/images/mathworks2.png" loading="lazy" decoding="async" />
 
 
   ## Description
@@ -69,11 +69,11 @@ full_description: |-
 
   ## Benefits 
 
-  Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+  Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
   To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
 ---
-<img class="image image--xl" src="/Arm-Developer-Labs/images/mathworks2.png"/>
+<img class="image image--xl" src="/Arm-Developer-labs/images/mathworks2.png" loading="lazy" decoding="async" />
 
 
 ## Description
@@ -116,6 +116,6 @@ This project is designed to be self-serve but comes with opportunity of some com
 
 ## Benefits 
 
-Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
 To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.

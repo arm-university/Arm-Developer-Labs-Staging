@@ -1,5 +1,5 @@
 ---
-title: Running Real-Time Image Classification on Arm Cortex-M with CMSIS-NN
+title: Real-Time-Image-Classification
 description: This self-service project trains, quantizes, and CMSIS-NN-deploys a CNN to achieve real-time image classification on an Arm Cortex-M board—demonstrating low-power, edge-ready AI on microcontrollers.
 subjects:
 - ML
@@ -25,7 +25,7 @@ layout: article
 sidebar:
   nav: projects
 full_description: |-
-  <img class="image image--xl" src="/Arm-Developer-Labs/images/computer_vision.jpg"/>
+  <img class="image image--xl" src="/Arm-Developer-labs/images/computer_vision.jpg" loading="lazy" decoding="async" />
 
 
   ## Description
@@ -57,11 +57,11 @@ full_description: |-
 
   ## Benefits 
 
-  Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+  Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
   To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
 ---
-<img class="image image--xl" src="/Arm-Developer-Labs/images/computer_vision.jpg"/>
+<img class="image image--xl" src="/Arm-Developer-labs/images/computer_vision.jpg" loading="lazy" decoding="async" />
 
 
 ## Description
@@ -93,6 +93,6 @@ This project is designed to be self-serve but comes with opportunity of some com
 
 ## Benefits 
 
-Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
 To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.

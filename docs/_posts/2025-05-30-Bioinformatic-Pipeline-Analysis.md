@@ -1,5 +1,5 @@
 ---
-title: Benchmarking Bioconda Packages for Arm64 in Bioinformatics Pipelines
+title: Bioinformatic-Pipeline-Analysis
 description: This self-service project benchmarks Arm64 Bioconda packages in real nf-core workflows—measuring performance, diagnosing build failures, and proposing fixes that accelerate truly native bioinformatics on the expanding fleet of Arm-powered machines.
 subjects:
 - Performance and Architecture
@@ -69,7 +69,8 @@ full_description: |-
 
   ## Benefits 
 
-  Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+  Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
+
 
   To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
 ---
@@ -119,6 +120,7 @@ This project is designed to be self-serve but comes with opportunity of some com
 
 ## Benefits 
 
-Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
+
 
 To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.

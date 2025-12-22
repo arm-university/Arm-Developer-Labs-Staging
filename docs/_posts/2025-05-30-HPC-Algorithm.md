@@ -1,5 +1,5 @@
 ---
-title: Optimise Performance of an Algorithm Used in High-Performance Compute Using Scalable Vector Extensions (SVE / SVE2)
+title: HPC-Algorithm
 description: This self-service project is around finding a HPC algorithm and accelerating it with Arm’s SVE/SVE2 vectorization—demonstrating how next-generation Arm hardware can deliver significant, scalable performance gains.
 subjects:
 - Performance and Architecture
@@ -19,6 +19,7 @@ license:
 status:
 - Published
 donation:
+badges: trending
 layout: article
 sidebar:
   nav: projects
@@ -53,7 +54,8 @@ full_description: |-
 
   ## Benefits 
 
-  Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+  Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
+
 
   To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
 ---
@@ -87,6 +89,7 @@ This project is designed to be self-serve but comes with opportunity of some com
 
 ## Benefits 
 
-Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
+
 
 To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.

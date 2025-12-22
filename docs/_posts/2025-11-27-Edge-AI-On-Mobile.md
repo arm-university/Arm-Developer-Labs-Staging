@@ -1,5 +1,5 @@
 ---
-title: 'SME2 on vivo X300: Mobile Edge AI Projects for multi-modal inference, built on Arm Lumex'
+title: Edge-AI-On-Mobile
 description: Leverage the latest SME2 (Scalable Matrix Extension 2) available on the newest vivo X300 smartphones (built on Arm Lumex CSS) for advanced image/video, audio and text processing edge AI. Explore how SME2, via KleidiAI, enables larger matrix workloads, higher throughput, and novel applications on device without cloud connectivity required.
 subjects:
 - ML
@@ -20,6 +20,7 @@ publication-date: 2025-11-27
 license:
 status:
 - Published
+badges: trending
 layout: article
 sidebar:
   nav: projects
@@ -70,8 +71,7 @@ full_description: |-
 
   ## Benefits 
 
-  Standout project contributions will result in digital badges for CV building, recognised by Arm Talent Acquisition. We are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
-
+  Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
   To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
 
@@ -123,8 +123,7 @@ This project is designed to be self-serve but comes with opportunity of some com
 
 ## Benefits 
 
-Standout project contributions will result in digital badges for CV building, recognised by Arm Talent Acquisition. We are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
-
+Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
 To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
 

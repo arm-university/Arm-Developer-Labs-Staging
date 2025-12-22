@@ -1,5 +1,5 @@
 ---
-title: Python Package Porting Challenge
+title: Python-Porting-Challenge
 description: This challenge focuses on enabling Python support for Windows on Arm (WoA) to improve developer experience. While Python is widely used in research and industry, many popular packages—such as Pandas—still lack pre-built WoA binaries (win_arm64 wheels). The goal is to validate and optimise third-party packages, fix compatibility issues, and collaborate with maintainers to upstream WoA support.
 subjects:
 - Libraries
@@ -21,7 +21,7 @@ layout: article
 sidebar:
   nav: projects
 full_description: |-
-  <img class="image image--xl" src="/Arm-Developer-Labs/images/Educate_on_Arm_banner.png"/>
+  <img class="image image--xl" src="/Arm-Developer-labs/images/Educate_on_Arm_banner.png" loading="lazy" decoding="async" />
 
   ### *We are open to supporting participants through hardware donations, such as gift cards to help procure Windows on Arm laptops for development and research purposes. Please reach out to us at Arm-Developer-Labs@arm.com for more details on eligibility*
 
@@ -65,11 +65,11 @@ full_description: |-
 
   ## Benefits 
 
-  Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+  Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
   To receive the benefits, you must share your contribution through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
 ---
-<img class="image image--xl" src="/Arm-Developer-Labs/images/Educate_on_Arm_banner.png"/>
+<img class="image image--xl" src="/Arm-Developer-labs/images/Educate_on_Arm_banner.png" loading="lazy" decoding="async" />
 
 ### *We are open to supporting participants through hardware donations, such as gift cards to help procure Windows on Arm laptops for development and research purposes. Please reach out to us at Arm-Developer-Labs@arm.com for more details on eligibility*
 
@@ -113,6 +113,6 @@ This project is designed to be self-serve but comes with opportunity of some com
 
 ## Benefits 
 
-Standout project contributions will result in preferential internal referrals to Arm Talent Acquisition (with digital badges for CV building).  And we are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
 To receive the benefits, you must share your contribution through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
