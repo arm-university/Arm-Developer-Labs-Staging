@@ -5,7 +5,6 @@ from io import StringIO
 from pathlib import Path
 
 import frontmatter
-from datetime import datetime
 import ruamel.yaml
 from ruamel.yaml.scalarstring import LiteralScalarString
 
@@ -178,8 +177,7 @@ def convert_md_images_to_html(md_text: str, doc_path: Path) -> str:
 
         # Treat as relative filesystem path
         source_path = (doc_path.parent / img_path).resolve()
-        target_folder = (docs_dir_path / "images").resolve()
-        target_folder.mkdir(parents=True, exist_ok=True)
+        DOCS_IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 
         if source_path.is_file():
             try:
@@ -187,9 +185,10 @@ def convert_md_images_to_html(md_text: str, doc_path: Path) -> str:
             except Exception as e:
                 print(f"[WARN] Could not copy {source_path} -> {DOCS_IMAGES_DIR}: {e}")
         else:
-            print(f"Warning: {source_path} does not exist in {doc_path}!")
+            print(f"[WARN] {source_path} does not exist (referenced in {doc_path})")
 
-        new_img_path = f"/Arm-Developer-Labs/images/{Path(img_path).name}"
+        fname = Path(img_path).name
+        new_img_path = f"{BASEURL}/images/{fname}"
 
         if "ACA_badge.jpg" in fname:
             return f'<img class="image image--l" src="{new_img_path}" loading="lazy" decoding="async" />'
@@ -197,9 +196,16 @@ def convert_md_images_to_html(md_text: str, doc_path: Path) -> str:
 
     return _MD_IMAGE_RE.sub(replace, md_text)
 
+
 def convert_md(md_text: str) -> str:
+    """
+    Specific content replacements:
+    - Replace 'Developer Labs Website' link with 'Developer Labs Repository'
+    - Replace a specific YouTube thumbnail link with an <iframe>
+    """
     pattern_link = "[Developer Labs Website](https://arm-university.github.io/Arm-Developer-Labs/)"
     replacement_link = "[Developer Labs Repository](https://github.com/arm-university/Arm-Developer-Labs)"
+
     pattern_youtube = "[![Arm-CMU collaboration](https://img.youtube.com/vi/zaRozkrcix0/0.jpg)](https://www.youtube.com/watch?v=zaRozkrcix0)"
     replacement_youtube = (
         '<iframe width="560" height="315" '
@@ -248,7 +254,8 @@ def write_post_from_path(path: Path, out_dir: Path) -> None:
     if path.name == "README.md":
         return
 
-    return replaced_md
+    raw_text = path.read_text(encoding="utf-8")
+    post = frontmatter.loads(raw_text)
 
     # Prefer 'date', then 'publication-date', else file mtime
     stat = path.stat()
@@ -285,79 +292,6 @@ def write_post_from_path(path: Path, out_dir: Path) -> None:
     out_path.write_text(formatted, encoding="utf-8")
     print(f"[OK] Wrote {out_path.relative_to(REPO_ROOT)}")
 
-        # If there's a 'date' key in frontmatter, normalize it to "YYYY-MM-DD"
-        date_meta = post.metadata.get("publication-date")
-        if date_meta is None:
-            # If there's no date, fallback to file's modified date
-            timestamp = path.stat().st_mtime
-            date_str = datetime.fromtimestamp(timestamp).strftime("%Y-%m-%d")
-        elif isinstance(date_meta, datetime):
-            date_str = date_meta.strftime("%Y-%m-%d")
-        else:
-            # If it's already a string, trust it but ensure formatting
-            try:
-                parsed = datetime.fromisoformat(str(date_meta))
-                date_str = parsed.strftime("%Y-%m-%d")
-            except ValueError:
-                # If it isn't ISO, just take the first 10 chars
-                date_str = str(date_meta)[:10]
-
-        # Build a slug from the filename (without .md)
-        filename = path.name  # e.g. "my-project.md"
-        slug = filename.removesuffix(".md")
-
-        # For certain top-level markdowns ("projects.md", "research.md"), 
-        # we assign a special article_header override:
-        # if path.name in ["projects.md", "research.md"]:
-        #     post.metadata["article_header"] = {
-        #         "type": "cover",
-        #         "image": {
-        #             "src": "/images/DeveloperLabs_Header.png",
-        #         },
-        #     }
-
-        # Always set layout to "article"
-        post.metadata["layout"] = "article"
-
-        # Only set sidebar nav if it's a project‐level file (not the top-level README)
-        if path.name != "projects.md":
-            post.metadata["sidebar"] = {"nav": "projects"}
-
-        data = {"full_description": post.content}
-        post.metadata.update(data)
-        
-        # Use ruamel.yaml for proper literal block scalar formatting
-        yaml = ruamel.yaml.YAML()
-        yaml.preserve_quotes = True
-        yaml.width = 4096
-        
-        # Create the frontmatter manually to ensure literal block scalars
-        metadata_copy = post.metadata.copy()
-        
-        # Convert multiline strings to literal scalars
-        for key, value in metadata_copy.items():
-            if isinstance(value, str) and '\n' in value:
-                metadata_copy[key] = ruamel.yaml.scalarstring.LiteralScalarString(value)
-        
-        # Manually construct the frontmatter
-        from io import StringIO
-        stream = StringIO()
-        yaml.dump(metadata_copy, stream)
-        yaml_content = stream.getvalue()
-        
-        # Build the full content with frontmatter
-        formatted_content = f"---\n{yaml_content}---\n{post.content}"
-
-        # Convert Markdown image embeds → HTML and copy assets
-        converted_content = convert_md_images_to_html(
-            formatted_content,
-            path
-        )
-
-        # Build the new filename: "<date>-<slug>.md"
-        new_filename = f"{date_str}-{slug}.md"
-        out_file = Path(docs_path, new_filename)
-        out_file.write_text(converted_content, encoding="utf-8")
 
 def format_index() -> None:
     """
