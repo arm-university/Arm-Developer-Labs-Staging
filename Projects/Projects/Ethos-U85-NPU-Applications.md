@@ -20,6 +20,7 @@ publication-date: 2025-11-27
 license:
 status:
   - "Published"
+badges: trending
 donation:
 ---
 
