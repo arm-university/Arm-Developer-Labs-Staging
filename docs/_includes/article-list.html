@@ -108,44 +108,33 @@
       </li>
 
     {%- elsif include.type == 'grid' -%}
-      {%- assign _badges = _article.badges | default: _article.data.badges -%}
       {%- if include.size == 'sm' -%}
         <div class="cell cell--12 cell--md-4 cell--lg-3">
           <div class="card card--flat">
             {%- if _article.cover -%}
               <div class="card__image">
-                <img class="image" src="{{ _article_cover }}" alt="{{ _article.title | escape }}" loading="lazy" decoding="async" />
+                <img class="image" src="{{ _article_cover }}" />
                 <div class="overlay overlay--bottom">
-                  <header class="card__header-wrap">
+                  <header>
                     <a href="{{ _article_url }}"><h2 class="card__header">{{ _article.title }}</h2></a>
-                    {%- if _badges -%}{% include badges.html items=_badges %}{%- endif -%}
                   </header>
                 </div>
               </div>
-            {%- else -%}
-              <div class="card__content">
-                <header class="card__header-wrap">
-                  <a href="{{ _article_url }}"><h2 class="card__header">{{ _article.title }}</h2></a>
-                  {%- if _badges -%}{% include badges.html items=_badges %}{%- endif -%}
-                </header>
-              </div>
             {%- endif -%}
-          </div>
+            </div>
         </div>
       {%- else -%}
+
         <div class="cell cell--12 cell--md-6 cell--lg-4">
           <div class="card card--flat">
             {%- if _article.cover -%}
-              <div class="card__image">
-                <img src="{{ _article_cover }}" alt="{{ _article.title | escape }}" loading="lazy" decoding="async" />
-              </div>
+              <div class="card__image"><img src="{{ _article_cover }}" /></div>
             {%- endif -%}
-            <div class="card__content">
-              <header class="card__header-wrap">
-                <a href="{{ _article_url }}"><h2 class="card__header">{{ _article.title }}</h2></a>
-                {%- if _badges -%}{% include badges.html items=_badges %}{%- endif -%}
-              </header>
-            </div>
+              <div class="card__content">
+                <header>
+                  <a href="{{ _article_url }}"><h2 class="card__header">{{ _article.title }}</h2></a>
+                </header>
+              </div>
           </div>
         </div>
       {%- endif -%}
