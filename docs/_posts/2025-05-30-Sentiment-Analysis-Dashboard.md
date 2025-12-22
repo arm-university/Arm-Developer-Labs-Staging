@@ -55,6 +55,7 @@ full_description: |-
 
   To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
 ---
+
 ## Description
 This project aims to develop a sentiment analysis dashboard for keywords related to the semiconductor industry. The main deliverable is a web scraping script that gathers text data from various semiconductor news sites. Example sites are [SemiconductorEngineering.com](https://semiengineering.com/), [IEEE Spectrum](https://spectrum.ieee.org/), [EETimes](https://www.eetimes.com/tag/semiconductors/), [SemiconductorDigest](https://www.semiconductor-digest.com/), [SemiconductorToday](https://semiconductor-today.com/), [Financial Times - Semiconductors](https://www.ft.com/semiconductors), [Bezinga Semiconductors](https://www.benzinga.com/topic/semiconductors).
 
