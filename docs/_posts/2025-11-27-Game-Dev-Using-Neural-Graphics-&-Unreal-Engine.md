@@ -21,7 +21,9 @@ publication-date: 2025-11-27
 license:
 status:
 - Published
-badges: trending
+badges:
+- trending
+- recently_added
 donation:
 layout: article
 sidebar:
