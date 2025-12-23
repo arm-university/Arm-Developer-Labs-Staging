@@ -20,12 +20,15 @@ publication-date: 2025-11-27
 license:
 status:
 - Published
+badges:
+- trending
+- recently_added
 donation:
 layout: article
 sidebar:
   nav: projects
 full_description: |-
-  <img class="image image--xl" src="/Arm-Developer-Labs/images/Educate_on_Arm_banner.png"/>
+  <img class="image image--xl" src="/Arm-Developer-Labs-Staging/images/Educate_on_Arm_banner.png" loading="lazy" decoding="async" />
 
   ## Description
 
@@ -105,6 +108,7 @@ full_description: |-
   - Example Board: [Alif Ensemble DevKit E8](https://www.keil.arm.com/boards/alif-semiconductor-devkit-e8-gen-1-2558a7b/features/)  
   - Documentation: [TOSA Specification](https://www.mlplatform.org/tosa/), [TOSA Model Explorer](https://github.com/arm/tosa-adapter-model-explorer), and [TOSA Reference Model](https://gitlab.arm.com/tosa/tosa-reference-model)
   - PyTorch Blog: [ExecuTorch support for Ethos-U85](https://pytorch.org/blog/pt-executorch-ethos-u85/)
+
   ---
 
   ## Support Level
@@ -113,12 +117,13 @@ full_description: |-
 
   ## Benefits 
 
-  Standout project contributions will result in digital badges for CV building, recognised by Arm Talent Acquisition. We are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+  Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
 
   To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
 ---
-<img class="image image--xl" src="/Arm-Developer-Labs/images/Educate_on_Arm_banner.png"/>
+
+<img class="image image--xl" src="/Arm-Developer-Labs-Staging/images/Educate_on_Arm_banner.png" loading="lazy" decoding="async" />
 
 ## Description
 
@@ -198,6 +203,7 @@ You should be familiar with, or willing to learn about:
 - Example Board: [Alif Ensemble DevKit E8](https://www.keil.arm.com/boards/alif-semiconductor-devkit-e8-gen-1-2558a7b/features/)  
 - Documentation: [TOSA Specification](https://www.mlplatform.org/tosa/), [TOSA Model Explorer](https://github.com/arm/tosa-adapter-model-explorer), and [TOSA Reference Model](https://gitlab.arm.com/tosa/tosa-reference-model)
 - PyTorch Blog: [ExecuTorch support for Ethos-U85](https://pytorch.org/blog/pt-executorch-ethos-u85/)
+
 ---
 
 ## Support Level
@@ -206,7 +212,7 @@ This project is designed to be self-serve but comes with opportunity of some com
 
 ## Benefits 
 
-Standout project contributions will result in digital badges for CV building, recognised by Arm Talent Acquisition. We are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
 
 To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
