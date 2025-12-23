@@ -23,6 +23,8 @@ license:
 status:
 - Published
 donation:
+badges:
+- recently_added
 layout: article
 sidebar:
   nav: projects
