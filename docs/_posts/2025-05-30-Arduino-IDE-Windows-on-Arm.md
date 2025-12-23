@@ -20,8 +20,6 @@ license:
 status:
 - Published
 donation:
-badges:
-- trending
 layout: article
 sidebar:
   nav: projects
