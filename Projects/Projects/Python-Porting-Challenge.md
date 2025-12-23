@@ -17,6 +17,8 @@ license:
 status:
     - "Published"
 donation: 
+badges: 
+    - recently_added
 ---
 
 ![teach_on_arm](../../images/Educate_on_Arm_banner.png)
@@ -66,3 +68,4 @@ This project is designed to be self-serve but comes with opportunity of some com
 Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
 To receive the benefits, you must share your contribution through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
+

@@ -22,7 +22,9 @@ publication-date: 2025-11-27
 license:
 status:
     - "Published" 
-donation: 
+donation:
+badges: 
+    - recently_added
 ---
 
 ![educate_on_arm](../../images/Educate_on_Arm_banner.png)
@@ -78,4 +80,5 @@ Standout project contributions to the community will earn digital badges. These 
 
 
 To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
+
 
