@@ -303,7 +303,8 @@
 /* Floating Button */
 .ch-floating-register {
   position: fixed;
-  right: 22px;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 22px;
   padding: 12px 20px;
   background: var(--purple);
@@ -319,5 +320,5 @@
 .ch-floating-register:hover {
   background: var(--purple-dark);
   color: #111111;
-  transform: translateY(-3px);
+  transform: translateX(-50%) translateY(-3px);
 }
