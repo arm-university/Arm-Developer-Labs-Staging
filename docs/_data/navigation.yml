@@ -300,6 +300,26 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
+  - title: Computational-Photography
+    description: This project creates and implements a novel computational photography
+      pipeline that is optimized for Arm-based mobile devices using SME2 and neural
+      technology. This project comes with the possibility of a hardware donation to
+      support your efforts
+    url: /2026/01/07/Computational-Photography.html
+    subjects:
+    - ML
+    - Graphics
+    platform:
+    - Laptops and Desktops
+    - AI
+    sw-hw:
+    - Software
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    - Direct Support from Arm
+    status:
+    - Published
   - title: Academic-Trends-Dashboard
     description: "This self-service project creates a web-scraping, database-driven\
       \ dashboard that visualizes how computer-science research topics shift over\
