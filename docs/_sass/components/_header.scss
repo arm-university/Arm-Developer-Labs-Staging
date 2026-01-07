@@ -84,6 +84,16 @@
 
 .navigation {
   @include overflow(auto, "x");
+  
+  /* Hide navigation on mobile by default */
+  @media (max-width: 768px) {
+    display: none !important;
+    
+    &.navigation--open {
+      display: block !important;
+    }
+  }
+  
   & > ul {
     height: map-get($layout, header-height);
     padding-bottom: 0;
@@ -235,8 +245,9 @@
   }
 }
 
-/* Mobile Related Layout */
-
+/* ============= */
+/* MOBILE NAVIGATION */
+/* ============= */
 
 @media (max-width: 768px) {
   .header {
@@ -261,7 +272,6 @@
   }
   
   .navigation {
-    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -269,13 +279,11 @@
     background: $header-background;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
     
     &.navigation--open {
-      display: block;
       max-height: 500px;
+      overflow: visible;
     }
     
     & > ul {
