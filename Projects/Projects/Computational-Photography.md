@@ -7,7 +7,6 @@ subjects:
 requires-team:
     - "No"
 platform:
-    - "Mobile"
     - "Laptops and Desktops"
     - "AI"
 sw-hw:
@@ -30,25 +29,24 @@ donation:
 
 **Why this is important?** 
 
-For end users, one of the most important factors when selecting a new smart phone is the camera and the associated features. Features, such as night-mode image or extreme digital zoom leverage neural networks to improve various aspects of an image such as signal-to-noise (SNR) ratio. For example, the Google Pixel 10 Pros new, [pro-res zoom](https://blog.google/products/pixel/google-pixel-pro-res-zoom/) feature uses on-device diffusion models to fill in any missing information with generative AI when zooming in. 
+For many consumers, the camera and its associated features are among the most important factors when choosing a new smartphone. Modern capabilities such as night-mode photography and extreme digital zoom increasingly rely on neural networks to enhance image quality, for example by improving the signal-to-noise ratio (SNR). A notable example is the Google Pixel 10 Pro’ [pro-res zoom](https://blog.google/products/pixel/google-pixel-pro-res-zoom/) which uses on-device diffusion models and generative AI to reconstruct fine detail when zooming beyond the optical range. 
 
-With the availability of Arm's scalable matrix extension (SME2) in commercial handsets, this CPU feature enables more advanced and capable neural networks to run locally on device, allowing more devices to run neural networks as part of their photographic pipeline and enabling a more portable software that isn't written for a specific Neural Processing Unit (NPU).
+With the introduction of Arm’s Scalable Matrix Extension (SME2) in commercial handsets, these advanced neural networks can now run efficiently on the CPU itself. This enables a wider range of devices to incorporate neural networks directly into their photography pipelines, while also promoting more portable software designs that are not tightly coupled to a specific Neural Processing Unit (NPU).
+
 
 **Project Summary**
 
-This challenge is to create a novel Computational Photography pipeline on an Arm-based device. This could involve running 
+This challenge focuses on designing and implementing a novel computational photography pipeline on an Arm-based device. Your solution must implement one of the following example pipelines, or a closely related variant:
 
-You must implement one of the following pipelines:
+	•	Night-mode imaging: Improve the signal-to-noise ratio (SNR) of photographs captured in low-light conditions.
+	•	Portrait-mode imaging: Apply realistic bokeh blur effects to background regions in portrait photographs.
+	•	Neural ray denoising: Use neural networks to denoise ray-based or rendering-related image data.
+	•	Generative AI–based pipelines: Leverage GenAI models, such as style-transfer or diffusion-based approaches, to enhance or transform images.
 
-- Night-Mode imaging: improving the SNR of photographs taken in low light conditions
-- Portrait-Mode image: Applying Bokeh blur effects on the background segments of a portrait photograph
-- Neural-Ray denoising:
-- Pipeline that leverages GenAI-based models (e.g., style-transfer models)
+For example, your approach could involve fine-tuning an existing model, implementing a novel pipeline. The objective is to optimize your pipeline for both inference latency and perceived image quality and the technical criteria, of your project, on which you will be judged, are as follows:
 
-The objective is to optimize your pipeline for both inference latency and perceived image quality and the technical criteria, of your project, on which you will be judged, are as follows:
 - Must use a quantized neural network, preferably less that 16-bits (i.e. quantized to less the FP16)
-- Preferably use the [ML Extensions for Vulkan](https://learn.arm.com/learning-paths/mobile-graphics-and-gaming/vulkan-ml-sample/)
-- Preferably use the Executorch runtime, designed for running neural networks with the [Arm Neural Technology backend](https://developer.arm.com/community/arm-community-blogs/b/ai-blog/posts/arm-neural-technology-in-executorch-1-0)
+- Preferably use the Executorch runtime, designed for running neural networks with the [Arm Neural Technology](https://developer.arm.com/community/arm-community-blogs/b/ai-blog/posts/arm-neural-technology-in-executorch-1-0) with the [ML Extensions for Vulkan](https://learn.arm.com/learning-paths/mobile-graphics-and-gaming/vulkan-ml-sample/) backend
 - Algorithms should run on an Arm-based CPU with single-instruction multiple data (SIMD) such as [SVE](https://developer.arm.com/Architectures/Scalable%20Vector%20Extensions) or [SME](https://www.arm.com/technologies/sme2) or an [Neural-Graphics](https://developer.arm.com/mobile-graphics-and-gaming/neural-graphics) enabled GPU (either simulation or physical handset once available)
 
 ## Prerequisites
