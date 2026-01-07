@@ -20,13 +20,14 @@
           {%- endif -%} -->
         </div>
         {%- if page.url == "/" or page.url == "/index.html" -%}
-        <button class="button button--secondary mission-button" onclick="document.querySelector('.grid.grid--reverse')?.scrollIntoView({behavior: 'smooth', block: 'start'})">Mission Statement</button>
+        <button class="button button--secondary mission-button mission-button--desktop" onclick="document.querySelector('.grid.grid--reverse')?.scrollIntoView({behavior: 'smooth', block: 'start'})">Mission Statement</button>
         {%- else -%}
-        <a class="button button--secondary mission-button" href="{{ "/#mission" | relative_url }}">Mission Statement</a>
+        <a class="button button--secondary mission-button mission-button--desktop" href="{{ "/#mission" | relative_url }}">Mission Statement</a>
         {%- endif -%}
-        {%- if site.search.provider -%}
-          <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
-        {%- endif -%}
+        <!-- Search button removed -->
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <span class="hamburger-icon"></span>
+        </button>
       </div>
       {%- if site.data.navigation.header -%}
       <nav class="navigation">
@@ -43,6 +44,15 @@
               <li class="navigation__item"><a href="{{ _nav_url }}">{%- if _item.title -%}{{ _item.title }}{%- else -%}{{ __return }}{%- endif -%}</a></li>
             {%- endif -%}
           {%- endfor -%}
+          {%- if page.url == "/" or page.url == "/index.html" -%}
+          <li class="navigation__item navigation__item--mobile-only">
+            <button class="button button--secondary mission-button" onclick="document.querySelector('.grid.grid--reverse')?.scrollIntoView({behavior: 'smooth', block: 'start'})">Mission Statement</button>
+          </li>
+          {%- else -%}
+          <li class="navigation__item navigation__item--mobile-only">
+            <a class="button button--secondary mission-button" href="{{ "/#mission" | relative_url }}">Mission Statement</a>
+          </li>
+          {%- endif -%}
           <button class="blog" onclick="window.location.href ='{{"Blog.html" | relative_url }}'">Community</button> 
           <li>
             <a href="https://github.com/arm-university/Arm-Developer-Labs" target="_blank" rel="noopener noreferrer" class="button button--secondary button--circle search-button">
@@ -51,6 +61,31 @@
           </li>
         </ul>
       </nav>
+      <!--<button class="blog" onclick="window.location.href ='{{"Blog.html" | relative_url }}'">Community</button> -->
       {%- endif -%}
     </div>
+    <script>
+      (function() {
+        var menuToggle = document.querySelector('.mobile-menu-toggle');
+        var navigation = document.querySelector('.navigation');
+        var header = document.querySelector('.header');
+        
+        if (menuToggle && navigation) {
+          menuToggle.addEventListener('click', function() {
+            navigation.classList.toggle('navigation--open');
+            menuToggle.classList.toggle('is-active');
+            header.classList.toggle('menu-open');
+          });
+          
+          // Close menu when clicking on a nav link
+          navigation.querySelectorAll('a, button').forEach(function(link) {
+            link.addEventListener('click', function() {
+              navigation.classList.remove('navigation--open');
+              menuToggle.classList.remove('is-active');
+              header.classList.remove('menu-open');
+            });
+          });
+        }
+      })();
+    </script>
   </header> 

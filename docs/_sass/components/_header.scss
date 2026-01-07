@@ -155,3 +155,201 @@
     border-color: transparent !important;
   }
 }
+
+/* ============= */
+/* MOBILE MENU TOGGLE */
+/* ============= */
+
+.mobile-menu-toggle {
+  display: none !important;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  margin-left: map-get($spacers, 2);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex !important;
+  }
+}
+
+.hamburger-icon {
+  position: relative;
+  width: 24px;
+  height: 2px;
+  background: $header-text-color;
+  transition: background 0.2s ease;
+  
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: $header-text-color;
+    transition: transform 0.3s ease, top 0.3s ease;
+  }
+  
+  &::before {
+    top: -7px;
+  }
+  
+  &::after {
+    top: 7px;
+  }
+}
+
+.mobile-menu-toggle.is-active .hamburger-icon {
+  background: transparent;
+  
+  &::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  
+  &::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+}
+
+/* Hide mission button on mobile in header title, show in nav */
+.mission-button--desktop {
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+}
+
+.navigation__item--mobile-only {
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+/* Mobile Related Layout */
+
+
+@media (max-width: 768px) {
+  .header {
+    position: relative;
+    
+    .main {
+      padding: 0 map-get($spacers, 3);
+    }
+  }
+  
+  .header__title {
+    width: 100%;
+    @include justify-content(space-between);
+    padding: map-get($spacers, 2) 0;
+  }
+  
+  .header__brand {
+    .brand_logo svg {
+      width: 120px;
+      height: auto;
+    }
+  }
+  
+  .navigation {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: $header-background;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    
+    &.navigation--open {
+      display: block;
+      max-height: 500px;
+    }
+    
+    & > ul {
+      @include flex-direction(column);
+      @include align-items(stretch);
+      padding: map-get($spacers, 3);
+      gap: map-get($spacers, 1);
+    }
+  }
+  
+  .navigation__item {
+    margin: 0;
+    padding: map-get($spacers, 2) 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    
+    &::after {
+      display: none;
+    }
+    
+    a {
+      display: block;
+      padding: map-get($spacers, 1) 0;
+    }
+  }
+  
+  .navigation__item--active {
+    &::after {
+      display: none;
+    }
+    
+    a {
+      font-weight: bold;
+    }
+  }
+  
+  .blog {
+    width: 100%;
+    text-align: left;
+    padding: map-get($spacers, 2) 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .navigation .search-button {
+    margin: map-get($spacers, 2) 0;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .header__brand {
+    .brand_logo svg {
+      width: 100px;
+    }
+  }
+  
+  .mobile-menu-toggle {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .hamburger-icon {
+    width: 20px;
+    
+    &::before,
+    &::after {
+      width: 20px;
+    }
+    
+    &::before {
+      top: -6px;
+    }
+    
+    &::after {
+      top: 6px;
+    }
+  }
+}
