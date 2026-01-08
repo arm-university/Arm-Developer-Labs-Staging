@@ -24,7 +24,7 @@ layout: article
 sidebar:
   nav: projects
 full_description: |-
-  <img class="image image--xl" src="/Arm-Developer-Labs/images/Super-resolution_example_closeup.png" loading="lazy" decoding="async" />
+  <img class="image image--xl" src="/Arm-Developer-Labs-Staging/images/Super-resolution_example_closeup.png" loading="lazy" decoding="async" />
 
   ### Description
 
@@ -84,7 +84,7 @@ full_description: |-
   By User:Omegatron - Created by User:Omegatron using the GIMP, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=1836856
 ---
 
-<img class="image image--xl" src="/Arm-Developer-Labs/images/Super-resolution_example_closeup.png" loading="lazy" decoding="async" />
+<img class="image image--xl" src="/Arm-Developer-Labs-Staging/images/Super-resolution_example_closeup.png" loading="lazy" decoding="async" />
 
 ### Description
 
