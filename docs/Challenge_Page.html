@@ -12,8 +12,8 @@ share_image: images/c2s_meity_logo.jpg
 {%- endif -%}
 
 {%- if page.share_image -%}
-<meta property="og:title" content="{{ page.title}}">
-<meta property="og:description" content="{{ page.description}}">
+<meta property="og:title" content="{{ page.title | default: site.title }}">
+<meta property="og:description" content="{{ page.description | default: site.description }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ resolved_url }}{{ site.baseurl }}{{ page.url }}">
 <meta property="og:image" content="{{ resolved_url }}{{ site.baseurl }}/{{ page.share_image }}">
@@ -33,7 +33,7 @@ share_image: images/c2s_meity_logo.jpg
           </div>
           <h1>Bharat AI-SoC Student Challenge</h1>
           <p class="ch-tagline">
-            A project-based virtual challenge to ignite innovation in AI-driven System-on-Chip (SoC) design using Arm architecture.
+            A project-based virtual challenge to ignite innovation in AI-driven System-on-Chip (SoC) design.
           </p>
           <div class="ch-header-meta">
             <div class="ch-meta-pill">
@@ -50,8 +50,9 @@ share_image: images/c2s_meity_logo.jpg
             </div>
           </div>
         </div>
-        <div style="flex: 0 0 auto; display: flex; align-items: center; justify-content: flex-end; height: 100%; min-width: 180px;">
-          <img src="images/c2s_meity_logo.jpg" alt="C2S MeitY Logo" style="height: 180px; width: auto; border-radius: 36px; filter: blur(0.5px) drop-shadow(0 0 40px rgba(120,120,120,0.18)); box-shadow: 0 8px 64px 0 rgba(0,0,0,0.14); background: rgba(255,255,255,0.16); margin-top: 64px; margin-bottom: 64px;" />
+        <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; min-width: 200px; padding: 20px 0;">
+          <img src="images/ARM LOGO - 2025 INK_150 ppi_RGB.jpg" alt="Arm Logo" style="height: 80px; width: auto; border-radius: 16px; box-shadow: 0 6px 32px 0 rgba(0,0,0,0.12); background: rgba(255,255,255,0.95); padding: 12px 20px;" />
+          <img src="images/c2s_meity_logo.jpg" alt="C2S MeitY Logo" style="height: 140px; width: auto; border-radius: 20px; box-shadow: 0 8px 40px 0 rgba(0,0,0,0.14); background: rgba(255,255,255,0.95); padding: 8px;" />
         </div>
       </div>
     </div>
@@ -92,12 +93,13 @@ share_image: images/c2s_meity_logo.jpg
           <li>Only Team Leader registers for the team.</li>
           <li>Duplicate registration results in rejection.</li>
           <li>Registration details must be accurate.</li>
-          <li>Mentoring by Arm experts (virtual) & college mentors (local).</li>
-          <li>Teams can reach Arm experts via email/Slack/Discord.</li>
+          <li>Mentoring by industry & academic experts  (virtual) & college mentors (local).</li>
+          <li>Teams can reach out to mentors(experts) via support email id as mentioned.</li>
           <li>Mini project to be hosted on GitHub and submitted using the challenge submission form.</li>
-          <li>Arm may assign a different problem statement.</li>
+          <li>All Challenge related notifications & updates will posted in this page.</li>
           <li>Winners must provide college ID & documents.</li>
           <li>Updates will be posted on this page.</li>
+          <li>The selection of finalists and winners will be solely at the discretion of the organizers of this challenge.</li>
           <li>Support: <strong>support@armbharatchallenge.com</strong></li>
         </ul>
 
@@ -125,38 +127,36 @@ share_image: images/c2s_meity_logo.jpg
             <tr>
               <td>Registration</td>
               <td>Interested students can register using the below registration link</td>
-              <td>24 Dec 2025</td>
-              <td>15 Jan 2026</td>
+              <td>05 Jan 2026</td>
+              <td>20 Jan 2026</td>
             </tr>
             <tr>
               <td>Mentoring Session</td>
-              <td>An online mentoring session by Arm experts will be conducted whose details will be shared in this webpage & also mailed to registrants</td>
-              <td>06 Jan 2026</td>
+              <td>An online mentoring session by industry & academic experts will be conducted whose details will be shared in this webpage & also mailed to registrants</td>
+              <td>10 Jan 2026</td>
               <td>20 Jan 2026</td>
             </tr>
             <tr>
               <td>Project Submission</td>
-              <td>Project Submission form will be shared with the participants by Arm</td>
+              <td>Project Submission form will be shared with the participants</td>
               <td>02 Feb 2026</td>
               <td>03 Feb 2026</td>
             </tr>
             <tr>
               <td>Project Evaluation</td>
-              <td>The submitted projects will be evaluated by the Arm experts & shortlist 25 best Projects/Teams</td>
+              <td>The submitted projects will be evaluated by the industry & academic experts & accordingly Finalists will be selected</td>
               <td>05 Feb 2026</td>
               <td>05 Mar 2026</td>
             </tr>
             <tr>
               <td>Finals</td>
-              <td>The shortlisted 25 Teams will be invited for a virtual meetup/hack to deliver a pitch</td>
-              <td>09 Mar 2026</td>
-              <td>12 Mar 2026</td>
+              <td>The Finalists will be invited for a virtual meetup/hack to deliver a pitch</td>
+              <td colspan="2" style="text-align: center;">Mid of March</td>
             </tr>
             <tr>
               <td>Winners Announcement</td>
               <td>The winning teams will be announced in this webpage with the details of the Rewards</td>
-              <td>13 Mar 2026</td>
-              <td>15 Mar 2026</td>
+              <td colspan="2" style="text-align: center;">Mid of March</td>
             </tr>
           </tbody>
         </table>
@@ -281,7 +281,7 @@ share_image: images/c2s_meity_logo.jpg
             <li>Monitor and standard peripherals.</li>
           </ul>
         </li>
-        <li>Software:
+        <li><strong>Software</strong>:
           <ul>
             <li>JetPack OS with CUDA support.</li>
             <li>Python, OpenCV, MediaPipe.</li>
@@ -390,7 +390,7 @@ share_image: images/c2s_meity_logo.jpg
 
     <h3>Objective</h3>
     <p>
-      Build a fully local, real-time speech-to-speech translation system optimized for Arm-based CPUs, leveraging SME2 where available (preferred) or optimising using NEON. The system must perform speech recognition, LLM-based translation or semantic rewriting, and speech synthesis entirely on-device, meeting mobile latency, power, and thermal constraints.
+      Build a fully local, real-time speech-to-speech translation system optimized for Arm-based CPUs, leveraging SME2 where available (preferred) or NEON/NPU otherwise. The system must perform speech recognition, LLM-based translation or semantic rewriting, and speech synthesis entirely on-device, meeting mobile latency, power, and thermal constraints.
     </p>
 
     <h3>Project Description</h3>
@@ -412,7 +412,7 @@ share_image: images/c2s_meity_logo.jpg
       <li>Hardware:
         <ul>
           <li>Arm-based smartphone CPU</li>
-          <li>SME2-enabled device preferred; otherwise utilise NEON on CPU or optionally an onboard NPU</li>
+          <li>SME2-enabled device preferred; otherwise NEON-optimized CPU or optional onboard NPU</li>
           <li>Microphone and audio output (speaker or headphones)</li>
         </ul>
       </li>
@@ -437,8 +437,8 @@ share_image: images/c2s_meity_logo.jpg
               <li>Examples: FastSpeech2 + HiFiGAN, VITS-lite</li>
             </ul>
           </li>
-          <li>No cloud inference permitted</li>
-          <li>Quantization and Arm-specific optimizations required (SME2/NEON)</li>
+          <li><strong>No cloud inference permitted</strong></li>
+          <li><strong>Quantization and Arm-specific optimizations required (SME2/NEON)</strong></li>
         </ul>
       </li>
     </ul>
@@ -583,4 +583,100 @@ share_image: images/c2s_meity_logo.jpg
     </div>
   </details>
 </section>
-<a href="" class="ch-floating-register">Register</a>
+
+<script src="//engaged.arm.com/js/forms2/js/forms2.min.js"></script>
+
+<div id="formWrapper" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:30px; border-radius:12px; max-width:600px; width:90%; max-height:90vh; overflow-y:auto; position:relative;">
+    <button id="closeFormBtn" style="position:absolute; top:10px; right:15px; background:none; border:none; font-size:24px; cursor:pointer;">&times;</button>
+    <form id="mktoForm_4309"></form>
+  </div>
+</div>
+
+<!-- Thank You Popup -->
+<div id="thankYouPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:1100; justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:40px 30px; border-radius:16px; max-width:450px; width:90%; text-align:center; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
+    <div style="width:70px; height:70px; background:linear-gradient(135deg, #8b5cf6, #7c3aed); border-radius:50%; margin:0 auto 20px; display:flex; align-items:center; justify-content:center;">
+      <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <h2 style="color:#7c3aed; margin:0 0 15px; font-size:24px;">Thank You!</h2>
+    <p style="color:#4b5563; margin:0 0 25px; font-size:16px; line-height:1.6;">Thank you for the submission. We will soon get back to you.</p>
+    <div id="redirectCountdown" style="color:#6b7280; font-size:14px;">Redirecting in <span id="countdownTimer">5</span> seconds...</div>
+  </div>
+</div>
+
+<a href="#" class="ch-floating-register">Register</a>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var registerBtn = document.querySelector(".ch-floating-register");
+    var formWrapper = document.getElementById("formWrapper");
+    var closeFormBtn = document.getElementById("closeFormBtn");
+    var thankYouPopup = document.getElementById("thankYouPopup");
+
+    if (registerBtn) {
+      registerBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        formWrapper.style.display = "flex";
+
+        if (!window.mktoLoaded) {
+          MktoForms2.loadForm(
+            "//engaged.arm.com",
+            "479-ZYW-907",
+            4309,
+            function(form) {
+              // Add form submission handler
+              form.onSuccess(function(values, followUpUrl) {
+                // Hide the form wrapper
+                formWrapper.style.display = "none";
+                
+                // Show thank you popup
+                thankYouPopup.style.display = "flex";
+                
+                // Countdown and redirect
+                var countdown = 5;
+                var countdownTimer = document.getElementById("countdownTimer");
+                
+                var countdownInterval = setInterval(function() {
+                  countdown--;
+                  countdownTimer.textContent = countdown;
+                  
+                  if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    // Redirect to the follow-up URL from Marketo
+                    if (followUpUrl) {
+                      window.location.href = followUpUrl;
+                    } else {
+                      // If no follow-up URL, just hide the popup
+                      thankYouPopup.style.display = "none";
+                    }
+                  }
+                }, 1000);
+                
+                // Return false to prevent the default form submission behavior
+                return false;
+              });
+            }
+          );
+          window.mktoLoaded = true;
+        }
+      });
+    }
+
+    if (closeFormBtn) {
+      closeFormBtn.addEventListener("click", function () {
+        formWrapper.style.display = "none";
+      });
+    }
+
+    if (formWrapper) {
+      formWrapper.addEventListener("click", function (e) {
+        if (e.target === this) {
+          this.style.display = "none";
+        }
+      });
+    }
+  });
+</script>

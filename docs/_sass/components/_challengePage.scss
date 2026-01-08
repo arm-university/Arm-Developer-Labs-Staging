@@ -303,7 +303,8 @@
 /* Floating Button */
 .ch-floating-register {
   position: fixed;
-  right: 22px;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 22px;
   padding: 12px 20px;
   background: var(--purple);
@@ -319,5 +320,291 @@
 .ch-floating-register:hover {
   background: var(--purple-dark);
   color: #111111;
-  transform: translateY(-3px);
+  transform: translateX(-50%) translateY(-3px);
+}
+
+
+/* Mobile Related Layout */
+
+
+@media (max-width: 768px) {
+  .challenge-wrapper {
+    padding: 10px;
+  }
+
+  .challenge-header {
+    padding: 20px 15px;
+    border-radius: 15px;
+  }
+
+  .challenge-header h1 {
+    font-size: 24px;
+    margin: 8px 0;
+  }
+
+  .ch-tagline {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .ch-badge {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+
+  /* Stack header content and logos vertically on mobile */
+  .ch-header-content > div {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .ch-header-content > div > div:first-child {
+    text-align: center;
+  }
+
+  .ch-header-content > div > div:last-child {
+    flex-direction: row !important;
+    gap: 15px !important;
+    padding: 15px 0 0 !important;
+    min-width: auto !important;
+  }
+
+  .ch-header-content > div > div:last-child img:first-child {
+    height: 50px !important;
+    padding: 8px 12px !important;
+    border-radius: 10px !important;
+  }
+
+  .ch-header-content > div > div:last-child img:last-child {
+    height: 70px !important;
+    border-radius: 12px !important;
+    padding: 5px !important;
+  }
+
+  /* Meta pills */
+  .ch-header-meta {
+    justify-content: center;
+    gap: 8px 12px;
+  }
+
+  .ch-meta-pill {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  /* Section Cards */
+  .ch-section {
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+  }
+
+  .ch-section h2 {
+    font-size: 19px;
+    padding-left: 10px;
+  }
+
+  .ch-section h2:before {
+    height: 19px;
+    width: 3px;
+  }
+
+  .ch-section p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .ch-section ul,
+  .ch-section ol {
+    font-size: 16px;
+    padding-left: 20px;
+    line-height: 1.6;
+  }
+
+  .ch-section li {
+    margin-bottom: 8px;
+  }
+
+  /* Timeline Table */
+  .ch-table {
+    font-size: 14px;
+  }
+
+  .ch-table th,
+  .ch-table td {
+    padding: 10px 8px;
+  }
+
+  /* Projects Section */
+  .ch-projects {
+    padding: 18px !important;
+  }
+
+  .ch-projects-intro {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* Accordion */
+  .ch-accordion summary {
+    padding: 12px 14px;
+    font-size: 16px;
+  }
+
+  .ch-acc-title {
+    font-size: 15px;
+  }
+
+  .ch-acc-subtitle {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .ch-acc-body {
+    padding: 12px 14px 16px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .ch-acc-body h3 {
+    font-size: 16px;
+    margin-top: 14px;
+  }
+
+  .ch-acc-body p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .ch-acc-body ul {
+    padding-left: 18px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .ch-acc-body li {
+    margin-bottom: 6px;
+  }
+
+  /* Floating Register Button */
+  .ch-floating-register {
+    padding: 12px 22px;
+    font-size: 16px;
+    bottom: 15px;
+  }
+
+  /* Note Box */
+  .ch-note {
+    padding: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* Email Link */
+  .ch-email {
+    font-size: 16px;
+  }
+
+  .ch-small {
+    font-size: 14px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .challenge-wrapper {
+    padding: 8px;
+  }
+
+  .challenge-header {
+    padding: 15px 12px;
+    border-radius: 12px;
+  }
+
+  .challenge-header h1 {
+    font-size: 20px;
+  }
+
+  .ch-tagline {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .ch-meta-pill {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  /* Stack logos vertically on very small screens */
+  .ch-header-content > div > div:last-child {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .ch-header-content > div > div:last-child img:first-child {
+    height: 45px !important;
+  }
+
+  .ch-header-content > div > div:last-child img:last-child {
+    height: 60px !important;
+  }
+
+  .ch-section {
+    padding: 14px;
+  }
+
+  .ch-section h2 {
+    font-size: 18px;
+  }
+
+  .ch-section p {
+    font-size: 15px;
+  }
+
+  .ch-section ul,
+  .ch-section ol {
+    font-size: 15px;
+  }
+
+  .ch-table {
+    font-size: 13px;
+  }
+
+  .ch-table th,
+  .ch-table td {
+    padding: 8px 6px;
+  }
+
+  .ch-accordion summary {
+    padding: 10px 12px;
+  }
+
+  .ch-acc-title,
+  .ch-acc-subtitle {
+    font-size: 14px;
+  }
+
+  .ch-acc-body {
+    font-size: 15px;
+    padding: 10px 12px 14px;
+  }
+
+  .ch-acc-body h3 {
+    font-size: 15px;
+  }
+
+  .ch-acc-body p,
+  .ch-acc-body ul {
+    font-size: 15px;
+  }
+
+  .ch-floating-register {
+    padding: 10px 20px;
+    font-size: 15px;
+    bottom: 12px;
+  }
+
+  .ch-note {
+    font-size: 14px;
+  }
 }
