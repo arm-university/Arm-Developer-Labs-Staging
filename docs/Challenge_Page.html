@@ -33,7 +33,7 @@ share_image: images/c2s_meity_logo.jpg
           </div>
           <h1>Bharat AI-SoC Student Challenge</h1>
           <p class="ch-tagline">
-            A project-based virtual challenge to ignite innovation in AI-driven System-on-Chip (SoC) design using Arm architecture.
+            A project-based virtual challenge to ignite innovation in AI-driven System-on-Chip (SoC) design.
           </p>
           <div class="ch-header-meta">
             <div class="ch-meta-pill">
@@ -93,10 +93,10 @@ share_image: images/c2s_meity_logo.jpg
           <li>Only Team Leader registers for the team.</li>
           <li>Duplicate registration results in rejection.</li>
           <li>Registration details must be accurate.</li>
-          <li>Mentoring by Arm experts (virtual) & college mentors (local).</li>
-          <li>Teams can reach Arm experts via email/Slack/Discord.</li>
+          <li>Mentoring by industry & academic experts  (virtual) & college mentors (local).</li>
+          <li>Teams can reach out to mentors(experts) via support email id as mentioned.</li>
           <li>Mini project to be hosted on GitHub and submitted using the challenge submission form.</li>
-          <li>Arm may assign a different problem statement.</li>
+          <li>All Challenge related notifications & updates will posted in this page.</li>
           <li>Winners must provide college ID & documents.</li>
           <li>Updates will be posted on this page.</li>
           <li>The selection of finalists and winners will be solely at the discretion of the organizers of this challenge.</li>
@@ -281,7 +281,7 @@ share_image: images/c2s_meity_logo.jpg
             <li>Monitor and standard peripherals.</li>
           </ul>
         </li>
-        <li>Software:
+        <li><strong>Software</strong>:
           <ul>
             <li>JetPack OS with CUDA support.</li>
             <li>Python, OpenCV, MediaPipe.</li>
@@ -390,7 +390,7 @@ share_image: images/c2s_meity_logo.jpg
 
     <h3>Objective</h3>
     <p>
-      Build a fully local, real-time speech-to-speech translation system optimized for Arm-based CPUs, leveraging SME2 where available (preferred) or optimising using NEON. The system must perform speech recognition, LLM-based translation or semantic rewriting, and speech synthesis entirely on-device, meeting mobile latency, power, and thermal constraints.
+      Build a fully local, real-time speech-to-speech translation system optimized for Arm-based CPUs, leveraging SME2 where available (preferred) or NEON/NPU otherwise. The system must perform speech recognition, LLM-based translation or semantic rewriting, and speech synthesis entirely on-device, meeting mobile latency, power, and thermal constraints.
     </p>
 
     <h3>Project Description</h3>
@@ -412,7 +412,7 @@ share_image: images/c2s_meity_logo.jpg
       <li>Hardware:
         <ul>
           <li>Arm-based smartphone CPU</li>
-          <li>SME2-enabled device preferred; otherwise utilise NEON on CPU or optionally an onboard NPU</li>
+          <li>SME2-enabled device preferred; otherwise NEON-optimized CPU or optional onboard NPU</li>
           <li>Microphone and audio output (speaker or headphones)</li>
         </ul>
       </li>
@@ -437,8 +437,8 @@ share_image: images/c2s_meity_logo.jpg
               <li>Examples: FastSpeech2 + HiFiGAN, VITS-lite</li>
             </ul>
           </li>
-          <li>No cloud inference permitted</li>
-          <li>Quantization and Arm-specific optimizations required (SME2/NEON)</li>
+          <li><strong>No cloud inference permitted</strong></li>
+          <li><strong>Quantization and Arm-specific optimizations required (SME2/NEON)</strong></li>
         </ul>
       </li>
     </ul>
@@ -593,6 +593,20 @@ share_image: images/c2s_meity_logo.jpg
   </div>
 </div>
 
+<!-- Thank You Popup -->
+<div id="thankYouPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:1100; justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:40px 30px; border-radius:16px; max-width:450px; width:90%; text-align:center; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
+    <div style="width:70px; height:70px; background:linear-gradient(135deg, #8b5cf6, #7c3aed); border-radius:50%; margin:0 auto 20px; display:flex; align-items:center; justify-content:center;">
+      <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <h2 style="color:#7c3aed; margin:0 0 15px; font-size:24px;">Thank You!</h2>
+    <p style="color:#4b5563; margin:0 0 25px; font-size:16px; line-height:1.6;">Thank you for the submission. We will soon get back to you.</p>
+    <div id="redirectCountdown" style="color:#6b7280; font-size:14px;">Redirecting in <span id="countdownTimer">5</span> seconds...</div>
+  </div>
+</div>
+
 <a href="#" class="ch-floating-register">Register</a>
 
 <script>
@@ -600,6 +614,7 @@ share_image: images/c2s_meity_logo.jpg
     var registerBtn = document.querySelector(".ch-floating-register");
     var formWrapper = document.getElementById("formWrapper");
     var closeFormBtn = document.getElementById("closeFormBtn");
+    var thankYouPopup = document.getElementById("thankYouPopup");
 
     if (registerBtn) {
       registerBtn.addEventListener("click", function (e) {
@@ -610,7 +625,40 @@ share_image: images/c2s_meity_logo.jpg
           MktoForms2.loadForm(
             "//engaged.arm.com",
             "479-ZYW-907",
-            4309
+            4309,
+            function(form) {
+              // Add form submission handler
+              form.onSuccess(function(values, followUpUrl) {
+                // Hide the form wrapper
+                formWrapper.style.display = "none";
+                
+                // Show thank you popup
+                thankYouPopup.style.display = "flex";
+                
+                // Countdown and redirect
+                var countdown = 5;
+                var countdownTimer = document.getElementById("countdownTimer");
+                
+                var countdownInterval = setInterval(function() {
+                  countdown--;
+                  countdownTimer.textContent = countdown;
+                  
+                  if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    // Redirect to the follow-up URL from Marketo
+                    if (followUpUrl) {
+                      window.location.href = followUpUrl;
+                    } else {
+                      // If no follow-up URL, just hide the popup
+                      thankYouPopup.style.display = "none";
+                    }
+                  }
+                }, 1000);
+                
+                // Return false to prevent the default form submission behavior
+                return false;
+              });
+            }
           );
           window.mktoLoaded = true;
         }
