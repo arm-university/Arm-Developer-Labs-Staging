@@ -158,12 +158,16 @@ type: article
                   {%- if _badges -%} data-badges='{{ _badges | jsonify }}'{%- endif -%}
                   data-url-rel='{{ _nav_url_rel }}'>
 
-                <header class="project-header">
-                  <a class="project-title" href="{{ _nav_url }}">{{ _child.title }}</a>
-                  {%- if _badges -%}
-                    {% include badges.html items=_badges %}
-                  {%- endif -%}
-                </header>
+               <header class="project-header">
+  <a class="project-title" href="{{ _nav_url }}">{{ _child.title }}</a>
+
+  {%- if _badges -%}
+    <div class="project-badges">
+      {% include badges.html items=_badges %}
+    </div>
+  {%- endif -%}
+</header>
+
 
                 <p class="project-desc">
                   {{ _child.description }}
@@ -247,4 +251,5 @@ type: article
     {%- include article-footer.html -%}
   </div>
 </div>
+
 
