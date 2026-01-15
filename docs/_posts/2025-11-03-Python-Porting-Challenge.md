@@ -25,7 +25,7 @@ sidebar:
 full_description: |-
   <img class="image image--xl" src="/Arm-Developer-Labs/images/Educate_on_Arm_banner.png" loading="lazy" decoding="async" />
 
-  ### *We are open to supporting participants through hardware donations, such as gift cards to help procure Windows on Arm laptops for development and research purposes. Please reach out to us at Arm-Developer-Labs@arm.com for more details on eligibility*
+  ### *We are open to supporting participants through access to hardware. Please reach out to us at Arm-Developer-Labs@arm.com for more details on eligibility*
 
   ## Description
 
@@ -61,8 +61,6 @@ full_description: |-
 
   ## Support Level
 
-  If you would like to request a small donation to help procure Windows on Arm hardware, please reach out to us at Arm-Developer-Lab@arm.com. 
-
   This project is designed to be self-serve but comes with opportunity of some community support from Arm Ambassadors, who are part of the Arm Developer program. If you are not already part of our program, [click here to join](https://www.arm.com/resources/developer-program?#register).
 
   ## Benefits 
@@ -74,7 +72,7 @@ full_description: |-
 
 <img class="image image--xl" src="/Arm-Developer-Labs/images/Educate_on_Arm_banner.png" loading="lazy" decoding="async" />
 
-### *We are open to supporting participants through hardware donations, such as gift cards to help procure Windows on Arm laptops for development and research purposes. Please reach out to us at Arm-Developer-Labs@arm.com for more details on eligibility*
+### *We are open to supporting participants through access to hardware. Please reach out to us at Arm-Developer-Labs@arm.com for more details on eligibility*
 
 ## Description
 
@@ -109,8 +107,6 @@ Key Objectives:
 
 
 ## Support Level
-
-If you would like to request a small donation to help procure Windows on Arm hardware, please reach out to us at Arm-Developer-Lab@arm.com. 
 
 This project is designed to be self-serve but comes with opportunity of some community support from Arm Ambassadors, who are part of the Arm Developer program. If you are not already part of our program, [click here to join](https://www.arm.com/resources/developer-program?#register).
 

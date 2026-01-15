@@ -158,12 +158,16 @@ type: article
                   {%- if _badges -%} data-badges='{{ _badges | jsonify }}'{%- endif -%}
                   data-url-rel='{{ _nav_url_rel }}'>
 
-                <header class="project-header">
-                  <a class="project-title" href="{{ _nav_url }}">{{ _child.title }}</a>
-                  {%- if _badges -%}
-                    {% include badges.html items=_badges %}
-                  {%- endif -%}
-                </header>
+               <header class="project-header">
+  <a class="project-title" href="{{ _nav_url }}">{{ _child.title }}</a>
+
+  {%- if _badges -%}
+    <div class="project-badges">
+      {% include badges.html items=_badges %}
+    </div>
+  {%- endif -%}
+</header>
+
 
                 <p class="project-desc">
                   {{ _child.description }}
@@ -174,33 +178,68 @@ type: article
         {%- endfor -%}
       </div>
 
-      <!-- 3) Filtering script (unchanged) -->
-      <script>
-        function filterProjects() {
-          const checks = Array.from(document.querySelectorAll('.filter-checkbox:checked'));
-          if (checks.length === 0) {
-            document.querySelectorAll('.project-item').forEach(el => el.style.display = '');
-            return;
-          }
-          const activeFilters = checks.map(cb => ({ cat: cb.dataset.category, val: cb.value }));
-          document.querySelectorAll('.project-item').forEach(li => {
-            const plats   = JSON.parse(li.dataset.platforms    || '[]');
-            const subs    = JSON.parse(li.dataset.subjects     || '[]');
-            const swhws   = JSON.parse(li.dataset.swhw         || '[]');
-            const levels  = JSON.parse(li.dataset.supportLevel || '[]');
-            const ok = activeFilters.every(f => {
-              switch (f.cat) {
-                case 'platform':      return plats.includes(f.val);
-                case 'subject':       return subs.includes(f.val);
-                case 'sw-hw':         return swhws.includes(f.val);
-                case 'support-level': return levels.includes(f.val);
-                default:              return true;
-              }
-            });
-            li.style.display = ok ? '' : 'none';
-          });
+     <script>
+  // Put projects with badge key "recently_added" first (per category list)
+  function hasRecentlyAddedBadge(li) {
+    let badges = [];
+    try {
+      badges = JSON.parse(li.dataset.badges || '[]');
+    } catch (e) {
+      badges = [];
+    }
+    return Array.isArray(badges) && badges.includes('recently_added');
+  }
+
+  function sortProjectsRecentlyAddedFirst() {
+    document.querySelectorAll('.project-list').forEach(ul => {
+      const items = Array.from(ul.querySelectorAll(':scope > .project-item'));
+
+      // stable sort: decorate with original index
+      const decorated = items.map((el, idx) => ({
+        el,
+        idx,
+        isRecent: hasRecentlyAddedBadge(el)
+      }));
+
+      decorated.sort((a, b) => {
+        if (a.isRecent !== b.isRecent) return a.isRecent ? -1 : 1; // recent first
+        return a.idx - b.idx; // preserve original order otherwise
+      });
+
+      decorated.forEach(d => ul.appendChild(d.el));
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    sortProjectsRecentlyAddedFirst();
+  });
+
+  // --- Existing filtering (unchanged) ---
+  function filterProjects() {
+    const checks = Array.from(document.querySelectorAll('.filter-checkbox:checked'));
+    if (checks.length === 0) {
+      document.querySelectorAll('.project-item').forEach(el => el.style.display = '');
+      return;
+    }
+    const activeFilters = checks.map(cb => ({ cat: cb.dataset.category, val: cb.value }));
+    document.querySelectorAll('.project-item').forEach(li => {
+      const plats   = JSON.parse(li.dataset.platforms    || '[]');
+      const subs    = JSON.parse(li.dataset.subjects     || '[]');
+      const swhws   = JSON.parse(li.dataset.swhw         || '[]');
+      const levels  = JSON.parse(li.dataset.supportLevel || '[]');
+      const ok = activeFilters.every(f => {
+        switch (f.cat) {
+          case 'platform':      return plats.includes(f.val);
+          case 'subject':       return subs.includes(f.val);
+          case 'sw-hw':         return swhws.includes(f.val);
+          case 'support-level': return levels.includes(f.val);
+          default:              return true;
         }
-      </script>
+      });
+      li.style.display = ok ? '' : 'none';
+    });
+  }
+</script>
     {%- endif -%}
   </div>
 
@@ -212,3 +251,5 @@ type: article
     {%- include article-footer.html -%}
   </div>
 </div>
+
+
