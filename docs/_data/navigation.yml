@@ -44,30 +44,6 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
-  - title: Edge-AI-with-Ethos-U85-NPU
-    description: The vision of Edge AI compute is to embed low-power intelligent sensing,
-      perception, and decision systems everywhere. A low-power always-on-AI island
-      continuously monitors sensory inputs to detect triggers. When a trigger is detected,
-      it wakes up a more capable processor to carry out high-value inference, interaction,
-      or control tasks.
-    url: /2025/11/27/Edge-AI-with-Ethos-U85-NPU.html
-    subjects:
-    - ML
-    - Performance and Architecture
-    - Embedded Linux
-    - RTOS Fundamentals
-    platform:
-    - IoT
-    - Embedded and Microcontrollers
-    - AI
-    sw-hw:
-    - Software
-    - Hardware
-    support-level:
-    - Self-Service
-    - Arm Ambassador Support
-    status:
-    - Published
   - title: AI-Agents
     description: "This self-service project builds a sandboxed AI agent on Arm hardware\
       \ that harnesses appropriately sized LLMs to safely automate complex workflows\u2014\
@@ -117,28 +93,6 @@ projects:
     - Libraries
     platform:
     - IoT
-    sw-hw:
-    - Software
-    support-level:
-    - Self-Service
-    - Arm Ambassador Support
-    status:
-    - Published
-  - title: NGP
-    description: "Build a playable Unreal Engine 5 game demo that utilises Arm\u2019\
-      s Neural Graphics SDK UE plugin for features such as Neural Super Sampling (NSS).\
-      \ Showcase near-identical image quality at lower resolution by driving neural\
-      \ rendering directly in the graphics pipeline."
-    url: /2025/11/27/NGP.html
-    subjects:
-    - ML
-    - Gaming
-    - Libraries
-    - Graphics
-    platform:
-    - Mobile, Graphics, and Gaming
-    - Laptops and Desktops
-    - AI
     sw-hw:
     - Software
     support-level:
@@ -267,28 +221,6 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
-  - title: SME2
-    description: Leverage the latest SME2 (Scalable Matrix Extension 2) available
-      on the newest vivo X300 smartphones (built on Arm Lumex CSS) for advanced image/video,
-      audio and text processing edge AI. Explore how SME2, via KleidiAI, enables larger
-      matrix workloads, higher throughput, and novel applications on device without
-      cloud connectivity required.
-    url: /2025/11/27/SME2.html
-    subjects:
-    - ML
-    - Performance and Architecture
-    - Libraries
-    platform:
-    - Mobile, Graphics, and Gaming
-    - AI
-    - IoT
-    sw-hw:
-    - Software
-    support-level:
-    - Self-Service
-    - Arm Ambassador Support
-    status:
-    - Published
   - title: Processor-in-the-Loop-Automotive
     description: Verify a Simulink automotive controller by running processor-in-the-loop
       (PIL) tests on a virtual Arm Cortex M7 processor.
@@ -368,6 +300,26 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
+  - title: Computational-Photography
+    description: This project creates and implements a novel computational photography
+      pipeline that is optimized for Arm-based mobile devices using SME2 and neural
+      technology. This project comes with the possibility of a hardware donation to
+      support your efforts
+    url: /2026/01/07/Computational-Photography.html
+    subjects:
+    - ML
+    - Graphics
+    platform:
+    - Laptops and Desktops
+    - AI
+    sw-hw:
+    - Software
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    - Direct Support from Arm
+    status:
+    - Published
   - title: Academic-Trends-Dashboard
     description: "This self-service project creates a web-scraping, database-driven\
       \ dashboard that visualizes how computer-science research topics shift over\
@@ -389,6 +341,28 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
+  - title: Edge-AI-On-Mobile
+    description: Leverage the latest SME2 (Scalable Matrix Extension 2) available
+      on the newest vivo X300 smartphones (built on Arm Lumex CSS) for advanced image/video,
+      audio and text processing edge AI. Explore how SME2, via KleidiAI, enables larger
+      matrix workloads, higher throughput, and novel applications on device without
+      cloud connectivity required.
+    url: /2025/11/27/Edge-AI-On-Mobile.html
+    subjects:
+    - ML
+    - Performance and Architecture
+    - Libraries
+    platform:
+    - Mobile, Graphics, and Gaming
+    - AI
+    - IoT
+    sw-hw:
+    - Software
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    status:
+    - Published
   - title: HPC-Algorithm
     description: "This self-service project is around finding a HPC algorithm and\
       \ accelerating it with Arm\u2019s SVE/SVE2 vectorization\u2014demonstrating\
@@ -399,6 +373,52 @@ projects:
     - Performance and Architecture
     platform:
     - Servers and Cloud Computing
+    - Laptops and Desktops
+    - AI
+    sw-hw:
+    - Software
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    status:
+    - Published
+  - title: Always-On-AI-with-Ethos-U85-NPU
+    description: The vision of Edge AI compute is to embed low-power intelligent sensing,
+      perception, and decision systems everywhere. A low-power always-on-AI island
+      continuously monitors sensory inputs to detect triggers. When a trigger is detected,
+      it wakes up a more capable processor to carry out high-value inference, interaction,
+      or control tasks.
+    url: /2025/11/27/Always-On-AI-with-Ethos-U85-NPU.html
+    subjects:
+    - ML
+    - Performance and Architecture
+    - Embedded Linux
+    - RTOS Fundamentals
+    platform:
+    - IoT
+    - Embedded and Microcontrollers
+    - AI
+    sw-hw:
+    - Software
+    - Hardware
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    status:
+    - Published
+  - title: Game-Dev-Using-Neural-Graphics-&-Unreal-Engine
+    description: "Build a playable Unreal Engine 5 game demo that utilises Arm\u2019\
+      s Neural Graphics SDK UE plugin for features such as Neural Super Sampling (NSS).\
+      \ Showcase near-identical image quality at lower resolution by driving neural\
+      \ rendering directly in the graphics pipeline."
+    url: /2025/11/27/Game-Dev-Using-Neural-Graphics-&-Unreal-Engine.html
+    subjects:
+    - ML
+    - Gaming
+    - Libraries
+    - Graphics
+    platform:
+    - Mobile, Graphics, and Gaming
     - Laptops and Desktops
     - AI
     sw-hw:
