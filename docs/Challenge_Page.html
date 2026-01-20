@@ -792,14 +792,9 @@ share_image: images/c2s_meity_logo.jpg
   </div>
 </div>
 
-<a href="#" class="ch-floating-register">Register</a>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    var registerBtn = document.querySelector(".ch-floating-register");
-    var formWrapper = document.getElementById("formWrapper");
-    var closeFormBtn = document.getElementById("closeFormBtn");
-    var thankYouPopup = document.getElementById("thankYouPopup");
 
     // FAQ Popup handlers
     var faqCard = document.getElementById("faqCard");
@@ -820,69 +815,6 @@ share_image: images/c2s_meity_logo.jpg
 
     if (faqPopup) {
       faqPopup.addEventListener("click", function(e) {
-        if (e.target === this) {
-          this.style.display = "none";
-        }
-      });
-    }
-
-    if (registerBtn) {
-      registerBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        formWrapper.style.display = "flex";
-
-        if (!window.mktoLoaded) {
-          MktoForms2.loadForm(
-            "//engaged.arm.com",
-            "479-ZYW-907",
-            4309,
-            function(form) {
-              // Add form submission handler
-              form.onSuccess(function(values, followUpUrl) {
-                // Hide the form wrapper
-                formWrapper.style.display = "none";
-                
-                // Show thank you popup
-                thankYouPopup.style.display = "flex";
-                
-                // Countdown and redirect
-                var countdown = 5;
-                var countdownTimer = document.getElementById("countdownTimer");
-                
-                var countdownInterval = setInterval(function() {
-                  countdown--;
-                  countdownTimer.textContent = countdown;
-                  
-                  if (countdown <= 0) {
-                    clearInterval(countdownInterval);
-                    // Redirect to the follow-up URL from Marketo
-                    if (followUpUrl) {
-                      window.location.href = followUpUrl;
-                    } else {
-                      // If no follow-up URL, just hide the popup
-                      thankYouPopup.style.display = "none";
-                    }
-                  }
-                }, 1000);
-                
-                // Return false to prevent the default form submission behavior
-                return false;
-              });
-            }
-          );
-          window.mktoLoaded = true;
-        }
-      });
-    }
-
-    if (closeFormBtn) {
-      closeFormBtn.addEventListener("click", function () {
-        formWrapper.style.display = "none";
-      });
-    }
-
-    if (formWrapper) {
-      formWrapper.addEventListener("click", function (e) {
         if (e.target === this) {
           this.style.display = "none";
         }
