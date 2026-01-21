@@ -1,6 +1,6 @@
 ---
-title: "SME2 on vivo X300: Mobile Edge AI Projects for multi-modal inference, built on Arm Lumex"
-description: "Leverage the latest SME2 (Scalable Matrix Extension 2) available on the newest vivo X300 smartphones (built on Arm Lumex CSS) for advanced image/video, audio and text processing edge AI. Explore how SME2, via KleidiAI, enables larger matrix workloads, higher throughput, and novel applications on device without cloud connectivity required."
+title: "SME2 on vivo X300 and other devices: Mobile Edge AI Projects for multi-modal inference."
+description: "Leverage the latest SME2 (Scalable Matrix Extension 2) available on the newest vivo X300 smartphones (built on Arm Lumex CSS) or other SME2-enabled devices for advanced image/video, audio and text processing edge AI. Explore how SME2, via KleidiAI, enables larger matrix workloads, higher throughput, and novel applications on device without cloud connectivity required."
 subjects:
   - "ML"
   - "Performance and Architecture"
@@ -33,6 +33,8 @@ SME2 (Scalable Matrix Extension 2) is the latest CPU extension on Arm Lumex CSS.
 The vivo X300 is built on Arm Lumex. SME2 now enables AI compute that previously was too heavy or inaccessible on mobile. Developers can now utilise these advancements to deliver advanced applications on-device, reducing latency, increasing data privacy, and unlocking novel use-cases.
 
 [vivo X300, built on Arm Lumex](https://www.arm.com/company/success-library/vivo-x300-smartphones)
+
+Other devices also support SME2, including both Apple and Android - [see the full list here](https://learn.arm.com/learning-paths/cross-platform/multiplying-matrices-with-sme2/1-get-started#devices)
 
 ### Project Summary
 
