@@ -139,8 +139,8 @@ share_image: images/c2s_meity_logo.jpg
             <tr>
               <td>Project Submission</td>
               <td>Project Submission form will be shared with the participants</td>
-              <td>02 Feb 2026</td>
-              <td>03 Feb 2026</td>
+              <td>10 Feb 2026</td>
+              <td>15 Feb 2026</td>
             </tr>
             <tr>
               <td>Project Evaluation</td>
@@ -162,14 +162,154 @@ share_image: images/c2s_meity_logo.jpg
         </table>
       </section>
 
-      <section class="ch-section">
+     <section class="ch-section">
         <h2>Support & Queries</h2>
-        <p>For support, email:</p>
-        <p><a href="mailto:support@armbharatchallenge.com" class="ch-email">support@armbharatchallenge.com</a></p>
+
+        <p>For general support, email:</p>
+        <p>
+          <a href="mailto:support@armbharatchallenge.com" class="ch-email">
+            support@armbharatchallenge.com
+          </a>
+        </p>
+
+        <p class="ch-tech-note">
+          For any technical queries with regards to the problem statements, please mail your queries to
+          <a href="mailto:tech-queries@armbharatchallenge.com">
+            tech-queries@armbharatchallenge.com
+          </a>
+          clearly mentioning the problem statement number in the subject line.
+        </p>
+
         <p class="ch-small">All updates will be posted on this page.</p>
+     </section>
+
+      <section class="ch-section ch-faq-card" id="faqCard" style="cursor: pointer;">
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        <p>Find answers to common questions about the Bharat AI-SoC Student Challenge.</p>
+        <p class="ch-small" style="color: #7c3aed; font-weight: 500;">Click here to view FAQs →</p>
       </section>
     </div>
   </main>
+</div>
+
+<!-- FAQ Popup Modal -->
+<div id="faqPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:1100; justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:30px; border-radius:16px; max-width:700px; width:90%; max-height:85vh; overflow-y:auto; position:relative; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
+    <button id="closeFaqBtn" style="position:absolute; top:15px; right:20px; background:none; border:none; font-size:28px; cursor:pointer; color:#6b7280;">&times;</button>
+    <h2 style="color:#7c3aed; margin:0 0 10px; font-size:24px;">Frequently Asked Questions</h2>
+    <p style="color:#6b7280; margin:0 0 25px; font-size:14px;">Click on a question to expand and view the answer.</p>
+    
+    <div class="faq-list">
+      <details class="ch-accordion">
+        <summary>
+          <span class="ch-acc-title">Q1: Who can participate in this Challenge?</span>
+        </summary>
+        <div class="ch-acc-body">
+          <p>The Bharat AI-SoC Student Challenge is open to any undergraduate or post-graduate student, currently enrolled in a regular full-time course from a recognized higher education Institution or University in India, and having some basic understanding of AI, ML, SoC and Digital Logic Design.</p>
+        </div>
+      </details>
+
+      <details class="ch-accordion">
+        <summary>
+          <span class="ch-acc-title">Q2: Can a team have members from different institutions?</span>
+        </summary>
+        <div class="ch-acc-body">
+          <p>No, all team members should be from the same institution, and from the same Campus.</p>
+        </div>
+      </details>
+
+      <details class="ch-accordion">
+        <summary>
+          <span class="ch-acc-title">Q3: Can a team have members from different branches and different semesters from the same institution?</span>
+        </summary>
+        <div class="ch-acc-body">
+          <p>Yes, a team can comprise of members from different branches and semesters, as long as all the team members are from the same institution, and are currently enrolled in a regular full-time course from the said institution.</p>
+        </div>
+      </details>
+
+      <details class="ch-accordion">
+        <summary>
+          <span class="ch-acc-title">Q4: Can a team make changes to its team composition, members and/or problem statements allocated to them?</span>
+        </summary>
+        <div class="ch-acc-body">
+          <p>Yes, a team has the option of changing the team composition, members and/or problem statements allocated to them. However, this option can be exercised only once (1), and should be exercised within fifteen (15) days of registering. Concerned teams will have to inform the organizers about their modification intention by sending an email to <a href="mailto:support@armbharatchallenge.com">support@armbharatchallenge.com</a>. Any decision regarding acceptance/rejection of any modification request from registered teams will be at the sole discretion of the organizers of this Challenge.</p>
+        </div>
+      </details>
+
+      <details class="ch-accordion">
+        <summary>
+          <span class="ch-acc-title">Q5: Can a Faculty Mentor provide mentorship support to more than one (1) participating team from the same institution?</span>
+        </summary>
+        <div class="ch-acc-body">
+          <p>Yes, a Faculty Mentor can provide mentorship support to more than one (1) team from the same institution. However, it will be the responsibility of the participating team and the concerned Mentor to ensure that he/she is not overloaded with mentorship requests, and that the teams receive the requisite amount of guidance and support from their Mentor.</p>
+        </div>
+      </details>
+
+      <details class="ch-accordion">
+        <summary>
+          <span class="ch-acc-title">Q6: Can someone enrolled in a distance/part-time program/course, and currently engaged as a working professional participate in this Challenge?</span>
+        </summary>
+        <div class="ch-acc-body">
+          <p>No, individuals pursuing a distance/part-time program/course, while engaged as a working professional, are not eligible to participate in this Challenge. It is open only to undergraduate or post-graduate students, currently enrolled in a regular full-time course from a recognized higher education Institution or University in India.</p>
+        </div>
+      </details>
+
+      <details class="ch-accordion">
+        <summary>
+          <span class="ch-acc-title">Q7: Is there a prize money for the winning teams?</span>
+        </summary>
+        <div class="ch-acc-body">
+          <p>Yes, the Top-5 teams will receive a prize money of Indian Rupees (INR) One (1) Lakh each.</p>
+          <p>Up to fifty (50) teams can be selected as Challenge Finalists, contingent upon the teams and projects meeting pre-defined qualification criteria. All members of teams selected as Finalists will receive Arm-branded Swags.</p>
+        </div>
+      </details>
+
+      <details class="ch-accordion">
+        <summary>
+          <span class="ch-acc-title">Q8: Will this Challenge be organized digitally or in-person mode?</span>
+        </summary>
+        <div class="ch-acc-body">
+          <p>The Bharat AI-SoC Student Challenge is an exclusively virtual hackathon. There is no in-person component to the same.</p>
+        </div>
+      </details>
+
+      <details class="ch-accordion">
+        <summary>
+          <span class="ch-acc-title">Q9: Will the hardware needed to work on the projects by the participants be provided by the Challenge organizers?</span>
+        </summary>
+        <div class="ch-acc-body">
+          <p>No special hardware or software should be necessary for this Challenge. It is expected that the institutions that the participants are enrolled in will have the necessary hardware and software required to work on projects pertaining to this Challenge. As such, we encourage the participants to work with their respective College/University Administration and their Faculty Mentors for any kind of hardware and/or software support requirements.</p>
+        </div>
+      </details>
+
+      <details class="ch-accordion">
+        <summary>
+          <span class="ch-acc-title">Q10: What is the evaluation criteria for projects submitted as part of this Challenge?</span>
+        </summary>
+        <div class="ch-acc-body">
+          <p>A set of metrics and criteria has been defined and will be used to evaluate the projects submitted as part of Bharat AI-SoC Student Challenge. Some key aspects that the Panel of Judges may look into include:</p>
+          <ul>
+            <li>Understanding of the Problem Statement and Alignment to Program Objective</li>
+            <li>Technical Correctness of the Solution and Implementation Quality</li>
+            <li>Novelty of the Idea and Solution Developed</li>
+            <li>Use of ARM Tools in the Solution and Criticality of the same</li>
+            <li>Solution Performance and Optimization</li>
+            <li>Documentation Quality and Completeness</li>
+            <li>Solution Demo and Presentation</li>
+          </ul>
+        </div>
+      </details>
+
+       <details class="ch-accordion">
+        <summary>
+          <span class="ch-acc-title">Q11: Can the participants participate in this challenge by applying for more than 1 more problem statement?</span>
+        </summary>
+        <div class="ch-acc-body">
+          <p>No, the participants can apply for only 1 problem statement out of the given 5 problem statements in this challenge.</p>
+        </div>
+      </details>
+    </div>
+  </div>
 </div>
 
 <!--Project Section-->
@@ -201,6 +341,15 @@ share_image: images/c2s_meity_logo.jpg
       <p>
         Students will build an embedded speech pipeline performing:
       </p>
+      <div style="margin:24px 0; display:flex; justify-content:center;">
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/6RYfIH39pI0"
+          title="YouTube video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          style="max-width:100%; border-radius:12px; box-shadow:0 6px 24px rgba(0,0,0,0.12);"></iframe>
+      </div>
       <ul>
         <li>Speech-to-text using a lightweight ASR model (e.g., Coqui STT or fine-tuned wav2vec2 for Hindi).</li>
         <li>Command parsing and intent recognition in Python.</li>
@@ -271,6 +420,15 @@ share_image: images/c2s_meity_logo.jpg
         Students will use MediaPipe Hands (optimized for Arm CPU and Jetson GPU) to detect hand landmarks, then classify
         gestures and map them to keyboard shortcuts using Python libraries like <code>pynput</code> or <code>xdotool</code>.
       </p>
+      <div style="margin:24px 0; display:flex; justify-content:center;">
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/PNdTXSF_-Ak"
+          title="YouTube video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          style="max-width:100%; border-radius:12px; box-shadow:0 6px 24px rgba(0,0,0,0.12);"></iframe>
+      </div>
 
       <h3>Key Requirements</h3>
       <ul>
@@ -335,6 +493,15 @@ share_image: images/c2s_meity_logo.jpg
         edge-optimized format (TensorFlow Lite / ONNX Runtime), and integrate it with an OpenCV video pipeline.
         Detected anomalies should trigger timestamped logs or saved clips.
       </p>
+      <div style="margin:24px 0; display:flex; justify-content:center;">
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/uWn6R82CrHw"
+          title="YouTube video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          style="max-width:100%; border-radius:12px; box-shadow:0 6px 24px rgba(0,0,0,0.12);"></iframe>
+      </div>
 
       <h3>Key Requirements</h3>
       <ul>
@@ -406,6 +573,15 @@ share_image: images/c2s_meity_logo.jpg
       </ol>
       to produce natural, fluent spoken output in Language B. All inference must run locally with no cloud dependency, demonstrating efficient use of Arm CPU acceleration and mobile-friendly optimizations.
     </p>
+    <div style="margin:24px 0; display:flex; justify-content:center;">
+      <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/A1X9nIiAV1M"
+        title="YouTube video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        style="max-width:100%; border-radius:12px; box-shadow:0 6px 24px rgba(0,0,0,0.12);"></iframe>
+    </div>
 
     <h3>Key Requirements</h3>
     <ul>
@@ -498,6 +674,15 @@ share_image: images/c2s_meity_logo.jpg
         </ul>
         The final system will perform real-time inference using either a live camera feed or a standard dataset, with detailed performance comparison against a software-only CPU implementation.
       </p>
+      <div style="margin:24px 0; display:flex; justify-content:center;">
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/_ufBkxl1zxo"
+          title="YouTube video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          style="max-width:100%; border-radius:12px; box-shadow:0 6px 24px rgba(0,0,0,0.12);"></iframe>
+      </div>
    
 
       <h3>Key Requirements</h3>
@@ -607,72 +792,29 @@ share_image: images/c2s_meity_logo.jpg
   </div>
 </div>
 
-<a href="#" class="ch-floating-register">Register</a>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    var registerBtn = document.querySelector(".ch-floating-register");
-    var formWrapper = document.getElementById("formWrapper");
-    var closeFormBtn = document.getElementById("closeFormBtn");
-    var thankYouPopup = document.getElementById("thankYouPopup");
 
-    if (registerBtn) {
-      registerBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        formWrapper.style.display = "flex";
+    // FAQ Popup handlers
+    var faqCard = document.getElementById("faqCard");
+    var faqPopup = document.getElementById("faqPopup");
+    var closeFaqBtn = document.getElementById("closeFaqBtn");
 
-        if (!window.mktoLoaded) {
-          MktoForms2.loadForm(
-            "//engaged.arm.com",
-            "479-ZYW-907",
-            4309,
-            function(form) {
-              // Add form submission handler
-              form.onSuccess(function(values, followUpUrl) {
-                // Hide the form wrapper
-                formWrapper.style.display = "none";
-                
-                // Show thank you popup
-                thankYouPopup.style.display = "flex";
-                
-                // Countdown and redirect
-                var countdown = 5;
-                var countdownTimer = document.getElementById("countdownTimer");
-                
-                var countdownInterval = setInterval(function() {
-                  countdown--;
-                  countdownTimer.textContent = countdown;
-                  
-                  if (countdown <= 0) {
-                    clearInterval(countdownInterval);
-                    // Redirect to the follow-up URL from Marketo
-                    if (followUpUrl) {
-                      window.location.href = followUpUrl;
-                    } else {
-                      // If no follow-up URL, just hide the popup
-                      thankYouPopup.style.display = "none";
-                    }
-                  }
-                }, 1000);
-                
-                // Return false to prevent the default form submission behavior
-                return false;
-              });
-            }
-          );
-          window.mktoLoaded = true;
-        }
+    if (faqCard) {
+      faqCard.addEventListener("click", function() {
+        faqPopup.style.display = "flex";
       });
     }
 
-    if (closeFormBtn) {
-      closeFormBtn.addEventListener("click", function () {
-        formWrapper.style.display = "none";
+    if (closeFaqBtn) {
+      closeFaqBtn.addEventListener("click", function() {
+        faqPopup.style.display = "none";
       });
     }
 
-    if (formWrapper) {
-      formWrapper.addEventListener("click", function (e) {
+    if (faqPopup) {
+      faqPopup.addEventListener("click", function(e) {
         if (e.target === this) {
           this.style.display = "none";
         }
