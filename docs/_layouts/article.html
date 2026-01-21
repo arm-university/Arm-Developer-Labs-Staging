@@ -178,55 +178,152 @@ type: article
         {%- endfor -%}
       </div>
 
-     <script>
-  // Put projects with badge key "recently_added" first (per category list)
-  function hasRecentlyAddedBadge(li) {
-    let badges = [];
+  <script>
+/* Projects sorting + filtering — robust, atomic DOM moves to avoid lost clicks / layout bounce */
+(function () {
+  // --- Utilities -----------------------------------------------------------
+  function safeParseJSON(raw) {
+    if (!raw && raw !== '') return [];
     try {
-      badges = JSON.parse(li.dataset.badges || '[]');
+      const p = JSON.parse(raw);
+      return Array.isArray(p) ? p : [];
     } catch (e) {
-      badges = [];
+      // fallback: comma-separated values (strip brackets/quotes)
+      const cleaned = String(raw || '')
+        .replace(/^[\[\]'" ]+|[\[\]'" ]+$/g, '')
+        .trim();
+      if (!cleaned) return [];
+      return cleaned.split(',').map(s => String(s).trim()).filter(Boolean);
     }
-    return Array.isArray(badges) && badges.includes('recently_added');
   }
 
-  function sortProjectsRecentlyAddedFirst() {
+  function normalizeArray(arr) {
+    return (arr || []).map(x => String(x).trim().toLowerCase()).filter(Boolean);
+  }
+
+  // Read visible badge labels from DOM (fallback when data-badges absent or unparsable)
+  function badgesFromDOM(li) {
+    const badgesEl = li.querySelector('.project-badges');
+    if (!badgesEl) return [];
+    return Array.from(badgesEl.querySelectorAll('*'))
+      .map(n => (n.textContent || '').trim())
+      .filter(Boolean);
+  }
+
+  // Determine badge ordering priority (lower = higher priority)
+  function badgeRank(normed) {
+    const isTrending = normed.includes('trending');
+    const isRecent =
+      normed.includes('recently_added') ||
+      normed.includes('recently-added') ||
+      normed.includes('recentlyadded');
+
+    if (isTrending && isRecent) return 0; // Trending + Recently added
+    if (isRecent) return 1;              // Recently added
+    if (isTrending) return 2;            // Trending
+    return 3;                            // Neither
+  }
+
+  function getBadgesForItem(li) {
+    // Prefer dataset attribute, then fallback to DOM
+    const raw = li.getAttribute('data-badges') || li.dataset.badges || '';
+    let parsed = safeParseJSON(raw);
+    if (!parsed || parsed.length === 0) parsed = badgesFromDOM(li);
+    return normalizeArray(parsed);
+  }
+
+  // --- Sorting -------------------------------------------------------------
+  let isSorting = false;
+  let debounceTimer = null;
+  let observer = null;
+
+  function sortProjectLists() {
+    if (isSorting) return;
+    isSorting = true;
+
+    // Temporarily disconnect observer to avoid observing our own DOM moves
+    if (observer) observer.disconnect();
+
     document.querySelectorAll('.project-list').forEach(ul => {
       const items = Array.from(ul.querySelectorAll(':scope > .project-item'));
+      if (items.length === 0) return;
 
-      // stable sort: decorate with original index
-      const decorated = items.map((el, idx) => ({
-        el,
-        idx,
-        isRecent: hasRecentlyAddedBadge(el)
-      }));
+      // Preserve current pointer-events style so we can restore
+      const prevPointer = ul.style.pointerEvents || '';
 
-      decorated.sort((a, b) => {
-        if (a.isRecent !== b.isRecent) return a.isRecent ? -1 : 1; // recent first
-        return a.idx - b.idx; // preserve original order otherwise
+      // Lock pointer events so clicks/focus don't get dropped while we reorder
+      ul.style.pointerEvents = 'none';
+
+      // Decorate for stable sort with rank and original index
+      const decorated = items.map((el, idx) => {
+        const badges = getBadgesForItem(el);
+        return { el, idx, rank: badgeRank(badges) };
       });
 
-      decorated.forEach(d => ul.appendChild(d.el));
+      decorated.sort((a, b) => (a.rank - b.rank) || (a.idx - b.idx));
+
+      // Build fragment and append once to minimize reflow
+      const frag = document.createDocumentFragment();
+      decorated.forEach(d => frag.appendChild(d.el));
+
+      // Use requestAnimationFrame to let browser batch paints; then append fragment
+      requestAnimationFrame(() => {
+        ul.appendChild(frag);
+
+        // Give browser a moment to paint the new order, then re-enable pointer events
+        // 50ms is conservative (safe); could reduce to ~16ms if you want the minimal delay.
+        setTimeout(() => {
+          ul.style.pointerEvents = prevPointer;
+        }, 50);
+      });
     });
+
+    // Reconnect observer after we queued reorders so future mutations are tracked
+    startObserving();
+
+    isSorting = false;
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    sortProjectsRecentlyAddedFirst();
-  });
+  function scheduleSort() {
+    if (debounceTimer) clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(sortProjectLists, 100);
+  }
 
-  // --- Existing filtering (unchanged) ---
+  // --- Mutation observer --------------------------------------------------
+  function startObserving() {
+    const container = document.querySelector('.project-results');
+    if (!container) return;
+
+    if (!observer) {
+      observer = new MutationObserver(mutations => {
+        // Only schedule if not currently sorting; ignore attribute-only noise
+        if (!isSorting) scheduleSort();
+      });
+    }
+
+    // Observe child list / subtree changes only (don't observe attributes globally)
+    observer.observe(container, { childList: true, subtree: true });
+  }
+
+  // --- Filtering (keeps original behavior but with safe parsing) -----------
   function filterProjects() {
     const checks = Array.from(document.querySelectorAll('.filter-checkbox:checked'));
     if (checks.length === 0) {
       document.querySelectorAll('.project-item').forEach(el => el.style.display = '');
       return;
     }
+
     const activeFilters = checks.map(cb => ({ cat: cb.dataset.category, val: cb.value }));
+
     document.querySelectorAll('.project-item').forEach(li => {
-      const plats   = JSON.parse(li.dataset.platforms    || '[]');
-      const subs    = JSON.parse(li.dataset.subjects     || '[]');
-      const swhws   = JSON.parse(li.dataset.swhw         || '[]');
-      const levels  = JSON.parse(li.dataset.supportLevel || '[]');
+      // dataset keys: data-platforms -> dataset.platforms, data-subjects -> dataset.subjects,
+      // data-swhw -> dataset.swhw, data-support-level -> dataset.supportLevel
+      let plats = [], subs = [], swhws = [], levels = [];
+      try { plats  = safeParseJSON(li.getAttribute('data-platforms') || li.dataset.platforms || '[]'); } catch(e){ plats = []; }
+      try { subs   = safeParseJSON(li.getAttribute('data-subjects')  || li.dataset.subjects  || '[]'); } catch(e){ subs = []; }
+      try { swhws  = safeParseJSON(li.getAttribute('data-swhw')      || li.dataset.swhw       || '[]'); } catch(e){ swhws = []; }
+      try { levels = safeParseJSON(li.getAttribute('data-support-level') || li.dataset.supportLevel || '[]'); } catch(e){ levels = []; }
+
       const ok = activeFilters.every(f => {
         switch (f.cat) {
           case 'platform':      return plats.includes(f.val);
@@ -239,7 +336,33 @@ type: article
       li.style.display = ok ? '' : 'none';
     });
   }
+
+  // Attach onchange handlers for any dynamically added checkboxes (works if checkboxes already inline)
+  document.addEventListener('change', function (ev) {
+    const t = ev.target;
+    if (t && t.classList && t.classList.contains('filter-checkbox')) {
+      filterProjects();
+    }
+  });
+
+  // --- Public / boot ------------------------------------------------------
+  document.addEventListener('DOMContentLoaded', () => {
+    // initial sort pass
+    sortProjectLists();
+
+    // second pass for late-rendered badges/content (keep it quick)
+    setTimeout(sortProjectLists, 300);
+
+    // start observing for any dynamic changes afterwards
+    startObserving();
+  });
+
+  // Expose for debugging / manual trigger
+  window.__arm_sortProjectLists = sortProjectLists;
+  window.__arm_filterProjects = filterProjects;
+})();
 </script>
+
     {%- endif -%}
   </div>
 
@@ -251,5 +374,6 @@ type: article
     {%- include article-footer.html -%}
   </div>
 </div>
+
 
 
