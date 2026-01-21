@@ -1,6 +1,6 @@
 ---
-title: 'SME2 on vivo X300: Mobile Edge AI Projects for multi-modal inference, built on Arm Lumex'
-description: Leverage the latest SME2 (Scalable Matrix Extension 2) available on the newest vivo X300 smartphones (built on Arm Lumex CSS) for advanced image/video, audio and text processing edge AI. Explore how SME2, via KleidiAI, enables larger matrix workloads, higher throughput, and novel applications on device without cloud connectivity required.
+title: 'SME2 on vivo X300 and other devices: Mobile Edge AI Projects for multi-modal inference.'
+description: Leverage the latest SME2 (Scalable Matrix Extension 2) available on the newest vivo X300 smartphones (built on Arm Lumex CSS) or other SME2-enabled devices for advanced image/video, audio and text processing edge AI. Explore how SME2, via KleidiAI, enables larger matrix workloads, higher throughput, and novel applications on device without cloud connectivity required.
 subjects:
 - ML
 - Performance and Architecture
@@ -23,6 +23,7 @@ status:
 badges:
 - trending
 - recently_added
+donation:
 layout: article
 sidebar:
   nav: projects
@@ -38,6 +39,8 @@ full_description: |-
   The vivo X300 is built on Arm Lumex. SME2 now enables AI compute that previously was too heavy or inaccessible on mobile. Developers can now utilise these advancements to deliver advanced applications on-device, reducing latency, increasing data privacy, and unlocking novel use-cases.
 
   [vivo X300, built on Arm Lumex](https://www.arm.com/company/success-library/vivo-x300-smartphones)
+
+  Other devices also support SME2, including both Apple and Android - [see the full list here](https://learn.arm.com/learning-paths/cross-platform/multiplying-matrices-with-sme2/1-get-started#devices)
 
   ### Project Summary
 
@@ -73,9 +76,11 @@ full_description: |-
 
   ## Benefits 
 
-  Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
+  Standout project contributions will result in digital badges for CV building, recognised by Arm Talent Acquisition. We are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+
 
   To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
+
 
   ---
 ---
@@ -91,6 +96,8 @@ SME2 (Scalable Matrix Extension 2) is the latest CPU extension on Arm Lumex CSS.
 The vivo X300 is built on Arm Lumex. SME2 now enables AI compute that previously was too heavy or inaccessible on mobile. Developers can now utilise these advancements to deliver advanced applications on-device, reducing latency, increasing data privacy, and unlocking novel use-cases.
 
 [vivo X300, built on Arm Lumex](https://www.arm.com/company/success-library/vivo-x300-smartphones)
+
+Other devices also support SME2, including both Apple and Android - [see the full list here](https://learn.arm.com/learning-paths/cross-platform/multiplying-matrices-with-sme2/1-get-started#devices)
 
 ### Project Summary
 
@@ -126,8 +133,10 @@ This project is designed to be self-serve but comes with opportunity of some com
 
 ## Benefits 
 
-Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
+Standout project contributions will result in digital badges for CV building, recognised by Arm Talent Acquisition. We are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
+
 
 To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
+
 
 ---

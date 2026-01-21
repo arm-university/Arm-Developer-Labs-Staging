@@ -178,68 +178,115 @@ type: article
         {%- endfor -%}
       </div>
 
-     <script>
-  // Put projects with badge key "recently_added" first (per category list)
-  function hasRecentlyAddedBadge(li) {
-    let badges = [];
+<script>
+(function () {
+  let isSorting = false;
+  let observer = null;
+  let debounceTimer = null;
+
+  function safeParseBadges(raw) {
+    raw = raw == null ? '' : String(raw).trim();
+    if (!raw) return [];
     try {
-      badges = JSON.parse(li.dataset.badges || '[]');
-    } catch (e) {
-      badges = [];
-    }
-    return Array.isArray(badges) && badges.includes('recently_added');
+      const j = JSON.parse(raw);
+      if (Array.isArray(j)) return j.map(x => String(x).trim()).filter(Boolean);
+    } catch (e) {}
+    // comma-separated fallback
+    const cleaned = raw.replace(/^[\[\]'" ]+|[\[\]'" ]+$/g, '');
+    return cleaned.split(',').map(s => s.trim()).filter(Boolean);
   }
 
-  function sortProjectsRecentlyAddedFirst() {
+  function badgesFromDOM(li) {
+    const badgesEl = li.querySelector('.project-badges');
+    if (!badgesEl) return [];
+    // collect visible badge labels
+    return Array.from(badgesEl.querySelectorAll('*'))
+      .map(n => (n.textContent || '').trim())
+      .filter(Boolean);
+  }
+
+  function normalize(arr) {
+    return (arr || []).map(x => String(x).trim().toLowerCase());
+  }
+
+  function badgeRank(normed) {
+    const isTrending = normed.includes('trending');
+    const isRecent =
+      normed.includes('recently_added') ||
+      normed.includes('recently-added') ||
+      normed.includes('recentlyadded');
+
+    if (isTrending && isRecent) return 0; // Trending + Recently added
+    if (isRecent) return 1;              // Recently added
+    if (isTrending) return 2;            // Trending
+    return 3;                            // Neither
+  }
+
+  function getBadgesForItem(li) {
+    const raw = li.getAttribute('data-badges') || li.dataset.badges || '';
+    let parsed = safeParseBadges(raw);
+    if (parsed.length === 0) parsed = badgesFromDOM(li);
+    return normalize(parsed);
+  }
+
+  function sortProjectLists() {
+    if (isSorting) return;
+    isSorting = true;
+
+    // Prevent observer loop while we move nodes
+    if (observer) observer.disconnect();
+
     document.querySelectorAll('.project-list').forEach(ul => {
       const items = Array.from(ul.querySelectorAll(':scope > .project-item'));
 
-      // stable sort: decorate with original index
-      const decorated = items.map((el, idx) => ({
-        el,
-        idx,
-        isRecent: hasRecentlyAddedBadge(el)
-      }));
-
-      decorated.sort((a, b) => {
-        if (a.isRecent !== b.isRecent) return a.isRecent ? -1 : 1; // recent first
-        return a.idx - b.idx; // preserve original order otherwise
+      const decorated = items.map((el, idx) => {
+        const badges = getBadgesForItem(el);
+        return { el, idx, rank: badgeRank(badges) };
       });
 
+      decorated.sort((a, b) => (a.rank - b.rank) || (a.idx - b.idx));
       decorated.forEach(d => ul.appendChild(d.el));
     });
+
+    // Reconnect observer after we're done moving nodes
+    startObserving();
+
+    isSorting = false;
+  }
+
+  function scheduleSort() {
+    if (debounceTimer) clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(sortProjectLists, 100);
+  }
+
+  function startObserving() {
+    const container = document.querySelector('.project-results');
+    if (!container) return;
+
+    if (!observer) {
+      observer = new MutationObserver(() => {
+        // Only schedule if we aren't already sorting
+        if (!isSorting) scheduleSort();
+      });
+    }
+
+    // IMPORTANT: only observe childList changes, not attributes on the whole subtree.
+    // Observing attributes widely can cause lots of extra triggers.
+    observer.observe(container, { childList: true, subtree: true });
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    sortProjectsRecentlyAddedFirst();
+    sortProjectLists();
+    // Optional second pass for late-rendered badges
+    setTimeout(sortProjectLists, 300);
   });
 
-  // --- Existing filtering (unchanged) ---
-  function filterProjects() {
-    const checks = Array.from(document.querySelectorAll('.filter-checkbox:checked'));
-    if (checks.length === 0) {
-      document.querySelectorAll('.project-item').forEach(el => el.style.display = '');
-      return;
-    }
-    const activeFilters = checks.map(cb => ({ cat: cb.dataset.category, val: cb.value }));
-    document.querySelectorAll('.project-item').forEach(li => {
-      const plats   = JSON.parse(li.dataset.platforms    || '[]');
-      const subs    = JSON.parse(li.dataset.subjects     || '[]');
-      const swhws   = JSON.parse(li.dataset.swhw         || '[]');
-      const levels  = JSON.parse(li.dataset.supportLevel || '[]');
-      const ok = activeFilters.every(f => {
-        switch (f.cat) {
-          case 'platform':      return plats.includes(f.val);
-          case 'subject':       return subs.includes(f.val);
-          case 'sw-hw':         return swhws.includes(f.val);
-          case 'support-level': return levels.includes(f.val);
-          default:              return true;
-        }
-      });
-      li.style.display = ok ? '' : 'none';
-    });
-  }
+  // Expose for manual debugging
+  window.__arm_sortProjectLists = sortProjectLists;
+})();
 </script>
+
+
     {%- endif -%}
   </div>
 
@@ -251,5 +298,8 @@ type: article
     {%- include article-footer.html -%}
   </div>
 </div>
+
+
+
 
 
