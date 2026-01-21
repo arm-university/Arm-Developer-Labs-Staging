@@ -178,109 +178,141 @@ type: article
         {%- endfor -%}
       </div>
 
-  <script>
-/* Projects sorting + filtering — robust, atomic DOM moves to avoid lost clicks / layout bounce */
+<script>
+/* Robust project sort + filter (avoids leaving items behind) */
 (function () {
-  // --- Utilities -----------------------------------------------------------
+  // --- Helpers -------------------------------------------------------------
+  const isElement = n => n && n.nodeType === Node.ELEMENT_NODE;
   function safeParseJSON(raw) {
     if (!raw && raw !== '') return [];
     try {
       const p = JSON.parse(raw);
       return Array.isArray(p) ? p : [];
     } catch (e) {
-      // fallback: comma-separated values (strip brackets/quotes)
-      const cleaned = String(raw || '')
-        .replace(/^[\[\]'" ]+|[\[\]'" ]+$/g, '')
-        .trim();
+      const cleaned = String(raw || '').replace(/^[\[\]'" ]+|[\[\]'" ]+$/g, '').trim();
       if (!cleaned) return [];
       return cleaned.split(',').map(s => String(s).trim()).filter(Boolean);
     }
   }
-
   function normalizeArray(arr) {
     return (arr || []).map(x => String(x).trim().toLowerCase()).filter(Boolean);
   }
-
-  // Read visible badge labels from DOM (fallback when data-badges absent or unparsable)
   function badgesFromDOM(li) {
     const badgesEl = li.querySelector('.project-badges');
     if (!badgesEl) return [];
-    return Array.from(badgesEl.querySelectorAll('*'))
-      .map(n => (n.textContent || '').trim())
-      .filter(Boolean);
+    return Array.from(badgesEl.querySelectorAll('*')).map(n => (n.textContent||'').trim()).filter(Boolean);
   }
-
-  // Determine badge ordering priority (lower = higher priority)
+  function getBadgesForItem(li) {
+    const raw = li.getAttribute('data-badges') || li.dataset.badges || '';
+    let parsed = safeParseJSON(raw);
+    if (!parsed || parsed.length === 0) parsed = badgesFromDOM(li);
+    return normalizeArray(parsed);
+  }
   function badgeRank(normed) {
     const isTrending = normed.includes('trending');
     const isRecent =
       normed.includes('recently_added') ||
       normed.includes('recently-added') ||
       normed.includes('recentlyadded');
-
-    if (isTrending && isRecent) return 0; // Trending + Recently added
-    if (isRecent) return 1;              // Recently added
-    if (isTrending) return 2;            // Trending
-    return 3;                            // Neither
+    if (isTrending && isRecent) return 0;
+    if (isRecent) return 1;
+    if (isTrending) return 2;
+    return 3;
   }
 
-  function getBadgesForItem(li) {
-    // Prefer dataset attribute, then fallback to DOM
-    const raw = li.getAttribute('data-badges') || li.dataset.badges || '';
-    let parsed = safeParseJSON(raw);
-    if (!parsed || parsed.length === 0) parsed = badgesFromDOM(li);
-    return normalizeArray(parsed);
-  }
-
-  // --- Sorting -------------------------------------------------------------
-  let isSorting = false;
-  let debounceTimer = null;
+  // --- Sorting state ------------------------------------------------------
   let observer = null;
+  let debounceTimer = null;
+  let isSorting = false;
 
+  // Collects direct .project-item children of the provided UL (guarantees we get elements only)
+  function collectListItems(ul) {
+    return Array.from(ul.children).filter(ch => ch.classList && ch.classList.contains('project-item'));
+  }
+
+  // Build a stable, deterministic key for each item to detect duplicates / missing
+  function itemKey(li) {
+    // prefer data-url-rel (stable), fallback to text + index
+    return li.getAttribute('data-url-rel') || (li.querySelector('.project-title') && li.querySelector('.project-title').textContent.trim()) || li.outerHTML.slice(0,100);
+  }
+
+  // Core: sort each .project-list atomically and robustly
   function sortProjectLists() {
     if (isSorting) return;
     isSorting = true;
-
-    // Temporarily disconnect observer to avoid observing our own DOM moves
     if (observer) observer.disconnect();
 
+    // For safety: map of keys -> element across the whole document (helps if an li is temporarily detached)
+    const allItemsMap = new Map();
+    document.querySelectorAll('.project-item').forEach(li => {
+      if (!isElement(li)) return;
+      allItemsMap.set(itemKey(li), li);
+    });
+
     document.querySelectorAll('.project-list').forEach(ul => {
-      const items = Array.from(ul.querySelectorAll(':scope > .project-item'));
-      if (items.length === 0) return;
+      const originalItems = collectListItems(ul);
+      if (originalItems.length === 0) return;
 
-      // Preserve current pointer-events style so we can restore
-      const prevPointer = ul.style.pointerEvents || '';
-
-      // Lock pointer events so clicks/focus don't get dropped while we reorder
-      ul.style.pointerEvents = 'none';
-
-      // Decorate for stable sort with rank and original index
-      const decorated = items.map((el, idx) => {
-        const badges = getBadgesForItem(el);
-        return { el, idx, rank: badgeRank(badges) };
+      // Build decorated array using items that belong to this ul *or* that have the same key and are elsewhere
+      const decorated = originalItems.map((el, idx) => {
+        const key = itemKey(el);
+        // If the element was removed from DOM and exists in map, prefer that one (ensures we don't drop it)
+        const canonical = allItemsMap.get(key) || el;
+        const badges = getBadgesForItem(canonical);
+        return { el: canonical, idx, rank: badgeRank(badges), key };
       });
 
+      // Stable sort: by rank then original index
       decorated.sort((a, b) => (a.rank - b.rank) || (a.idx - b.idx));
 
-      // Build fragment and append once to minimize reflow
-      const frag = document.createDocumentFragment();
-      decorated.forEach(d => frag.appendChild(d.el));
+      // Defensive check: ensure decorated covers all original keys — if not, try to recover missing items from global map
+      const decoratedKeys = new Set(decorated.map(d => d.key));
+      originalItems.forEach(el => {
+        const k = itemKey(el);
+        if (!decoratedKeys.has(k)) {
+          const recovered = allItemsMap.get(k);
+          if (recovered) {
+            const badges = getBadgesForItem(recovered);
+            decorated.push({ el: recovered, idx: originalItems.indexOf(el), rank: badgeRank(badges), key: k });
+            decoratedKeys.add(k);
+          }
+        }
+      });
 
-      // Use requestAnimationFrame to let browser batch paints; then append fragment
+      // Now create fragment and append in one shot
+      const frag = document.createDocumentFragment();
+      // Avoid duplicate appends: keep a set of appended elements
+      const appended = new Set();
+      decorated.forEach(d => {
+        if (!isElement(d.el)) return;
+        if (appended.has(d.el)) return;
+        appended.add(d.el);
+        frag.appendChild(d.el);
+      });
+
+      // If some items were in DOM but not in decorated (edge case), append them at the end to avoid losing them
+      originalItems.forEach(el => {
+        if (!appended.has(el)) {
+          frag.appendChild(el);
+          appended.add(el);
+        }
+      });
+
+      // Temporarily lock pointer events on the UL during the move to avoid dropped clicks
+      const prevPointer = ul.style.pointerEvents || '';
+      ul.style.pointerEvents = 'none';
+
       requestAnimationFrame(() => {
         ul.appendChild(frag);
-
-        // Give browser a moment to paint the new order, then re-enable pointer events
-        // 50ms is conservative (safe); could reduce to ~16ms if you want the minimal delay.
+        // restore pointer-events after paint
         setTimeout(() => {
           ul.style.pointerEvents = prevPointer;
-        }, 50);
+        }, 40);
       });
     });
 
-    // Reconnect observer after we queued reorders so future mutations are tracked
+    // reconnect observer
     startObserving();
-
     isSorting = false;
   }
 
@@ -289,23 +321,7 @@ type: article
     debounceTimer = setTimeout(sortProjectLists, 100);
   }
 
-  // --- Mutation observer --------------------------------------------------
-  function startObserving() {
-    const container = document.querySelector('.project-results');
-    if (!container) return;
-
-    if (!observer) {
-      observer = new MutationObserver(mutations => {
-        // Only schedule if not currently sorting; ignore attribute-only noise
-        if (!isSorting) scheduleSort();
-      });
-    }
-
-    // Observe child list / subtree changes only (don't observe attributes globally)
-    observer.observe(container, { childList: true, subtree: true });
-  }
-
-  // --- Filtering (keeps original behavior but with safe parsing) -----------
+  // --- Filtering (keeps behavior) -----------------------------------------
   function filterProjects() {
     const checks = Array.from(document.querySelectorAll('.filter-checkbox:checked'));
     if (checks.length === 0) {
@@ -316,13 +332,11 @@ type: article
     const activeFilters = checks.map(cb => ({ cat: cb.dataset.category, val: cb.value }));
 
     document.querySelectorAll('.project-item').forEach(li => {
-      // dataset keys: data-platforms -> dataset.platforms, data-subjects -> dataset.subjects,
-      // data-swhw -> dataset.swhw, data-support-level -> dataset.supportLevel
       let plats = [], subs = [], swhws = [], levels = [];
-      try { plats  = safeParseJSON(li.getAttribute('data-platforms') || li.dataset.platforms || '[]'); } catch(e){ plats = []; }
-      try { subs   = safeParseJSON(li.getAttribute('data-subjects')  || li.dataset.subjects  || '[]'); } catch(e){ subs = []; }
-      try { swhws  = safeParseJSON(li.getAttribute('data-swhw')      || li.dataset.swhw       || '[]'); } catch(e){ swhws = []; }
-      try { levels = safeParseJSON(li.getAttribute('data-support-level') || li.dataset.supportLevel || '[]'); } catch(e){ levels = []; }
+      try { plats  = safeParseJSON(li.getAttribute('data-platforms') || li.dataset.platforms || '[]'); } catch(e){ plats=[]; }
+      try { subs   = safeParseJSON(li.getAttribute('data-subjects')  || li.dataset.subjects  || '[]'); } catch(e){ subs=[]; }
+      try { swhws  = safeParseJSON(li.getAttribute('data-swhw')      || li.dataset.swhw       || '[]'); } catch(e){ swhws=[]; }
+      try { levels = safeParseJSON(li.getAttribute('data-support-level') || li.dataset.supportLevel || '[]'); } catch(e){ levels=[]; }
 
       const ok = activeFilters.every(f => {
         switch (f.cat) {
@@ -337,31 +351,48 @@ type: article
     });
   }
 
-  // Attach onchange handlers for any dynamically added checkboxes (works if checkboxes already inline)
+  // Attach change handler for checkboxes
   document.addEventListener('change', function (ev) {
     const t = ev.target;
     if (t && t.classList && t.classList.contains('filter-checkbox')) {
       filterProjects();
+      // after filter changes, re-sort to ensure "recent" items remain at top
+      scheduleSort();
     }
   });
 
-  // --- Public / boot ------------------------------------------------------
+  // --- Mutation observer --------------------------------------------------
+  function startObserving() {
+    const container = document.querySelector('.project-results');
+    if (!container) return;
+    if (!observer) {
+      observer = new MutationObserver(mutations => {
+        // If children changed, reschedule. We specifically avoid reacting to attribute-only noise.
+        let sawChildChange = false;
+        for (const m of mutations) {
+          if (m.type === 'childList' && (m.addedNodes.length || m.removedNodes.length)) { sawChildChange = true; break; }
+        }
+        if (sawChildChange) scheduleSort();
+      });
+    }
+    observer.observe(container, { childList: true, subtree: true });
+  }
+
+  // --- Boot ---------------------------------------------------------------
   document.addEventListener('DOMContentLoaded', () => {
-    // initial sort pass
+    // initial sort
     sortProjectLists();
-
-    // second pass for late-rendered badges/content (keep it quick)
+    // secondary pass for late badges
     setTimeout(sortProjectLists, 300);
-
-    // start observing for any dynamic changes afterwards
     startObserving();
   });
 
-  // Expose for debugging / manual trigger
+  // Expose for debugging
   window.__arm_sortProjectLists = sortProjectLists;
   window.__arm_filterProjects = filterProjects;
 })();
 </script>
+
 
     {%- endif -%}
   </div>
@@ -374,6 +405,7 @@ type: article
     {%- include article-footer.html -%}
   </div>
 </div>
+
 
 
 
