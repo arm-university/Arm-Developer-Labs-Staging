@@ -238,6 +238,7 @@ type: article
 
     document.querySelectorAll('.project-list').forEach(ul => {
       const items = Array.from(ul.querySelectorAll(':scope > .project-item'));
+      if (items.length === 0) return;
 
       const decorated = items.map((el, idx) => {
         const badges = getBadgesForItem(el);
