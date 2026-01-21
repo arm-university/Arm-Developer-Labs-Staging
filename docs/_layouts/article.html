@@ -215,11 +215,10 @@ type: article
       normed.includes('recently_added') ||
       normed.includes('recently-added') ||
       normed.includes('recentlyadded');
-
-    if (isTrending && isRecent) return 0; // Trending + Recently added
-    if (isRecent) return 1;              // Recently added
-    if (isTrending) return 2;            // Trending
-    return 3;                            // Neither
+    if (isTrending && isRecent) return 0;
+    if (isRecent) return 1;
+    if (isTrending) return 2;
+    return 3;
   }
 
   function getBadgesForItem(li) {
@@ -236,22 +235,29 @@ type: article
     // Prevent observer loop while we move nodes
     if (observer) observer.disconnect();
 
+    // For safety: map of keys -> element across the whole document (helps if an li is temporarily detached)
+    const allItemsMap = new Map();
+    document.querySelectorAll('.project-item').forEach(li => {
+      if (!isElement(li)) return;
+      allItemsMap.set(itemKey(li), li);
+    });
+
     document.querySelectorAll('.project-list').forEach(ul => {
-      const items = Array.from(ul.querySelectorAll(':scope > .project-item'));
-      if (items.length === 0) return;
+      const originalItems = collectListItems(ul);
+      if (originalItems.length === 0) return;
 
       const decorated = items.map((el, idx) => {
         const badges = getBadgesForItem(el);
         return { el, idx, rank: badgeRank(badges) };
       });
 
+      // Stable sort: by rank then original index
       decorated.sort((a, b) => (a.rank - b.rank) || (a.idx - b.idx));
       decorated.forEach(d => ul.appendChild(d.el));
     });
 
     // Reconnect observer after we're done moving nodes
     startObserving();
-
     isSorting = false;
   }
 
