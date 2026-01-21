@@ -343,10 +343,10 @@ projects:
     - Published
   - title: Edge-AI-On-Mobile
     description: Leverage the latest SME2 (Scalable Matrix Extension 2) available
-      on the newest vivo X300 smartphones (built on Arm Lumex CSS) for advanced image/video,
-      audio and text processing edge AI. Explore how SME2, via KleidiAI, enables larger
-      matrix workloads, higher throughput, and novel applications on device without
-      cloud connectivity required.
+      on the newest vivo X300 smartphones (built on Arm Lumex CSS) or other SME2-enabled
+      devices for advanced image/video, audio and text processing edge AI. Explore
+      how SME2, via KleidiAI, enables larger matrix workloads, higher throughput,
+      and novel applications on device without cloud connectivity required.
     url: /2025/11/27/Edge-AI-On-Mobile.html
     subjects:
     - ML
