@@ -29,6 +29,9 @@ ALLOWED_SUBJECTS = {
     "Libraries",
     "Graphics",
     "AR-VR",
+    "Edge AI",
+    "Physical AI",
+    "Cloud AI"
 }
 
 ALLOWED_REQUIRES_TEAM = {"Yes", "No"}
