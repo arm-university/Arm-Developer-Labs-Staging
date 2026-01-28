@@ -6,6 +6,8 @@ subjects:
     - "Performance and Architecture"
     - "Embedded Linux"
     - "RTOS Fundamentals"
+    - "Edge AI"
+    - "Physical AI"
 requires-team:
     - "No"
 platform:

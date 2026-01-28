@@ -6,6 +6,7 @@ subjects:
   - "Gaming"
   - "Libraries"
   - "Graphics"
+  - "Edge AI"
 requires-team:
   - "No"
 platform:

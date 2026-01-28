@@ -5,6 +5,7 @@ subjects:
 - ML
 - Migration to Arm
 - Performance and Architecture
+- Cloud AI
 requires-team:
 - No
 platform:

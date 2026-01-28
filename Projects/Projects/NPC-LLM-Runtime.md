@@ -5,6 +5,7 @@ subjects:
     - "ML"
     - "Gaming"
     - "Graphics"
+    - "Edge AI"
 requires-team:
     - "No"
 platform:

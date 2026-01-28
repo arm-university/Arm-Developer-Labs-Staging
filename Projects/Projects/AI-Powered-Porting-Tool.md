@@ -5,6 +5,7 @@ subjects:
     - "CI-CD"
     - "ML"
     - "Migration to Arm"
+    - "Edge AI"
 requires-team:
     - "No"
 platform:

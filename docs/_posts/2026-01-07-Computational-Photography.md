@@ -4,6 +4,7 @@ description: This project creates and implements a novel computational photograp
 subjects:
 - ML
 - Graphics
+- Edge AI
 requires-team:
 - No
 platform:
