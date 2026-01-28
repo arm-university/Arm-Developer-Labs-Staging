@@ -5,6 +5,7 @@ subjects:
 - ML
 - Embedded Linux
 - RTOS Fundamentals
+- Physical AI
 requires-team:
 - Yes
 platform:
