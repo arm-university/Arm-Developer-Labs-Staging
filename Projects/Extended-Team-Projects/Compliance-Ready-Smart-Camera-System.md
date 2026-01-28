@@ -6,6 +6,7 @@ subjects:
     - "Embedded Linux"
     - "ML"
     - "Virtual Hardware"
+    - "Physical AI"
 requires-team:
     - "Yes"
 platform:
