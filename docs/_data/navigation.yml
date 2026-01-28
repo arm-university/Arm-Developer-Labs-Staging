@@ -15,6 +15,7 @@ projects:
     - ML
     - Migration to Arm
     - Performance and Architecture
+    - Cloud AI
     platform:
     - Servers and Cloud Computing
     - AI
@@ -52,6 +53,8 @@ projects:
     url: /2025/05/30/AI-Agents.html
     subjects:
     - ML
+    - Edge AI
+    - Cloud AI
     platform:
     - Servers and Cloud Computing
     - Laptops and Desktops
@@ -109,6 +112,7 @@ projects:
     - ML
     - Gaming
     - Graphics
+    - Edge AI
     platform:
     - AI
     - Mobile, Graphics, and Gaming
@@ -149,6 +153,7 @@ projects:
     - CI-CD
     - ML
     - Migration to Arm
+    - Edge AI
     platform:
     - Servers and Cloud Computing
     - Laptops and Desktops
@@ -189,6 +194,7 @@ projects:
     url: /2025/05/30/Responsible-AI-and-Yellow-Teaming.html
     subjects:
     - ML
+    - Cloud AI
     platform:
     - Servers and Cloud Computing
     - Laptops and Desktops
@@ -268,6 +274,8 @@ projects:
     subjects:
     - ML
     - Performance and Architecture
+    - Edge AI
+    - Physical AI
     platform:
     - IoT
     - Embedded and Microcontrollers
@@ -309,6 +317,7 @@ projects:
     subjects:
     - ML
     - Graphics
+    - Edge AI
     platform:
     - Laptops and Desktops
     - AI
@@ -352,6 +361,7 @@ projects:
     - ML
     - Performance and Architecture
     - Libraries
+    - Edge AI
     platform:
     - Mobile, Graphics, and Gaming
     - AI
@@ -371,6 +381,7 @@ projects:
     url: /2025/05/30/HPC-Algorithm.html
     subjects:
     - Performance and Architecture
+    - Cloud AI
     platform:
     - Servers and Cloud Computing
     - Laptops and Desktops
@@ -394,6 +405,8 @@ projects:
     - Performance and Architecture
     - Embedded Linux
     - RTOS Fundamentals
+    - Edge AI
+    - Physical AI
     platform:
     - IoT
     - Embedded and Microcontrollers
@@ -417,6 +430,7 @@ projects:
     - Gaming
     - Libraries
     - Graphics
+    - Edge AI
     platform:
     - Mobile, Graphics, and Gaming
     - Laptops and Desktops
@@ -440,6 +454,7 @@ projects:
     - Embedded Linux
     - ML
     - Virtual Hardware
+    - Physical AI
     platform:
     - Mobile, Graphics, and Gaming
     - Automotive
@@ -463,6 +478,7 @@ projects:
     - ML
     - Embedded Linux
     - RTOS Fundamentals
+    - Physical AI
     platform:
     - Automotive
     - IoT

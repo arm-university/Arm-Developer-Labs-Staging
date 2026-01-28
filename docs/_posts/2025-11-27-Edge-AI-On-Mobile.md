@@ -5,6 +5,7 @@ subjects:
 - ML
 - Performance and Architecture
 - Libraries
+- Edge AI
 requires-team:
 - No
 platform:

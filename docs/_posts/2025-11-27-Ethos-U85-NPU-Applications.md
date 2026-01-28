@@ -4,6 +4,8 @@ description: Push the limits of Edge AI by deploying the heaviest inference appl
 subjects:
 - ML
 - Performance and Architecture
+- Edge AI
+- Physical AI
 requires-team:
 - No
 platform:
