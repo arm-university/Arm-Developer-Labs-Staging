@@ -442,8 +442,6 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
-- title: Extended Team Projects
-  children:
   - title: Compliance-Ready-Smart-Camera-System
     description: "This challenge will create and validate an Arm-based, smart camera\
       \ pipeline on virtual automotive hardware\u2014advancing safer, more developer-friendly\
