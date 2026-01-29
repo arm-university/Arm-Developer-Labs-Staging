@@ -1,5 +1,5 @@
 ---
-title: Arm Developer Labs
+title: Academic Projects Repository
 tags: TeXt
 article_header:
   type: main_cover
