@@ -442,5 +442,50 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
-- title: Extended Team Projects
-  children: []
+  - title: Compliance-Ready-Smart-Camera-System
+    description: "This challenge will create and validate an Arm-based, smart camera\
+      \ pipeline on virtual automotive hardware\u2014advancing safer, more developer-friendly\
+      \ driver-monitoring solutions for next-generation vehicles."
+    url: /2025/05/30/Compliance-Ready-Smart-Camera-System.html
+    subjects:
+    - Security
+    - Embedded Linux
+    - ML
+    - Virtual Hardware
+    - Physical AI
+    platform:
+    - Mobile, Graphics, and Gaming
+    - Automotive
+    - IoT
+    - Embedded and Microcontrollers
+    - AI
+    sw-hw:
+    - Software
+    - Hardware
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    - Direct Support from Arm
+  - title: Human-Centric-Robotics
+    description: "This team project will build and test an Arm-based urban service\
+      \ robot\u2014merging real-time navigation, vision-guided manipulation, and human\
+      \ interaction\u2014and model its socioeconomic impact to show how Arm platforms\
+      \ can transform last-mile delivery, eldercare, or other city services."
+    url: /2025/05/30/Human-Centric-Robotics.html
+    subjects:
+    - ML
+    - Embedded Linux
+    - RTOS Fundamentals
+    - Physical AI
+    platform:
+    - Automotive
+    - IoT
+    - Embedded and Microcontrollers
+    - AI
+    sw-hw:
+    - Software
+    - Hardware
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    - Direct Support from Arm
