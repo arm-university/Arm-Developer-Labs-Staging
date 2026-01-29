@@ -56,7 +56,6 @@ def clear_nav():
     with open(navigation, "r") as f:
         yam_tab = yaml.safe_load(f)
     yam_tab["projects"][0]["children"].clear()
-    yam_tab["projects"][1]["children"].clear()
     with open(navigation, "w") as f:
         yaml.safe_dump(yam_tab, f, sort_keys=False)
 
@@ -165,4 +164,5 @@ def process_yml(pathlist, level: str, tab: str):
 if __name__ == "__main__":
     clear_nav()
     process_yml(projects_pathlist, "projects", "projects")
-    process_yml(extended_project_pathlist, "extended-team-project", "projects")
+
+
