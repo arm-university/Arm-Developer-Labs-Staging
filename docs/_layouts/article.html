@@ -158,16 +158,15 @@ type: article
                   {%- if _badges -%} data-badges='{{ _badges | jsonify }}'{%- endif -%}
                   data-url-rel='{{ _nav_url_rel }}'>
 
-               <header class="project-header">
-  <a class="project-title" href="{{ _nav_url }}">{{ _child.title }}</a>
+                <header class="project-header">
+                  <a class="project-title" href="{{ _nav_url }}">{{ _child.title }}</a>
 
-  {%- if _badges -%}
-    <div class="project-badges">
-      {% include badges.html items=_badges %}
-    </div>
-  {%- endif -%}
-</header>
-
+                  {%- if _badges -%}
+                    <div class="project-badges">
+                      {% include badges.html items=_badges %}
+                    </div>
+                  {%- endif -%}
+                </header>
 
                 <p class="project-desc">
                   {{ _child.description }}
@@ -178,114 +177,153 @@ type: article
         {%- endfor -%}
       </div>
 
-<script>
-(function () {
-  let isSorting = false;
-  let observer = null;
-  let debounceTimer = null;
+      <!-- 3) Filtering (NEW) -->
+      <script>
+      function filterProjects() {
+        const checks = Array.from(document.querySelectorAll('.filter-checkbox:checked'));
 
-  function safeParseBadges(raw) {
-    raw = raw == null ? '' : String(raw).trim();
-    if (!raw) return [];
-    try {
-      const j = JSON.parse(raw);
-      if (Array.isArray(j)) return j.map(x => String(x).trim()).filter(Boolean);
-    } catch (e) {}
-    // comma-separated fallback
-    const cleaned = raw.replace(/^[\[\]'" ]+|[\[\]'" ]+$/g, '');
-    return cleaned.split(',').map(s => s.trim()).filter(Boolean);
-  }
+        // No active filters => show all
+        if (checks.length === 0) {
+          document.querySelectorAll('.project-item').forEach(el => el.style.display = '');
+          // Keep your badge-priority sort stable after UI changes
+          if (window.__arm_sortProjectLists) window.__arm_sortProjectLists();
+          return;
+        }
 
-  function badgesFromDOM(li) {
-    const badgesEl = li.querySelector('.project-badges');
-    if (!badgesEl) return [];
-    // collect visible badge labels
-    return Array.from(badgesEl.querySelectorAll('*'))
-      .map(n => (n.textContent || '').trim())
-      .filter(Boolean);
-  }
+        const activeFilters = checks.map(cb => ({ cat: cb.dataset.category, val: cb.value }));
 
-  function normalize(arr) {
-    return (arr || []).map(x => String(x).trim().toLowerCase());
-  }
+        document.querySelectorAll('.project-item').forEach(li => {
+          const plats  = JSON.parse(li.dataset.platforms    || '[]');
+          const subs   = JSON.parse(li.dataset.subjects     || '[]');
+          const swhws  = JSON.parse(li.dataset.swhw         || '[]');
+          const levels = JSON.parse(li.dataset.supportLevel || '[]');
 
-  function badgeRank(normed) {
-    const isTrending = normed.includes('trending');
-    const isRecent =
-      normed.includes('recently_added') ||
-      normed.includes('recently-added') ||
-      normed.includes('recentlyadded');
+          const ok = activeFilters.every(f => {
+            switch (f.cat) {
+              case 'platform':      return plats.includes(f.val);
+              case 'subject':       return subs.includes(f.val);
+              case 'sw-hw':         return swhws.includes(f.val);
+              case 'support-level': return levels.includes(f.val);
+              default:              return true;
+            }
+          });
 
-    if (isTrending && isRecent) return 0; // Trending + Recently added
-    if (isRecent) return 1;              // Recently added
-    if (isTrending) return 2;            // Trending
-    return 3;                            // Neither
-  }
+          li.style.display = ok ? '' : 'none';
+        });
 
-  function getBadgesForItem(li) {
-    const raw = li.getAttribute('data-badges') || li.dataset.badges || '';
-    let parsed = safeParseBadges(raw);
-    if (parsed.length === 0) parsed = badgesFromDOM(li);
-    return normalize(parsed);
-  }
+        // Optional: re-run badge sort (doesn't hurt; keeps list stable)
+        if (window.__arm_sortProjectLists) window.__arm_sortProjectLists();
+      }
+      </script>
 
-  function sortProjectLists() {
-    if (isSorting) return;
-    isSorting = true;
+      <!-- 4) Badge-priority sorting (your existing script, unchanged) -->
+      <script>
+      (function () {
+        let isSorting = false;
+        let observer = null;
+        let debounceTimer = null;
 
-    // Prevent observer loop while we move nodes
-    if (observer) observer.disconnect();
+        function safeParseBadges(raw) {
+          raw = raw == null ? '' : String(raw).trim();
+          if (!raw) return [];
+          try {
+            const j = JSON.parse(raw);
+            if (Array.isArray(j)) return j.map(x => String(x).trim()).filter(Boolean);
+          } catch (e) {}
+          // comma-separated fallback
+          const cleaned = raw.replace(/^[\[\]'" ]+|[\[\]'" ]+$/g, '');
+          return cleaned.split(',').map(s => s.trim()).filter(Boolean);
+        }
 
-    document.querySelectorAll('.project-list').forEach(ul => {
-      const items = Array.from(ul.querySelectorAll(':scope > .project-item'));
+        function badgesFromDOM(li) {
+          const badgesEl = li.querySelector('.project-badges');
+          if (!badgesEl) return [];
+          // collect visible badge labels
+          return Array.from(badgesEl.querySelectorAll('*'))
+            .map(n => (n.textContent || '').trim())
+            .filter(Boolean);
+        }
 
-      const decorated = items.map((el, idx) => {
-        const badges = getBadgesForItem(el);
-        return { el, idx, rank: badgeRank(badges) };
-      });
+        function normalize(arr) {
+          return (arr || []).map(x => String(x).trim().toLowerCase());
+        }
 
-      decorated.sort((a, b) => (a.rank - b.rank) || (a.idx - b.idx));
-      decorated.forEach(d => ul.appendChild(d.el));
-    });
+        function badgeRank(normed) {
+          const isTrending = normed.includes('trending');
+          const isRecent =
+            normed.includes('recently_added') ||
+            normed.includes('recently-added') ||
+            normed.includes('recentlyadded');
 
-    // Reconnect observer after we're done moving nodes
-    startObserving();
+          if (isTrending && isRecent) return 0; // Trending + Recently added
+          if (isRecent) return 1;              // Recently added
+          if (isTrending) return 2;            // Trending
+          return 3;                            // Neither
+        }
 
-    isSorting = false;
-  }
+        function getBadgesForItem(li) {
+          const raw = li.getAttribute('data-badges') || li.dataset.badges || '';
+          let parsed = safeParseBadges(raw);
+          if (parsed.length === 0) parsed = badgesFromDOM(li);
+          return normalize(parsed);
+        }
 
-  function scheduleSort() {
-    if (debounceTimer) clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(sortProjectLists, 100);
-  }
+        function sortProjectLists() {
+          if (isSorting) return;
+          isSorting = true;
 
-  function startObserving() {
-    const container = document.querySelector('.project-results');
-    if (!container) return;
+          // Prevent observer loop while we move nodes
+          if (observer) observer.disconnect();
 
-    if (!observer) {
-      observer = new MutationObserver(() => {
-        // Only schedule if we aren't already sorting
-        if (!isSorting) scheduleSort();
-      });
-    }
+          document.querySelectorAll('.project-list').forEach(ul => {
+            const items = Array.from(ul.querySelectorAll(':scope > .project-item'));
 
-    // IMPORTANT: only observe childList changes, not attributes on the whole subtree.
-    // Observing attributes widely can cause lots of extra triggers.
-    observer.observe(container, { childList: true, subtree: true });
-  }
+            const decorated = items.map((el, idx) => {
+              const badges = getBadgesForItem(el);
+              return { el, idx, rank: badgeRank(badges) };
+            });
 
-  document.addEventListener('DOMContentLoaded', () => {
-    sortProjectLists();
-    // Optional second pass for late-rendered badges
-    setTimeout(sortProjectLists, 300);
-  });
+            decorated.sort((a, b) => (a.rank - b.rank) || (a.idx - b.idx));
+            decorated.forEach(d => ul.appendChild(d.el));
+          });
 
-  // Expose for manual debugging
-  window.__arm_sortProjectLists = sortProjectLists;
-})();
-</script>
+          // Reconnect observer after we're done moving nodes
+          startObserving();
 
+          isSorting = false;
+        }
+
+        function scheduleSort() {
+          if (debounceTimer) clearTimeout(debounceTimer);
+          debounceTimer = setTimeout(sortProjectLists, 100);
+        }
+
+        function startObserving() {
+          const container = document.querySelector('.project-results');
+          if (!container) return;
+
+          if (!observer) {
+            observer = new MutationObserver(() => {
+              // Only schedule if we aren't already sorting
+              if (!isSorting) scheduleSort();
+            });
+          }
+
+          // IMPORTANT: only observe childList changes, not attributes on the whole subtree.
+          // Observing attributes widely can cause lots of extra triggers.
+          observer.observe(container, { childList: true, subtree: true });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+          sortProjectLists();
+          // Optional second pass for late-rendered badges
+          setTimeout(sortProjectLists, 300);
+        });
+
+        // Expose for manual debugging
+        window.__arm_sortProjectLists = sortProjectLists;
+      })();
+      </script>
 
     {%- endif -%}
   </div>
@@ -298,8 +336,3 @@ type: article
     {%- include article-footer.html -%}
   </div>
 </div>
-
-
-
-
-
