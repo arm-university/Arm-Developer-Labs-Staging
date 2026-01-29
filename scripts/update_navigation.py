@@ -165,4 +165,4 @@ def process_yml(pathlist, level: str, tab: str):
 if __name__ == "__main__":
     clear_nav()
     process_yml(projects_pathlist, "projects", "projects")
-    process_yml(extended_project_pathlist, "extended-team-project", "projects")
+
