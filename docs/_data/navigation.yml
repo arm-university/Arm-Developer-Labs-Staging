@@ -15,6 +15,7 @@ projects:
     - ML
     - Migration to Arm
     - Performance and Architecture
+    - Cloud AI
     platform:
     - Servers and Cloud Computing
     - AI
@@ -52,6 +53,8 @@ projects:
     url: /2025/05/30/AI-Agents.html
     subjects:
     - ML
+    - Edge AI
+    - Cloud AI
     platform:
     - Servers and Cloud Computing
     - Laptops and Desktops
@@ -109,6 +112,7 @@ projects:
     - ML
     - Gaming
     - Graphics
+    - Edge AI
     platform:
     - AI
     - Mobile, Graphics, and Gaming
@@ -149,6 +153,7 @@ projects:
     - CI-CD
     - ML
     - Migration to Arm
+    - Edge AI
     platform:
     - Servers and Cloud Computing
     - Laptops and Desktops
@@ -189,6 +194,7 @@ projects:
     url: /2025/05/30/Responsible-AI-and-Yellow-Teaming.html
     subjects:
     - ML
+    - Cloud AI
     platform:
     - Servers and Cloud Computing
     - Laptops and Desktops
@@ -268,6 +274,8 @@ projects:
     subjects:
     - ML
     - Performance and Architecture
+    - Edge AI
+    - Physical AI
     platform:
     - IoT
     - Embedded and Microcontrollers
@@ -309,6 +317,7 @@ projects:
     subjects:
     - ML
     - Graphics
+    - Edge AI
     platform:
     - Laptops and Desktops
     - AI
@@ -341,17 +350,44 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
+  - title: Compliance-Ready-Smart-Camera-System
+    description: "This challenge will create and validate an Arm-based, smart camera\
+      \ pipeline on virtual automotive hardware\u2014advancing safer, more developer-friendly\
+      \ driver-monitoring solutions for next-generation vehicles."
+    url: /2025/05/30/Compliance-Ready-Smart-Camera-System.html
+    subjects:
+    - Security
+    - Embedded Linux
+    - ML
+    - Virtual Hardware
+    - Physical AI
+    platform:
+    - Mobile, Graphics, and Gaming
+    - Automotive
+    - IoT
+    - Embedded and Microcontrollers
+    - AI
+    sw-hw:
+    - Software
+    - Hardware
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    - Direct Support from Arm
+    status:
+    - Published
   - title: Edge-AI-On-Mobile
     description: Leverage the latest SME2 (Scalable Matrix Extension 2) available
-      on the newest vivo X300 smartphones (built on Arm Lumex CSS) for advanced image/video,
-      audio and text processing edge AI. Explore how SME2, via KleidiAI, enables larger
-      matrix workloads, higher throughput, and novel applications on device without
-      cloud connectivity required.
+      on the newest vivo X300 smartphones (built on Arm Lumex CSS) or other SME2-enabled
+      devices for advanced image/video, audio and text processing edge AI. Explore
+      how SME2, via KleidiAI, enables larger matrix workloads, higher throughput,
+      and novel applications on device without cloud connectivity required.
     url: /2025/11/27/Edge-AI-On-Mobile.html
     subjects:
     - ML
     - Performance and Architecture
     - Libraries
+    - Edge AI
     platform:
     - Mobile, Graphics, and Gaming
     - AI
@@ -371,6 +407,7 @@ projects:
     url: /2025/05/30/HPC-Algorithm.html
     subjects:
     - Performance and Architecture
+    - Cloud AI
     platform:
     - Servers and Cloud Computing
     - Laptops and Desktops
@@ -380,6 +417,31 @@ projects:
     support-level:
     - Self-Service
     - Arm Ambassador Support
+    status:
+    - Published
+  - title: Human-Centric-Robotics
+    description: "This team project will build and test an Arm-based urban service\
+      \ robot\u2014merging real-time navigation, vision-guided manipulation, and human\
+      \ interaction\u2014and model its socioeconomic impact to show how Arm platforms\
+      \ can transform last-mile delivery, eldercare, or other city services."
+    url: /2025/05/30/Human-Centric-Robotics.html
+    subjects:
+    - ML
+    - Embedded Linux
+    - RTOS Fundamentals
+    - Physical AI
+    platform:
+    - Automotive
+    - IoT
+    - Embedded and Microcontrollers
+    - AI
+    sw-hw:
+    - Software
+    - Hardware
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    - Direct Support from Arm
     status:
     - Published
   - title: Always-On-AI-with-Ethos-U85-NPU
@@ -394,6 +456,8 @@ projects:
     - Performance and Architecture
     - Embedded Linux
     - RTOS Fundamentals
+    - Edge AI
+    - Physical AI
     platform:
     - IoT
     - Embedded and Microcontrollers
@@ -417,6 +481,7 @@ projects:
     - Gaming
     - Libraries
     - Graphics
+    - Edge AI
     platform:
     - Mobile, Graphics, and Gaming
     - Laptops and Desktops
@@ -428,50 +493,3 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
-- title: Extended Team Projects
-  children:
-  - title: Compliance-Ready-Smart-Camera-System
-    description: "This challenge will create and validate an Arm-based, smart camera\
-      \ pipeline on virtual automotive hardware\u2014advancing safer, more developer-friendly\
-      \ driver-monitoring solutions for next-generation vehicles."
-    url: /2025/05/30/Compliance-Ready-Smart-Camera-System.html
-    subjects:
-    - Security
-    - Embedded Linux
-    - ML
-    - Virtual Hardware
-    platform:
-    - Mobile, Graphics, and Gaming
-    - Automotive
-    - IoT
-    - Embedded and Microcontrollers
-    - AI
-    sw-hw:
-    - Software
-    - Hardware
-    support-level:
-    - Self-Service
-    - Arm Ambassador Support
-    - Direct Support from Arm
-  - title: Human-Centric-Robotics
-    description: "This team project will build and test an Arm-based urban service\
-      \ robot\u2014merging real-time navigation, vision-guided manipulation, and human\
-      \ interaction\u2014and model its socioeconomic impact to show how Arm platforms\
-      \ can transform last-mile delivery, eldercare, or other city services."
-    url: /2025/05/30/Human-Centric-Robotics.html
-    subjects:
-    - ML
-    - Embedded Linux
-    - RTOS Fundamentals
-    platform:
-    - Automotive
-    - IoT
-    - Embedded and Microcontrollers
-    - AI
-    sw-hw:
-    - Software
-    - Hardware
-    support-level:
-    - Self-Service
-    - Arm Ambassador Support
-    - Direct Support from Arm

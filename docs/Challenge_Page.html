@@ -58,6 +58,24 @@ share_image: images/c2s_meity_logo.jpg
     </div>
   </header>
 
+    <div style="background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); border-left: 4px solid #dc2626; padding: 20px 24px; margin: 24px 0; border-radius: 8px; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.1);">
+    <div style="display: flex; align-items: flex-start; gap: 12px;">
+      <div style="flex-shrink: 0; margin-top: 2px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+      </div>
+      <div style="flex: 1;">
+        <h3 style="margin: 0 0 8px 0; color: #991b1b; font-size: 18px; font-weight: 600;">Registration Closed</h3>
+        <p style="margin: 0 0 8px 0; color: #7f1d1d; font-size: 15px; line-height: 1.5;">
+          The registration period for the Bharat AI-SoC Student Challenge has ended.
+        </p>
+      </div>
+    </div>
+  </div>
+
   <main class="ch-main">
     <!-- LEFT COLUMN -->
     <div>
@@ -180,6 +198,11 @@ share_image: images/c2s_meity_logo.jpg
           clearly mentioning the problem statement number in the subject line.
         </p>
 
+       <p>For get started resources:</p>
+       <p>
+          <a href="https://arm-university.github.io/online-resources-arm/">Arm Education Resources</a>
+       </p>
+
         <p class="ch-small">All updates will be posted on this page.</p>
      </section>
 
@@ -191,6 +214,7 @@ share_image: images/c2s_meity_logo.jpg
     </div>
   </main>
 </div>
+
 
 <!-- FAQ Popup Modal -->
 <div id="faqPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:1100; justify-content:center; align-items:center;">
@@ -361,15 +385,16 @@ share_image: images/c2s_meity_logo.jpg
       <ul>
         <li>Hardware:
           <ul>
-            <li>Raspberry Pi 4 (or similar Arm SBC).</li>
+            <li>Raspberry Pi 5 or 4 (or similar Arm SBC).</li>
             <li>USB microphone.</li>
             <li>Speaker via 3.5 mm jack or HDMI.</li>
+            <li>Where possible, aim to use the CPU without additional accelerators/hats. Solutions that are well-optimised through use of Quantisation, KleidiAI, and appropriate model selection - and therefore able to run entirely on CPU - are of great interest.</li>
           </ul>
         </li>
         <li>Software:
           <ul>
             <li>Python with PyAudio for audio I/O.</li>
-            <li>Coqui STT or fine-tuned wav2vec2 for ASR.</li>
+            <li>Coqui STT or fine-tuned wav2vec2 for ASR, or similar.</li>
             <li>eSpeak-NG or Festival for TTS.</li>
             <li>Custom Python logic for intent recognition and command execution.</li>
           </ul>
@@ -490,7 +515,7 @@ share_image: images/c2s_meity_logo.jpg
       <h3>Project Description</h3>
       <p>
         Students will choose a lightweight object detector (e.g., MobileNet-SSD, YOLOv5s), convert it to an
-        edge-optimized format (TensorFlow Lite / ONNX Runtime), and integrate it with an OpenCV video pipeline.
+        edge-optimized format (TensorFlow Lite / ONNX Runtime / ExecuTorch), and integrate it with an OpenCV video pipeline.
         Detected anomalies should trigger timestamped logs or saved clips.
       </p>
       <div style="margin:24px 0; display:flex; justify-content:center;">
@@ -507,16 +532,17 @@ share_image: images/c2s_meity_logo.jpg
       <ul>
         <li>Hardware:
           <ul>
-            <li>Raspberry Pi 4 with proper cooling.</li>
+            <li>Raspberry Pi 5 or 4.</li>
             <li>Raspberry Pi Camera Module v2 or USB webcam.</li>
             <li>High-write-speed microSD card.</li>
+            <li>Where possible, aim to use the CPU without additional accelerators/hats. Solutions that are well-optimised through use of Quantisation, KleidiAI, and appropriate model selection - and therefore able to run entirely on CPU - are of great interest.</li>
           </ul>
         </li>
         <li>Software:
           <ul>
             <li>Raspberry Pi OS.</li>
             <li>Python, OpenCV.</li>
-            <li>TensorFlow Lite / ONNX Runtime with a pre-trained, quantized detection model.</li>
+            <li>TensorFlow Lite / ONNX Runtime / ExecuTorch with a pre-trained, quantized detection model.</li>
           </ul>
         </li>
       </ul>
@@ -557,7 +583,7 @@ share_image: images/c2s_meity_logo.jpg
 
     <h3>Objective</h3>
     <p>
-      Build a fully local, real-time speech-to-speech translation system optimized for Arm-based CPUs, leveraging SME2 where available (preferred) or NEON/NPU otherwise. The system must perform speech recognition, LLM-based translation or semantic rewriting, and speech synthesis entirely on-device, meeting mobile latency, power, and thermal constraints.
+      Build a fully local, real-time speech-to-speech translation system optimized for Arm-based CPUs, leveraging SME2 where available (preferred) or NEON or an onboard NPU otherwise. The system must perform speech recognition, LLM-based translation or semantic rewriting, and speech synthesis entirely on-device, meeting mobile latency, power, and thermal constraints.
     </p>
 
     <h3>Project Description</h3>
@@ -571,7 +597,7 @@ share_image: images/c2s_meity_logo.jpg
         <li>LLM-based translation or semantic rewriting, and</li>
         <li>Text-to-speech (TTS) synthesis,</li>
       </ol>
-      to produce natural, fluent spoken output in Language B. All inference must run locally with no cloud dependency, demonstrating efficient use of Arm CPU acceleration and mobile-friendly optimizations.
+      to produce natural, fluent spoken output in Language B. All inference must run locally with no cloud dependency, demonstrating efficient use of Arm CPU acceleration and mobile-friendly optimizations. To see all SME2-enabled devices, and for resources to get started, see this related Arm Developer Labs project. <a href="https://arm-university.github.io/Arm-Developer-Labs/2025/11/27/Edge-AI-On-Mobile.html">Edge AI on Mobile using SME2</a>
     </p>
     <div style="margin:24px 0; display:flex; justify-content:center;">
       <iframe width="560" height="315"
@@ -588,8 +614,10 @@ share_image: images/c2s_meity_logo.jpg
       <li>Hardware:
         <ul>
           <li>Arm-based smartphone CPU</li>
-          <li>SME2-enabled device preferred; otherwise NEON-optimized CPU or optional onboard NPU</li>
+          <li>SME2-enabled device preferred; otherwise utilise an Arm-based CPU and NEON instructions or optional onboard NPU</li>
           <li>Microphone and audio output (speaker or headphones)</li>
+          <li>Where possible, aim to use the CPU (leveraging SME2 if available) without using an onboard NPU. Solutions that are well-optimised through use of Quantisation, KleidiAI, and appropriate model selection - and therefore able to run entirely on CPU - are of great interest.</li>
+          <li>No cloud inference permitted</li>
         </ul>
       </li>
       <li>Software:
@@ -613,8 +641,6 @@ share_image: images/c2s_meity_logo.jpg
               <li>Examples: FastSpeech2 + HiFiGAN, VITS-lite</li>
             </ul>
           </li>
-          <li><strong>No cloud inference permitted</strong></li>
-          <li><strong>Quantization and Arm-specific optimizations required (SME2/NEON)</strong></li>
         </ul>
       </li>
     </ul>

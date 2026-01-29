@@ -3,6 +3,7 @@ title: Optimise Performance of an Algorithm Used in High-Performance Compute Usi
 description: This self-service project is around finding a HPC algorithm and accelerating it with Arm’s SVE/SVE2 vectorization—demonstrating how next-generation Arm hardware can deliver significant, scalable performance gains.
 subjects:
 - Performance and Architecture
+- Cloud AI
 requires-team:
 - No
 platform:
