@@ -3,7 +3,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
 {%- include snippets/get-article-title.html article=page -%}
-<title>{{ site.title | escape }}</title>
+<title>
+  {%- if page.url == "/" or page.url == "/index.html" -%}
+    {{ site.title | escape }}
+  {%- elsif __return -%}
+    {{ __return | escape }} - {{ site.title | escape }}
+  {%- else -%}
+    {{ site.title | escape }}
+  {%- endif -%}
+</title>
+
 
 
 
@@ -25,6 +34,7 @@
 <link rel="stylesheet" href="{{ _sources.font_awesome }}" >
 
 {%- include head/custom.html -%}
+
 
 
 
