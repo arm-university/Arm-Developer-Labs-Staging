@@ -51,11 +51,9 @@ Example project areas:
     - Multi-sensor fusion (camera + IMU + microphone) for gesture + voice recognition  
     - On-device lightweight LLM or encoder-only transformer processing for mobile assistants  
 
-Identify a model architecture that maps to wide matrix operations (e.g., ViT, MLP-Mixer, multi-branch CNN with large FC layers). Utilise a mobile-friendly framework (e.g., ExecuTorch, LiteRT, ONNX Runtime, MediaPipe) to leverage SME2 optimizations. Optimize quantization, memory layout, and verify that the large matrix multiplications get scheduled efficiently on the SME2-enabled CPU. Build a mobile app (Android) that executes the model and utilises it for a compelling use-case.
+Identify a model architecture that maps to wide matrix operations (e.g., ViT, MLP-Mixer, multi-branch CNN with large FC layers). Utilise a mobile-friendly framework (e.g., ExecuTorch, LiteRT, ONNX Runtime, MediaPipe) to leverage SME2 optimizations. Optimize quantization, memory layout, and verify that the large matrix multiplications get scheduled efficiently on the SME2-enabled CPU. Build a mobile app (Android or iOS) that executes the model and utilises it for a compelling use-case.
 
 Utilise the resources and learning paths below and create an exciting and challenging application. Optionally, you could also compare performance vs a reference phone without SME2.
-
----
 
 ## Resources from Arm and our partners
 
@@ -67,18 +65,18 @@ Utilise the resources and learning paths below and create an exciting and challe
 - Repository: [AI on Arm course](https://github.com/arm-university/AI-on-Arm)
 - Arm / Cambridge University edX course: [AI at the Edge on Arm (Mobile)](https://www.edx.org/learn/computer-science/arm-education-ai-at-the-edge-on-arm)
 
----
-
 ## Support Level
 
 This project is designed to be self-serve but comes with opportunity of some community support from Arm Ambassadors, who are part of the Arm Developer program. If you are not already part of our program, [click here to join](https://www.arm.com/resources/developer-program?#register).
 
 ## Benefits 
 
-Standout project contributions will result in digital badges for CV building, recognised by Arm Talent Acquisition. We are currently discussing with national agencies the potential for funding streams for Arm Developer Labs projects, which would flow to you, not us.
-
+Standout project contributions to the community will earn digital badges. These badges can support CV or resumé building and demonstrate earned recognition.
 
 To receive the benefits, you must show us your project through our [online form](https://forms.office.com/e/VZnJQLeRhD). Please do not include any confidential information in your contribution. Additionally if you are affiliated with an academic institution, please ensure you have the right to share your material.
 
+## Example Reference Project
+
+[This project, submitted to Arm Developer Labs and also created as part of the Arm AI Developer Challenge, is an example of Edge inference on mobile using the ExecuTorch runtime and XNNPACK](https://github.com/abhitorch81/PocketQSAR/) 
 
 ---
