@@ -29,8 +29,6 @@ badges:
 donation:
 ---
 
-![learn_on_arm](../../images/learn_on_Arm_banner.png)
-
 ## Description
 
 ### Why is this important?
