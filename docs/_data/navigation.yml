@@ -247,6 +247,30 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
+  - title: AI-Defined-Vehicles-ADAS-IVI-on-Arm
+    description: Modern vehicles are rapidly evolving into AI-defined, software-centric
+      systems, where user experience, safety, and functionality are increasingly shaped
+      by real-time data processing and on-device intelligence rather than fixed-function
+      hardware. This project involves prototyping an AI-defined IVI system on the
+      Arm-powered Radxa Orion O6.
+    url: /2026/02/06/AI-Defined-Vehicles-ADAS-IVI-on-Arm.html
+    subjects:
+    - ML
+    - Performance and Architecture
+    - Physical AI
+    - Edge AI
+    - Graphics
+    platform:
+    - AI
+    - Automotive
+    sw-hw:
+    - Software
+    - Hardware
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    status:
+    - Published
   - title: Bioinformatic-Pipeline-Analysis
     description: "This self-service project benchmarks Arm64 Bioconda packages in\
       \ real nf-core workflows\u2014measuring performance, diagnosing build failures,\
@@ -350,32 +374,6 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
-  - title: Compliance-Ready-Smart-Camera-System
-    description: "This challenge will create and validate an Arm-based, smart camera\
-      \ pipeline on virtual automotive hardware\u2014advancing safer, more developer-friendly\
-      \ driver-monitoring solutions for next-generation vehicles."
-    url: /2025/05/30/Compliance-Ready-Smart-Camera-System.html
-    subjects:
-    - Security
-    - Embedded Linux
-    - ML
-    - Virtual Hardware
-    - Physical AI
-    platform:
-    - Mobile, Graphics, and Gaming
-    - Automotive
-    - IoT
-    - Embedded and Microcontrollers
-    - AI
-    sw-hw:
-    - Software
-    - Hardware
-    support-level:
-    - Self-Service
-    - Arm Ambassador Support
-    - Direct Support from Arm
-    status:
-    - Published
   - title: Edge-AI-On-Mobile
     description: Leverage the latest SME2 (Scalable Matrix Extension 2) available
       on the newest vivo X300 smartphones (built on Arm Lumex CSS) or other SME2-enabled
@@ -419,29 +417,26 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
-  - title: Human-Centric-Robotics
-    description: "This team project will build and test an Arm-based urban service\
-      \ robot\u2014merging real-time navigation, vision-guided manipulation, and human\
-      \ interaction\u2014and model its socioeconomic impact to show how Arm platforms\
-      \ can transform last-mile delivery, eldercare, or other city services."
-    url: /2025/05/30/Human-Centric-Robotics.html
+  - title: Humanoid-&-Quadruped-Robotics-&-AI
+    description: Design and implement original software systems for low-cost Arm-based
+      quadruped or humanoid robots, demonstrating physical AI through on-device perception,
+      decision-making, and control.
+    url: /2026/02/06/Humanoid-&-Quadruped-Robotics-&-AI.html
     subjects:
     - ML
-    - Embedded Linux
-    - RTOS Fundamentals
+    - Performance and Architecture
     - Physical AI
+    - Edge AI
     platform:
-    - Automotive
-    - IoT
-    - Embedded and Microcontrollers
     - AI
+    - IoT
+    - Automotive
     sw-hw:
     - Software
     - Hardware
     support-level:
     - Self-Service
     - Arm Ambassador Support
-    - Direct Support from Arm
     status:
     - Published
   - title: Always-On-AI-with-Ethos-U85-NPU
