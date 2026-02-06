@@ -247,6 +247,30 @@ projects:
     - Arm Ambassador Support
     status:
     - Published
+  - title: AI-Defined-Vehicles-ADAS-IVI-on-Arm
+    description: Modern vehicles are rapidly evolving into AI-defined, software-centric
+      systems, where user experience, safety, and functionality are increasingly shaped
+      by real-time data processing and on-device intelligence rather than fixed-function
+      hardware. This project involves prototyping an AI-defined IVI system on the
+      Arm-powered Radxa Orion O6.
+    url: /2026/02/06/AI-Defined-Vehicles-ADAS-IVI-on-Arm.html
+    subjects:
+    - ML
+    - Performance and Architecture
+    - Physical AI
+    - Edge AI
+    - Graphics
+    platform:
+    - AI
+    - Automotive
+    sw-hw:
+    - Software
+    - Hardware
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    status:
+    - Published
   - title: Bioinformatic-Pipeline-Analysis
     description: "This self-service project benchmarks Arm64 Bioconda packages in\
       \ real nf-core workflows\u2014measuring performance, diagnosing build failures,\
@@ -414,6 +438,28 @@ projects:
     - AI
     sw-hw:
     - Software
+    support-level:
+    - Self-Service
+    - Arm Ambassador Support
+    status:
+    - Published
+  - title: Humanoid-&-Quadruped-Robotics-&-AI
+    description: Design and implement original software systems for low-cost Arm-based
+      quadruped or humanoid robots, demonstrating physical AI through on-device perception,
+      decision-making, and control.
+    url: /2026/02/06/Humanoid-&-Quadruped-Robotics-&-AI.html
+    subjects:
+    - ML
+    - Performance and Architecture
+    - Physical AI
+    - Edge AI
+    platform:
+    - AI
+    - IoT
+    - Automotive
+    sw-hw:
+    - Software
+    - Hardware
     support-level:
     - Self-Service
     - Arm Ambassador Support
