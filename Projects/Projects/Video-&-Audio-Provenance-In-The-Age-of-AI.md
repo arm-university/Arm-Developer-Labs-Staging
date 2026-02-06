@@ -4,6 +4,7 @@ description: "Integrating transparent provenance - disclosing whether media is A
 subjects:
   - "ML"
   - "Security"
+  - "Edge AI"
 requires-team:
   - "No"
 platform:
@@ -23,6 +24,8 @@ badges:
   - recently_added
 donation:
 ---
+
+![learn_on_arm](../../images/learn_on_Arm_banner.png)
 
 ## Description
 

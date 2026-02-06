@@ -91,6 +91,7 @@ You should be willing to learn about, or already familiar with:
 - [Radxa Orion O6 Documentation](https://radxa.com/products/orion/o6/#documentation)
 - [Arm Learning Paths](https://learn.arm.com/)
 - [Arm Courses, EdKits, and other Education Resources](https://arm-university.github.io/online-resources-arm/)
+- [Arm Developer - Automotive](https://developer.arm.com/automotive)
 
 
 ## Support Level
