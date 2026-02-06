@@ -63,8 +63,8 @@ Build and evaluate a comprehensive AI-augmented audio/video capture and provenan
 - captures streamed media with a camera or microphone,
 - runs AI models on-device (i.e. face/object/keyword/sentiment detection, upscaling/filters/enhancements),
 - generates C2PA Content Credentials that transparently disclose:
-  - which models were run,
-	- their effect/impact on the image or video
+  1. which models were run,
+	2. their effect/impact on the image or video
 
 and demonstrates how this provenance enables trust and auditability in real-world use cases such as content integrity validation and responsible media pipelines.
 

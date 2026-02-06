@@ -48,12 +48,15 @@ full_description: |-
   By leveraging efficient Arm-native ML frameworks (e.g. PyTorch + ExecuTorch, LiteRT, ONNX Runtime, or accelerated ROS 2 pipelines), developers can study how modern AI models behave when tightly coupled to physical embodiment, whether quadrupedal or humanoid. Arm-based systems enable tight perception–action loops, reducing the latency from sensing a photon or audio wave to taking a meaningful physical action.
 
   **Example Platforms**
-  Quadruped 
+
+  **Quadruped**
   - [PuppyPi - Raspberry Pi 4/5](https://www.hiwonder.com/products/puppypi?variant=40213129003095&srsltid=AfmBOoonusv8sBF3hP6LMvyvBAXPVJh7eW0V60FU7IDGaPfYcz7cseXH)
   - [ROSPug - Jetson Nano](https://www.hiwonder.com/products/rospug?srsltid=AfmBOop83H4FhIvFPY9-fYUyQ2a0xrh9-_gfr4aHVuy15X8owRgYV2PL)
-  Humanoid / Biped
+
+  **Humanoid / Biped**
   - [TonyPi - Raspberry Pi 4/5](https://www.hiwonder.com/products/tonypi?variant=31753114681431&srsltid=AfmBOoosUcEQONClryEw_jPzqkrezui8d5BkTunVcWUTKhbD_xikG_10)
-  Boards
+
+  **Boards**
   - [Raspberry Pi 4, 5, CM4](https://www.raspberrypi.com/products/compute-module-4/?variant=raspberry-pi-cm4001000)
   - [Rockchip RK3566 or 3588](https://www.waveshare.com/core3566.htm?srsltid=AfmBOorJELpnCGbrB3pV489O_RIOvnExIjj8q84sPlp-N4W3b4_wsfRj)
   - [Nvidia Jetson Nano - Heterogeneous SoC with Arm-powered CPU for control and orchestration](https://www.nvidia.com/en-gb/autonomous-machines/embedded-systems/jetson-nano/product-development/)
@@ -135,12 +138,15 @@ This combination makes them ideal testbeds for exploring physical AI under real-
 By leveraging efficient Arm-native ML frameworks (e.g. PyTorch + ExecuTorch, LiteRT, ONNX Runtime, or accelerated ROS 2 pipelines), developers can study how modern AI models behave when tightly coupled to physical embodiment, whether quadrupedal or humanoid. Arm-based systems enable tight perception–action loops, reducing the latency from sensing a photon or audio wave to taking a meaningful physical action.
 
 **Example Platforms**
-Quadruped 
+
+**Quadruped**
 - [PuppyPi - Raspberry Pi 4/5](https://www.hiwonder.com/products/puppypi?variant=40213129003095&srsltid=AfmBOoonusv8sBF3hP6LMvyvBAXPVJh7eW0V60FU7IDGaPfYcz7cseXH)
 - [ROSPug - Jetson Nano](https://www.hiwonder.com/products/rospug?srsltid=AfmBOop83H4FhIvFPY9-fYUyQ2a0xrh9-_gfr4aHVuy15X8owRgYV2PL)
-Humanoid / Biped
+
+**Humanoid / Biped**
 - [TonyPi - Raspberry Pi 4/5](https://www.hiwonder.com/products/tonypi?variant=31753114681431&srsltid=AfmBOoosUcEQONClryEw_jPzqkrezui8d5BkTunVcWUTKhbD_xikG_10)
-Boards
+
+**Boards**
 - [Raspberry Pi 4, 5, CM4](https://www.raspberrypi.com/products/compute-module-4/?variant=raspberry-pi-cm4001000)
 - [Rockchip RK3566 or 3588](https://www.waveshare.com/core3566.htm?srsltid=AfmBOorJELpnCGbrB3pV489O_RIOvnExIjj8q84sPlp-N4W3b4_wsfRj)
 - [Nvidia Jetson Nano - Heterogeneous SoC with Arm-powered CPU for control and orchestration](https://www.nvidia.com/en-gb/autonomous-machines/embedded-systems/jetson-nano/product-development/)

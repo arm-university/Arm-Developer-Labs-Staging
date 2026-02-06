@@ -53,9 +53,9 @@ full_description: |-
   -	Multimedia services such as navigation, vehicle telemetry, video/audio streaming, internet radio, or gaming
   -	System-level integration, including boot sequencing, background services, and inter-process communication
   -	ADAS-inspired AI/ML-driven functionality that actively shapes system behavior, such as:
-    -	Driver monitoring (e.g. attention, drowsiness, or distraction detection)
-    -	In-cabin perception (e.g. sound classification, occupant presence)
-    -	Context-aware automation (e.g. adaptive UI, media muting, or alerts based on inferred events)
+         1.	Driver monitoring (e.g. attention, drowsiness, or distraction detection)
+         2.	In-cabin perception (e.g. sound classification, occupant presence)
+         3.	Context-aware automation (e.g. adaptive UI, media muting, or alerts based on inferred events)
 
   For example, an AI service might analyze camera or audio input and dynamically modify the UI, pause media, or trigger a **simulated** safety alert—illustrating how AI models become first-class components in vehicle software architecture.
 
@@ -129,9 +129,9 @@ The IVI application should combine:
 -	Multimedia services such as navigation, vehicle telemetry, video/audio streaming, internet radio, or gaming
 -	System-level integration, including boot sequencing, background services, and inter-process communication
 -	ADAS-inspired AI/ML-driven functionality that actively shapes system behavior, such as:
-  -	Driver monitoring (e.g. attention, drowsiness, or distraction detection)
-  -	In-cabin perception (e.g. sound classification, occupant presence)
-  -	Context-aware automation (e.g. adaptive UI, media muting, or alerts based on inferred events)
+       1.	Driver monitoring (e.g. attention, drowsiness, or distraction detection)
+       2.	In-cabin perception (e.g. sound classification, occupant presence)
+       3.	Context-aware automation (e.g. adaptive UI, media muting, or alerts based on inferred events)
 
 For example, an AI service might analyze camera or audio input and dynamically modify the UI, pause media, or trigger a **simulated** safety alert—illustrating how AI models become first-class components in vehicle software architecture.
 
