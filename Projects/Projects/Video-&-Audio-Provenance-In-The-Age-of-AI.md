@@ -18,7 +18,7 @@ support-level:
 publication-date: 2026-02-06
 license:
 status:
-  - "Hidden"
+  - "Published"
 badges:
   - trending
   - recently_added
