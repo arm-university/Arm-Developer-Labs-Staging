@@ -51,10 +51,8 @@ projects:
       media - is fundamental for accountability in domains like journalism, security,
       and regulated industries. This project uses C2PA specification (www.c2pa.org)
       revision 2.3 to record such actions as signed, machine-verifiable assertions
-      attached to the asset. This reduces deepfake proliferation and fraud by providing
-      a method to verify provenance. Additionally, it tracks authorized and potential
-      unauthorized use of models to analyze the asset, by means of Model Provenance.
-    url: /2026/02/06/Video-&-Audio-Provenance-In-The-Age-of-AI.html
+      attached to the asset.
+    url: /2026/02/12/Video-&-Audio-Provenance-In-The-Age-of-AI.html
     subjects:
     - ML
     - Security

@@ -1,6 +1,6 @@
 ---
 title: Video & Audio Provenance on Arm in the Age of AI
-description: Integrating transparent provenance - disclosing whether media is AI-generated or AI-edited, and what other AI processing has occurred on any media - is fundamental for accountability in domains like journalism, security, and regulated industries. This project uses C2PA specification (www.c2pa.org) revision 2.3 to record such actions as signed, machine-verifiable assertions attached to the asset. This reduces deepfake proliferation and fraud by providing a method to verify provenance. Additionally, it tracks authorized and potential unauthorized use of models to analyze the asset, by means of Model Provenance.
+description: Integrating transparent provenance - disclosing whether media is AI-generated or AI-edited, and what other AI processing has occurred on any media - is fundamental for accountability in domains like journalism, security, and regulated industries. This project uses C2PA specification (www.c2pa.org) revision 2.3 to record such actions as signed, machine-verifiable assertions attached to the asset.
 subjects:
 - ML
 - Security
@@ -15,12 +15,11 @@ sw-hw:
 support-level:
 - Self-Service
 - Arm Ambassador Support
-publication-date: 2026-02-06
+publication-date: 2026-02-12
 license:
 status:
 - Published
 badges:
-- trending
 - recently_added
 donation:
 layout: article
