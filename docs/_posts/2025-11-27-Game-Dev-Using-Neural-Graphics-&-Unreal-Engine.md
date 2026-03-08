@@ -65,7 +65,6 @@ full_description: |-
   ### Beyond the plugin
 
   Want to go further and start experimenting more with Neural Graphics? After building your game with the NSS Unreal plugin, try-out the [Vulkan ML Extensions learning path](https://learn.arm.com/learning-paths/mobile-graphics-and-gaming/vulkan-ml-sample/) to explore how neural inference runs directly through the Vulkan API. This provides lower-level control over ML workloads in the graphics pipeline, and allows for prototyping custom neural effects or optimising performance beyond what’s exposed through the engine plugin. You may also want to explore [fine-tuning your own neural models with the Arm Neural Graphics Model Gym](https://learn.arm.com/learning-paths/mobile-graphics-and-gaming/model-training-gym/) and how to [apply different quantization strategies](https://learn.arm.com/learning-paths/mobile-graphics-and-gaming/quantize-neural-upscaling-models/) for optimisation of memory and latency.
-  ---
 
   ## Pre-requisites
   - Laptop/PC/Mobile for Android Unreal Engine game development
@@ -134,7 +133,6 @@ Make your scenes dynamic with particle effects, shadows, physics and motion.
 ### Beyond the plugin
 
 Want to go further and start experimenting more with Neural Graphics? After building your game with the NSS Unreal plugin, try-out the [Vulkan ML Extensions learning path](https://learn.arm.com/learning-paths/mobile-graphics-and-gaming/vulkan-ml-sample/) to explore how neural inference runs directly through the Vulkan API. This provides lower-level control over ML workloads in the graphics pipeline, and allows for prototyping custom neural effects or optimising performance beyond what’s exposed through the engine plugin. You may also want to explore [fine-tuning your own neural models with the Arm Neural Graphics Model Gym](https://learn.arm.com/learning-paths/mobile-graphics-and-gaming/model-training-gym/) and how to [apply different quantization strategies](https://learn.arm.com/learning-paths/mobile-graphics-and-gaming/quantize-neural-upscaling-models/) for optimisation of memory and latency.
----
 
 ## Pre-requisites
 - Laptop/PC/Mobile for Android Unreal Engine game development
